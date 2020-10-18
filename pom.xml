@@ -24,7 +24,7 @@
     <groupId>walkingkooka</groupId>
     <artifactId>walkingkooka-tree-expression-function-number</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+
     <properties>
         <maven.compiler.source>1.9</maven.compiler.source>
         <maven.compiler.target>1.9</maven.compiler.target>
@@ -40,7 +40,8 @@
     </licenses>
     <scm>
         <connection>scm:git:https://github.com/mP1/walkingkooka-tree-expression-function-number.git</connection>
-        <developerConnection>scm:git:git@github.com:mP1/walkingkooka-tree-expression-function-number.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:mP1/walkingkooka-tree-expression-function-number.git
+        </developerConnection>
         <url>https://github.com/mP1/walkingkooka</url>
         <tag>HEAD</tag>
     </scm>
