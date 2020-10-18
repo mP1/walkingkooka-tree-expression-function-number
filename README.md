@@ -8,3 +8,16 @@
 
 # walkingkooka-tree-expression-function-number
 A collection of ExpressionFunction(s) that operate and return number results.
+
+
+## Available functions
+
+- abs
+- ceil
+- floor
+- number
+- round
+
+Many more functions are outstanding and remain TODO.
+
+
