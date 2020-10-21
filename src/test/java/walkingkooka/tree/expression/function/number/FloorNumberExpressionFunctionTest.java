@@ -22,97 +22,77 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public final class NumberExpressionFunction2AbsoluteTest extends NumberExpressionFunction2TestCase<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Absolute> {
+public final class FloorNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<FloorNumberExpressionFunction> {
 
     // BigDecimal........................................................................................................
 
     @Test
-    public void testBigDecimalNegative() {
-        this.applyAndCheck3(BigDecimal.valueOf(-1.5), BigDecimal.valueOf(1.5));
+    public void testBigDecimal() {
+        this.applyAndCheck3(BigDecimal.valueOf(1.25), BigDecimal.valueOf(1));
     }
 
     @Test
-    public void testBigDecimalZero() {
-        this.applyAndCheck3(BigDecimal.ZERO);
+    public void testBigDecimal2() {
+        this.applyAndCheck3(BigDecimal.valueOf(1.5), BigDecimal.valueOf(1));
     }
 
     @Test
-    public void testBigDecimalPositive() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.5));
+    public void testBigDecimal3() {
+        this.applyAndCheck3(BigDecimal.valueOf(1));
     }
 
     // BigInteger........................................................................................................
 
     @Test
-    public void testBigIntegerNegative() {
-        this.applyAndCheck3(BigInteger.valueOf(-2), BigInteger.valueOf(2));
-    }
-
-    @Test
-    public void testBigIntegerZero() {
-        this.applyAndCheck3(BigInteger.ZERO);
-    }
-
-    @Test
-    public void testBigIntegerPositive() {
-        this.applyAndCheck3(BigInteger.valueOf(3));
+    public void testBigInteger() {
+        this.applyAndCheck3(BigInteger.valueOf(1));
     }
 
     // Double...........................................................................................................
 
     @Test
-    public void testDoubleNegative() {
-        this.applyAndCheck3(-2.0, 2.0);
+    public void testDouble() {
+        this.applyAndCheck3(1.25, 1.0);
     }
 
     @Test
-    public void testDoubleZero() {
-        this.applyAndCheck3(0.0);
+    public void testDouble2() {
+        this.applyAndCheck3(1.5, 1.0);
     }
 
     @Test
-    public void testDoublePositive() {
-        this.applyAndCheck3(3.0);
+    public void testDouble3() {
+        this.applyAndCheck3(1.0);
     }
 
     // Long.............................................................................................................
 
     @Test
-    public void testLongNegative() {
-        this.applyAndCheck3(-2L, 2L);
-    }
-
-    @Test
-    public void testLongZero() {
-        this.applyAndCheck3(0L);
-    }
-
-    @Test
-    public void testLongPositive() {
-        this.applyAndCheck3(3L);
+    public void testLong() {
+        this.applyAndCheck3(-2L);
     }
 
     // Integer.............................................................................................................
 
     @Test
     public void testIntegerNegative() {
-        this.applyAndCheck3(-34, BigDecimal.valueOf(34));
+        this.applyAndCheck3(-34, BigDecimal.valueOf(-34));
     }
 
     // helper...........................................................................................................
 
     @Override
-    public walkingkooka.tree.expression.function.number.NumberExpressionFunction2Absolute createBiFunction() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Absolute.INSTANCE;
+    public FloorNumberExpressionFunction createBiFunction() {
+        return FloorNumberExpressionFunction.INSTANCE;
     }
 
     @Override
-    public Class<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Absolute> type() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Absolute.class;
+    public Class<FloorNumberExpressionFunction> type() {
+        return FloorNumberExpressionFunction.class;
     }
 
     @Override
     String functionToString() {
-        return "abs";
+        return "floor";
     }
 }

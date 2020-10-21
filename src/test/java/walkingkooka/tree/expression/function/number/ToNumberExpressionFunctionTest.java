@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<NumberExpressionFunction, Number> {
+public final class ToNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<ToNumberExpressionFunction, Number> {
 
     @Test
     public void testZeroParametersFails() {
@@ -54,12 +54,12 @@ public final class NumberExpressionFunctionTest extends NumberExpressionFunction
     }
 
     @Override
-    public walkingkooka.tree.expression.function.number.NumberExpressionFunction createBiFunction() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction.INSTANCE;
+    public ToNumberExpressionFunction createBiFunction() {
+        return ToNumberExpressionFunction.INSTANCE;
     }
 
     @Override
-    public Class<walkingkooka.tree.expression.function.number.NumberExpressionFunction> type() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction.class;
+    public Class<ToNumberExpressionFunction> type() {
+        return ToNumberExpressionFunction.class;
     }
 }

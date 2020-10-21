@@ -19,12 +19,13 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class NumberExpressionFunction2TestCase<F extends walkingkooka.tree.expression.function.number.NumberExpressionFunction2> extends NumberExpressionFunctionTestCase<F, Number> {
+public abstract class NumberNumberExpressionFunctionTestCase<F extends NumberNumberExpressionFunction> extends NumberExpressionFunctionTestCase<F, Number> {
 
-    NumberExpressionFunction2TestCase() {
+    NumberNumberExpressionFunctionTestCase() {
         super();
     }
 
@@ -59,11 +60,11 @@ public abstract class NumberExpressionFunction2TestCase<F extends walkingkooka.t
 
     @Override
     public final String typeNamePrefix() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2.class.getSimpleName();
+        return "";
     }
 
     @Override
     public final String typeNameSuffix() {
-        return "";
+        return Number.class.getSimpleName() + ExpressionFunction.class.getSimpleName();
     }
 }

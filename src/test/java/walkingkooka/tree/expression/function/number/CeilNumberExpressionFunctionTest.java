@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public final class NumberExpressionFunction2CeilTest extends NumberExpressionFunction2TestCase<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Ceil> {
+public final class CeilNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<CeilNumberExpressionFunction> {
 
     // BigDecimal........................................................................................................
 
@@ -82,13 +82,13 @@ public final class NumberExpressionFunction2CeilTest extends NumberExpressionFun
     // helper...........................................................................................................
 
     @Override
-    public walkingkooka.tree.expression.function.number.NumberExpressionFunction2Ceil createBiFunction() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Ceil.INSTANCE;
+    public CeilNumberExpressionFunction createBiFunction() {
+        return CeilNumberExpressionFunction.INSTANCE;
     }
 
     @Override
-    public Class<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Ceil> type() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Ceil.class;
+    public Class<CeilNumberExpressionFunction> type() {
+        return CeilNumberExpressionFunction.class;
     }
 
     @Override

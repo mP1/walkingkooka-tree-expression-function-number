@@ -18,46 +18,34 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
+import java.util.List;
 
 /**
- * A ceil function that expects a single number.
+ * A {@link ExpressionFunction} that performs some operation and returns a {@link Number}.
  */
-final class NumberExpressionFunction2Ceil extends NumberExpressionFunction2 {
+final class ToNumberExpressionFunction extends NumberExpressionFunction<Number> {
 
     /**
      * Singleton
      */
-    static final NumberExpressionFunction2Ceil INSTANCE = new NumberExpressionFunction2Ceil();
+    static final ToNumberExpressionFunction INSTANCE = new ToNumberExpressionFunction();
 
     /**
      * Private ctor
      */
-    private NumberExpressionFunction2Ceil() {
+    private ToNumberExpressionFunction() {
         super();
     }
 
     @Override
-    Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.CEILING);
-    }
+    public Number apply(final List<Object> parameters,
+                        final ExpressionFunctionContext context) {
+        this.checkParameterCount(parameters, 1);
 
-    @Override
-    Number applyBigInteger(final BigInteger number) {
-        return number;
-    }
-
-    @Override
-    Number applyDouble(final Double number) {
-        return Math.ceil(number);
-    }
-
-    @Override
-    Number applyLong(final Long number) {
-        return number;
+        return this.number(parameters, 0, context);
     }
 
     @Override
@@ -65,5 +53,5 @@ final class NumberExpressionFunction2Ceil extends NumberExpressionFunction2 {
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("ceil");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("number");
 }
