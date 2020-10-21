@@ -26,38 +26,38 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 public final class NumberExpressionFunctions implements PublicStaticHelper {
 
     /**
-     * {@see NumberExpressionFunction2Absolute}
+     * {@see AbsoluteNumberExpressionFunction}
      */
     public static ExpressionFunction<Number> abs() {
-        return NumberExpressionFunction2Absolute.INSTANCE;
+        return AbsoluteNumberExpressionFunction.INSTANCE;
     }
 
     /**
-     * {@see NumberExpressionFunction2Ceil}
+     * {@see CeilNumberExpressionFunction}
      */
     public static ExpressionFunction<Number> ceil() {
-        return NumberExpressionFunction2Ceil.INSTANCE;
+        return CeilNumberExpressionFunction.INSTANCE;
     }
 
     /**
-     * {@see NumberExpressionFunction2Floor}
+     * {@see FloorNumberExpressionFunction}
      */
     public static ExpressionFunction<Number> floor() {
-        return NumberExpressionFunction2Floor.INSTANCE;
+        return FloorNumberExpressionFunction.INSTANCE;
     }
 
     /**
      * {@see NumberExpressionFunction}
      */
     public static ExpressionFunction<Number> number() {
-        return NumberExpressionFunction.INSTANCE;
+        return ToNumberExpressionFunction.INSTANCE;
     }
 
     /**
-     * {@see NumberExpressionFunction2Round}
+     * {@see RoundNumberExpressionFunction}
      */
     public static ExpressionFunction<Number> round() {
-        return NumberExpressionFunction2Round.INSTANCE;
+        return RoundNumberExpressionFunction.INSTANCE;
     }
 
     /**

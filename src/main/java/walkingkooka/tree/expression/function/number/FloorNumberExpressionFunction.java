@@ -24,25 +24,25 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 
 /**
- * A round function that expects a single number.
+ * A floor function that expects a single number.
  */
-final class NumberExpressionFunction2Round extends NumberExpressionFunction2 {
+final class FloorNumberExpressionFunction extends NumberNumberExpressionFunction {
 
     /**
      * Singleton
      */
-    static final NumberExpressionFunction2Round INSTANCE = new NumberExpressionFunction2Round();
+    static final FloorNumberExpressionFunction INSTANCE = new FloorNumberExpressionFunction();
 
     /**
      * Private ctor
      */
-    private NumberExpressionFunction2Round() {
+    private FloorNumberExpressionFunction() {
         super();
     }
 
     @Override
     Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.HALF_UP);
+        return number.setScale(0, RoundingMode.FLOOR);
     }
 
     @Override
@@ -52,7 +52,7 @@ final class NumberExpressionFunction2Round extends NumberExpressionFunction2 {
 
     @Override
     Number applyDouble(final Double number) {
-        return Math.round(number);
+        return Math.floor(number);
     }
 
     @Override
@@ -65,5 +65,5 @@ final class NumberExpressionFunction2Round extends NumberExpressionFunction2 {
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("round");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
 }

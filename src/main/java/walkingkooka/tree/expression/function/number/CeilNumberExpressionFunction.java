@@ -24,25 +24,25 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 
 /**
- * A floor function that expects a single number.
+ * A ceil function that expects a single number.
  */
-final class NumberExpressionFunction2Floor extends NumberExpressionFunction2 {
+final class CeilNumberExpressionFunction extends NumberNumberExpressionFunction {
 
     /**
      * Singleton
      */
-    static final NumberExpressionFunction2Floor INSTANCE = new NumberExpressionFunction2Floor();
+    static final CeilNumberExpressionFunction INSTANCE = new CeilNumberExpressionFunction();
 
     /**
      * Private ctor
      */
-    private NumberExpressionFunction2Floor() {
+    private CeilNumberExpressionFunction() {
         super();
     }
 
     @Override
     Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.FLOOR);
+        return number.setScale(0, RoundingMode.CEILING);
     }
 
     @Override
@@ -52,7 +52,7 @@ final class NumberExpressionFunction2Floor extends NumberExpressionFunction2 {
 
     @Override
     Number applyDouble(final Double number) {
-        return Math.floor(number);
+        return Math.ceil(number);
     }
 
     @Override
@@ -65,5 +65,5 @@ final class NumberExpressionFunction2Floor extends NumberExpressionFunction2 {
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("ceil");
 }

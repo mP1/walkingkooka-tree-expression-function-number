@@ -21,43 +21,43 @@ import walkingkooka.tree.expression.FunctionExpressionName;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 /**
- * A abs function that expects a single number.
+ * A round function that expects a single number.
  */
-final class NumberExpressionFunction2Absolute extends NumberExpressionFunction2 {
+final class RoundNumberExpressionFunction extends NumberNumberExpressionFunction {
 
     /**
      * Singleton
      */
-    static final NumberExpressionFunction2Absolute INSTANCE = new NumberExpressionFunction2Absolute();
+    static final RoundNumberExpressionFunction INSTANCE = new RoundNumberExpressionFunction();
 
     /**
      * Private ctor
      */
-    private NumberExpressionFunction2Absolute() {
+    private RoundNumberExpressionFunction() {
         super();
     }
 
     @Override
     Number applyBigDecimal(final BigDecimal number) {
-        return number.abs();
+        return number.setScale(0, RoundingMode.HALF_UP);
     }
 
     @Override
     Number applyBigInteger(final BigInteger number) {
-        return number.abs();
+        return number;
     }
 
     @Override
     Number applyDouble(final Double number) {
-        return Math.abs(number);
+        return Math.round(number);
     }
-
 
     @Override
     Number applyLong(final Long number) {
-        return Math.abs(number);
+        return number;
     }
 
     @Override
@@ -65,5 +65,5 @@ final class NumberExpressionFunction2Absolute extends NumberExpressionFunction2 
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("abs");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("round");
 }

@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public final class NumberExpressionFunction2RoundTest extends NumberExpressionFunction2TestCase<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Round> {
+public final class RoundNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<RoundNumberExpressionFunction> {
 
     // BigDecimal........................................................................................................
 
@@ -72,13 +72,13 @@ public final class NumberExpressionFunction2RoundTest extends NumberExpressionFu
     // helper............................................................................................................
 
     @Override
-    public walkingkooka.tree.expression.function.number.NumberExpressionFunction2Round createBiFunction() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Round.INSTANCE;
+    public RoundNumberExpressionFunction createBiFunction() {
+        return RoundNumberExpressionFunction.INSTANCE;
     }
 
     @Override
-    public Class<walkingkooka.tree.expression.function.number.NumberExpressionFunction2Round> type() {
-        return walkingkooka.tree.expression.function.number.NumberExpressionFunction2Round.class;
+    public Class<RoundNumberExpressionFunction> type() {
+        return RoundNumberExpressionFunction.class;
     }
 
     @Override
