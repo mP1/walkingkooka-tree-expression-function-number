@@ -17,15 +17,14 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
- * A abs function that expects a single number.
+ * A abs function that expects a single {@link ExpressionNumber}.
  */
-final class AbsoluteNumberExpressionFunction extends NumberNumberExpressionFunction {
+final class AbsoluteNumberExpressionFunction extends UnaryNumberExpressionFunction {
 
     /**
      * Singleton
@@ -40,24 +39,9 @@ final class AbsoluteNumberExpressionFunction extends NumberNumberExpressionFunct
     }
 
     @Override
-    Number applyBigDecimal(final BigDecimal number) {
-        return number.abs();
-    }
-
-    @Override
-    Number applyBigInteger(final BigInteger number) {
-        return number.abs();
-    }
-
-    @Override
-    Number applyDouble(final Double number) {
-        return Math.abs(number);
-    }
-
-
-    @Override
-    Number applyLong(final Long number) {
-        return Math.abs(number);
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number.abs(context);
     }
 
     @Override

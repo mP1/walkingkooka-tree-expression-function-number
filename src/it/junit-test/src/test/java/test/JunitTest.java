@@ -22,17 +22,17 @@ import org.junit.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberContexts;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 import walkingkooka.tree.expression.function.number.NumberExpressionFunctions;
-
-import java.math.BigDecimal;
 
 @J2clTestInput(JunitTest.class)
 public class JunitTest {
 
     @Test
     public void testAbs() {
-        final BigDecimal value = BigDecimal.valueOf(-1.5);
+        final ExpressionNumber value = ExpressionNumber.with(-1.5);
         final Object result = NumberExpressionFunctions.abs()
                 .apply(Lists.of(value),
                         new FakeExpressionFunctionContext() {
@@ -40,10 +40,10 @@ public class JunitTest {
                             public <T> Either<T, String> convert(final Object v,
                                                                  final Class<T> target) {
                                 Assert.assertEquals(value, v);
-                                Assert.assertEquals(Number.class, target);
+                                Assert.assertEquals(ExpressionNumber.class, target);
                                 return Cast.to(Either.left(value));
                             }
                         });
-        Assert.assertEquals(value.abs(), result);
+        Assert.assertEquals(value.abs(ExpressionNumberContexts.fake()), result);
     }
 }

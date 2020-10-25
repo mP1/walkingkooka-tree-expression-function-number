@@ -19,64 +19,23 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
+public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<CeilNumberExpressionFunction> {
 
-public final class CeilNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<CeilNumberExpressionFunction> {
-
-    // BigDecimal........................................................................................................
+    // Double........................................................................................................
 
     @Test
-    public void testBigDecimal() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.25), BigDecimal.valueOf(2));
+    public void testDoubleRoundUp() {
+        this.applyAndCheck3(1.25, 2);
     }
 
     @Test
-    public void testBigDecimal2() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.5), BigDecimal.valueOf(2));
+    public void testDoubleRoundUp2() {
+        this.applyAndCheck3(1.5, 2);
     }
 
     @Test
-    public void testBigDecimal3() {
-        this.applyAndCheck3(BigDecimal.valueOf(99));
-    }
-
-    // BigInteger........................................................................................................
-
-    @Test
-    public void testBigInteger() {
-        this.applyAndCheck3(BigInteger.valueOf(1));
-    }
-
-    // Double...........................................................................................................
-
-    @Test
-    public void testDouble() {
-        this.applyAndCheck3(1.25, 2.0);
-    }
-
-    @Test
-    public void testDouble2() {
-        this.applyAndCheck3(1.5, 2.0);
-    }
-
-    @Test
-    public void testDouble3() {
-        this.applyAndCheck3(99.0);
-    }
-
-    // Long.............................................................................................................
-
-    @Test
-    public void testLong() {
-        this.applyAndCheck3(-2L);
-    }
-
-    // Integer.............................................................................................................
-
-    @Test
-    public void testIntegerNegative() {
-        this.applyAndCheck3(34, BigDecimal.valueOf(34));
+    public void testDoubleNoRounding() {
+        this.applyAndCheck3(99);
     }
 
     // helper...........................................................................................................

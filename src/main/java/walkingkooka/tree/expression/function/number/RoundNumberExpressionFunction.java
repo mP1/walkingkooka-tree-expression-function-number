@@ -17,16 +17,14 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
- * A round function that expects a single number.
+ * A round function that expects a single {@link ExpressionNumber}.
  */
-final class RoundNumberExpressionFunction extends NumberNumberExpressionFunction {
+final class RoundNumberExpressionFunction extends UnaryNumberExpressionFunction {
 
     /**
      * Singleton
@@ -41,23 +39,9 @@ final class RoundNumberExpressionFunction extends NumberNumberExpressionFunction
     }
 
     @Override
-    Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.HALF_UP);
-    }
-
-    @Override
-    Number applyBigInteger(final BigInteger number) {
-        return number;
-    }
-
-    @Override
-    Number applyDouble(final Double number) {
-        return Math.round(number);
-    }
-
-    @Override
-    Number applyLong(final Long number) {
-        return number;
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number.round(context);
     }
 
     @Override

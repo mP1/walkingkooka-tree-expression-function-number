@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.select.NodeSelectorException;
@@ -49,18 +50,18 @@ abstract class NumberExpressionFunction<T> implements ExpressionFunction<T> {
     /**
      * Converts a value into a {@link Number}.
      */
-    final Number number(final Object value,
-                        final ExpressionFunctionContext context) {
-        return context.convertOrFail(value, Number.class);
+    final ExpressionNumber expressionNumber(final Object value,
+                                            final ExpressionFunctionContext context) {
+        return context.convertOrFail(value, ExpressionNumber.class);
     }
 
     /**
-     * Type safe number parameter getter.
+     * Type safe expressionNumber parameter getter.
      */
-    final Number number(final List<?> parameters,
-                        final int i,
-                        final ExpressionFunctionContext context) {
-        return this.number(this.parameter(parameters, i), context);
+    final ExpressionNumber expressionNumber(final List<?> parameters,
+                                            final int i,
+                                            final ExpressionFunctionContext context) {
+        return this.expressionNumber(this.parameter(parameters, i), context);
     }
 
     /**

@@ -17,16 +17,14 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
-
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
- * A ceil function that expects a single number.
+ * A ceil function that expects a single {@link ExpressionNumber}.
  */
-final class CeilNumberExpressionFunction extends NumberNumberExpressionFunction {
+final class CeilNumberExpressionFunction extends UnaryNumberExpressionFunction {
 
     /**
      * Singleton
@@ -41,23 +39,9 @@ final class CeilNumberExpressionFunction extends NumberNumberExpressionFunction 
     }
 
     @Override
-    Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.CEILING);
-    }
-
-    @Override
-    Number applyBigInteger(final BigInteger number) {
-        return number;
-    }
-
-    @Override
-    Number applyDouble(final Double number) {
-        return Math.ceil(number);
-    }
-
-    @Override
-    Number applyLong(final Long number) {
-        return number;
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number.ceil(context);
     }
 
     @Override

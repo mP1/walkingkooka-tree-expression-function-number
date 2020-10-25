@@ -17,16 +17,15 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.RoundingMode;
 
 /**
- * A floor function that expects a single number.
+ * A floor function that expects a single {@link ExpressionNumber}.
  */
-final class FloorNumberExpressionFunction extends NumberNumberExpressionFunction {
+final class FloorNumberExpressionFunction extends UnaryNumberExpressionFunction {
 
     /**
      * Singleton
@@ -41,23 +40,9 @@ final class FloorNumberExpressionFunction extends NumberNumberExpressionFunction
     }
 
     @Override
-    Number applyBigDecimal(final BigDecimal number) {
-        return number.setScale(0, RoundingMode.FLOOR);
-    }
-
-    @Override
-    Number applyBigInteger(final BigInteger number) {
-        return number;
-    }
-
-    @Override
-    Number applyDouble(final Double number) {
-        return Math.floor(number);
-    }
-
-    @Override
-    Number applyLong(final Long number) {
-        return number;
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number.floor(context);
     }
 
     @Override
@@ -67,3 +52,4 @@ final class FloorNumberExpressionFunction extends NumberNumberExpressionFunction
 
     private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
 }
+

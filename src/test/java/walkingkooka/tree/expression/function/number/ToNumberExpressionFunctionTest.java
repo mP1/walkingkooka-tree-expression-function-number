@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ToNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<ToNumberExpressionFunction, Number> {
+public final class ToNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<ToNumberExpressionFunction> {
 
     @Test
     public void testZeroParametersFails() {
@@ -35,12 +35,12 @@ public final class ToNumberExpressionFunctionTest extends NumberExpressionFuncti
 
     @Test
     public void testInteger() {
-        this.applyAndCheck2(parameters(123), 123);
+        this.applyAndCheck3(123, 123);
     }
 
     @Test
     public void testString() {
-        this.applyAndCheck2(parameters("123"), 123);
+        this.applyAndCheck3("123", 123);
     }
 
     @Test
@@ -48,9 +48,9 @@ public final class ToNumberExpressionFunctionTest extends NumberExpressionFuncti
         assertThrows(NumberFormatException.class, () -> this.apply2("abc"));
     }
 
-    @Test
-    public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "number");
+    @Override
+    String functionToString() {
+        return "number";
     }
 
     @Override

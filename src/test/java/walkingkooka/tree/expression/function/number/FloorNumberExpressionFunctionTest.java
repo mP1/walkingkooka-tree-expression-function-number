@@ -19,34 +19,7 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-public final class FloorNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<FloorNumberExpressionFunction> {
-
-    // BigDecimal........................................................................................................
-
-    @Test
-    public void testBigDecimal() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.25), BigDecimal.valueOf(1));
-    }
-
-    @Test
-    public void testBigDecimal2() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.5), BigDecimal.valueOf(1));
-    }
-
-    @Test
-    public void testBigDecimal3() {
-        this.applyAndCheck3(BigDecimal.valueOf(1));
-    }
-
-    // BigInteger........................................................................................................
-
-    @Test
-    public void testBigInteger() {
-        this.applyAndCheck3(BigInteger.valueOf(1));
-    }
+public final class FloorNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<FloorNumberExpressionFunction> {
 
     // Double...........................................................................................................
 
@@ -76,7 +49,7 @@ public final class FloorNumberExpressionFunctionTest extends NumberNumberExpress
 
     @Test
     public void testIntegerNegative() {
-        this.applyAndCheck3(-34, BigDecimal.valueOf(-34));
+        this.applyAndCheck3(-34, -34);
     }
 
     // helper...........................................................................................................

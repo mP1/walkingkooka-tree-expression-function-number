@@ -17,16 +17,15 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.util.List;
-
 /**
- * A {@link ExpressionFunction} that performs some operation and returns a {@link Number}.
+ * A {@link ExpressionFunction} that performs some operation and returns a {@link ExpressionNumber}.
  */
-final class ToNumberExpressionFunction extends NumberExpressionFunction<Number> {
+final class ToNumberExpressionFunction extends UnaryNumberExpressionFunction {
 
     /**
      * Singleton
@@ -41,11 +40,9 @@ final class ToNumberExpressionFunction extends NumberExpressionFunction<Number> 
     }
 
     @Override
-    public Number apply(final List<Object> parameters,
-                        final ExpressionFunctionContext context) {
-        this.checkParameterCount(parameters, 1);
-
-        return this.number(parameters, 0, context);
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number;
     }
 
     @Override
