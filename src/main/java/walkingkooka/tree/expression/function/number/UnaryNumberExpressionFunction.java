@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2020 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,39 +17,27 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 
-/**
- * Base for any function that expects a single number.
- */
-abstract class NumberNumberExpressionFunction extends NumberExpressionFunction<Number> {
+abstract class UnaryNumberExpressionFunction extends NumberExpressionFunction<ExpressionNumber> {
 
     /**
      * Package private ctor
      */
-    NumberNumberExpressionFunction() {
+    UnaryNumberExpressionFunction() {
         super();
     }
 
     @Override
-    public final Number apply(final List<Object> parameters,
-                              final ExpressionFunctionContext context) {
+    public final ExpressionNumber apply(final List<Object> parameters,
+                                        final ExpressionFunctionContext context) {
         this.checkParameterCount(parameters, 1);
-
-        return NumberExpressionFunctionExpressionNumberVisitor.apply(this.number(parameters, 0, context),
-                this,
-                context);
+        return applyExpressionNumber(this.expressionNumber(parameters, 0, context), context);
     }
 
-    abstract Number applyBigDecimal(final BigDecimal number);
-
-    abstract Number applyBigInteger(final BigInteger number);
-
-    abstract Number applyDouble(final Double number);
-
-    abstract Number applyLong(final Long number);
+    abstract ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                                    final ExpressionFunctionContext context);
 }

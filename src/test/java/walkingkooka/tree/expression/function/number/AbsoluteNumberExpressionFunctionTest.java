@@ -19,44 +19,7 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
-public final class AbsoluteNumberExpressionFunctionTest extends NumberNumberExpressionFunctionTestCase<AbsoluteNumberExpressionFunction> {
-
-    // BigDecimal........................................................................................................
-
-    @Test
-    public void testBigDecimalNegative() {
-        this.applyAndCheck3(BigDecimal.valueOf(-1.5), BigDecimal.valueOf(1.5));
-    }
-
-    @Test
-    public void testBigDecimalZero() {
-        this.applyAndCheck3(BigDecimal.ZERO);
-    }
-
-    @Test
-    public void testBigDecimalPositive() {
-        this.applyAndCheck3(BigDecimal.valueOf(1.5));
-    }
-
-    // BigInteger........................................................................................................
-
-    @Test
-    public void testBigIntegerNegative() {
-        this.applyAndCheck3(BigInteger.valueOf(-2), BigInteger.valueOf(2));
-    }
-
-    @Test
-    public void testBigIntegerZero() {
-        this.applyAndCheck3(BigInteger.ZERO);
-    }
-
-    @Test
-    public void testBigIntegerPositive() {
-        this.applyAndCheck3(BigInteger.valueOf(3));
-    }
+public final class AbsoluteNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<AbsoluteNumberExpressionFunction> {
 
     // Double...........................................................................................................
 
@@ -96,7 +59,7 @@ public final class AbsoluteNumberExpressionFunctionTest extends NumberNumberExpr
 
     @Test
     public void testIntegerNegative() {
-        this.applyAndCheck3(-34, BigDecimal.valueOf(34));
+        this.applyAndCheck3(-34, 34.0);
     }
 
     // helper...........................................................................................................

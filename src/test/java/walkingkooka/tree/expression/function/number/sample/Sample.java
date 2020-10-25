@@ -20,16 +20,16 @@ package walkingkooka.tree.expression.function.number.sample;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberContexts;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 import walkingkooka.tree.expression.function.number.NumberExpressionFunctions;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class Sample {
     public static void main(final String[] args) {
-        final BigDecimal value = BigDecimal.valueOf(-1.5);
+        final ExpressionNumber value = ExpressionNumber.with(-1.5);
         final Object result = NumberExpressionFunctions.abs()
                 .apply(Lists.of(value),
                         new FakeExpressionFunctionContext() {
@@ -37,10 +37,10 @@ public final class Sample {
                             public <T> Either<T, String> convert(final Object v,
                                                                  final Class<T> target) {
                                 assertEquals(value, v);
-                                assertEquals(Number.class, target);
+                                assertEquals(ExpressionNumber.class, target);
                                 return Cast.to(Either.left(value));
                             }
                         });
-        assertEquals(value.abs(), result);
+        assertEquals(value.abs(ExpressionNumberContexts.fake()), result);
     }
 }

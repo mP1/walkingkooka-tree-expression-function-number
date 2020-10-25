@@ -18,6 +18,7 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
 /**
@@ -28,35 +29,35 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see AbsoluteNumberExpressionFunction}
      */
-    public static ExpressionFunction<Number> abs() {
+    public static ExpressionFunction<ExpressionNumber> abs() {
         return AbsoluteNumberExpressionFunction.INSTANCE;
     }
 
     /**
      * {@see CeilNumberExpressionFunction}
      */
-    public static ExpressionFunction<Number> ceil() {
+    public static ExpressionFunction<ExpressionNumber> ceil() {
         return CeilNumberExpressionFunction.INSTANCE;
     }
 
     /**
      * {@see FloorNumberExpressionFunction}
      */
-    public static ExpressionFunction<Number> floor() {
+    public static ExpressionFunction<ExpressionNumber> floor() {
         return FloorNumberExpressionFunction.INSTANCE;
     }
 
     /**
      * {@see NumberExpressionFunction}
      */
-    public static ExpressionFunction<Number> number() {
+    public static ExpressionFunction<ExpressionNumber> number() {
         return ToNumberExpressionFunction.INSTANCE;
     }
 
     /**
      * {@see RoundNumberExpressionFunction}
      */
-    public static ExpressionFunction<Number> round() {
+    public static ExpressionFunction<ExpressionNumber> round() {
         return RoundNumberExpressionFunction.INSTANCE;
     }
 

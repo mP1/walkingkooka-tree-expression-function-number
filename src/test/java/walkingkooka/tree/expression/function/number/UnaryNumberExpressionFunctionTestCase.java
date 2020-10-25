@@ -18,14 +18,18 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class NumberNumberExpressionFunctionTestCase<F extends NumberNumberExpressionFunction> extends NumberExpressionFunctionTestCase<F, Number> {
+public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction> extends NumberExpressionFunctionTestCase<F, ExpressionNumber> {
 
-    NumberNumberExpressionFunctionTestCase() {
+    UnaryNumberExpressionFunctionTestCase() {
         super();
     }
 
@@ -54,8 +58,12 @@ public abstract class NumberNumberExpressionFunctionTestCase<F extends NumberNum
         this.applyAndCheck3(number, number);
     }
 
-    final void applyAndCheck3(final Number number, final Number expected) {
-        this.applyAndCheck2(Lists.of(number), expected);
+    final void applyAndCheck3(final Object number, final Number expected) {
+        this.applyAndCheck3(Lists.of(number), ExpressionNumber.with(expected));
+    }
+
+    final void applyAndCheck3(final List<?> parameters, final ExpressionNumber expected) {
+        this.applyAndCheck2(Cast.to(parameters), expected);
     }
 
     @Override
@@ -67,4 +75,5 @@ public abstract class NumberNumberExpressionFunctionTestCase<F extends NumberNum
     public final String typeNameSuffix() {
         return Number.class.getSimpleName() + ExpressionFunction.class.getSimpleName();
     }
+
 }
