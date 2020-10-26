@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.util.List;
@@ -28,6 +29,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction> extends NumberExpressionFunctionTestCase<F, ExpressionNumber> {
+
+    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     UnaryNumberExpressionFunctionTestCase() {
         super();
@@ -59,7 +62,7 @@ public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumbe
     }
 
     final void applyAndCheck3(final Object number, final Number expected) {
-        this.applyAndCheck3(Lists.of(number), ExpressionNumber.with(expected));
+        this.applyAndCheck3(Lists.of(number), KIND.create(expected));
     }
 
     final void applyAndCheck3(final List<?> parameters, final ExpressionNumber expected) {
