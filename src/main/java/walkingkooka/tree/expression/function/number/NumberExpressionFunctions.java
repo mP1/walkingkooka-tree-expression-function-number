@@ -41,6 +41,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see CountNumberExpressionFunction}
+     */
+    public static ExpressionFunction<ExpressionNumber> count() {
+        return CountNumberExpressionFunction.INSTANCE;
+    }
+
+    /**
      * {@see FloorNumberExpressionFunction}
      */
     public static ExpressionFunction<ExpressionNumber> floor() {
