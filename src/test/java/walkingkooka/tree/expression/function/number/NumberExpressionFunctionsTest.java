@@ -18,13 +18,36 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.lang.reflect.Method;
 import java.math.MathContext;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public final class NumberExpressionFunctionsTest implements PublicStaticHelperTesting<NumberExpressionFunctions> {
+
+    @Test
+    public void testVisit() {
+        final Set<FunctionExpressionName> names = Sets.sorted();
+        NumberExpressionFunctions.visit((e) -> names.add(e.name()));
+
+        assertEquals(Arrays.stream(NumberExpressionFunctions.class.getDeclaredMethods())
+                        .filter(m -> m.getReturnType() == ExpressionFunction.class)
+                        .map(Method::getName)
+                        .collect(Collectors.toCollection(Sets::sorted))
+                        .size(),
+                names.size());
+        assertEquals(true, names.contains(NumberExpressionFunctions.ceil().name()));
+        assertEquals(true, names.contains(NumberExpressionFunctions.count().name()));
+    }
 
     @Test
     public void testPublicStaticMethodsWithoutMathContextParameter() {

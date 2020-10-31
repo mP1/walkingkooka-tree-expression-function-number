@@ -17,14 +17,30 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+
+import java.util.function.Consumer;
 
 /**
  * Collection of static factory methods for numerous {@link ExpressionFunction}.
  */
 public final class NumberExpressionFunctions implements PublicStaticHelper {
+
+    /**
+     * Visit all {@link ExpressionFunction functions}.
+     */
+    public static void visit(final Consumer<ExpressionFunction<?>> consumer) {
+        Lists.of(abs(),
+                ceil(),
+                count(),
+                floor(),
+                number(),
+                round())
+                .forEach(consumer);
+    }
 
     /**
      * {@see AbsoluteNumberExpressionFunction}
