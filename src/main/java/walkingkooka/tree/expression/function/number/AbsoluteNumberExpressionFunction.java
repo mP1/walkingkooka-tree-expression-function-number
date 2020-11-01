@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
@@ -24,12 +25,19 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 /**
  * A abs function that expects a single {@link ExpressionNumber}.
  */
-final class AbsoluteNumberExpressionFunction extends UnaryNumberExpressionFunction {
+final class AbsoluteNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> AbsoluteNumberExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final AbsoluteNumberExpressionFunction INSTANCE = new AbsoluteNumberExpressionFunction();
+    private static final AbsoluteNumberExpressionFunction INSTANCE = new AbsoluteNumberExpressionFunction();
 
     /**
      * Private ctor

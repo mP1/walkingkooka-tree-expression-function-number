@@ -18,15 +18,15 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.util.Collections;
 
-public final class CountNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<CountNumberExpressionFunction, ExpressionNumber> {
+public final class CountNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<CountNumberExpressionFunction<ExpressionFunctionContext>, ExpressionNumber> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -47,26 +47,16 @@ public final class CountNumberExpressionFunctionTest extends NumberExpressionFun
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(CountNumberExpressionFunction.INSTANCE, "count");
+        this.toStringAndCheck(this.createBiFunction(), "count");
     }
 
     @Override
-    public CountNumberExpressionFunction createBiFunction() {
-        return CountNumberExpressionFunction.INSTANCE;
+    public CountNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return CountNumberExpressionFunction.instance();
     }
 
     @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-            @Override
-            public ExpressionNumberKind expressionNumberKind() {
-                return KIND;
-            }
-        };
-    }
-
-    @Override
-    public Class<CountNumberExpressionFunction> type() {
-        return CountNumberExpressionFunction.class;
+    public Class<CountNumberExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(CountNumberExpressionFunction.class);
     }
 }

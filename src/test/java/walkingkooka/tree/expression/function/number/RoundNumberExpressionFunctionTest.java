@@ -18,8 +18,10 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class RoundNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<RoundNumberExpressionFunction> {
+public final class RoundNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<RoundNumberExpressionFunction<ExpressionFunctionContext>> {
 
     // Double...........................................................................................................
 
@@ -50,13 +52,13 @@ public final class RoundNumberExpressionFunctionTest extends UnaryNumberExpressi
     // helper............................................................................................................
 
     @Override
-    public RoundNumberExpressionFunction createBiFunction() {
-        return RoundNumberExpressionFunction.INSTANCE;
+    public RoundNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return RoundNumberExpressionFunction.instance();
     }
 
     @Override
-    public Class<RoundNumberExpressionFunction> type() {
-        return RoundNumberExpressionFunction.class;
+    public Class<RoundNumberExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(RoundNumberExpressionFunction.class);
     }
 
     @Override

@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
@@ -26,12 +27,19 @@ import java.util.List;
 /**
  * Counts the number of parameters given to this function.
  */
-final class CountNumberExpressionFunction extends NumberExpressionFunction<ExpressionNumber> {
+final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> CountNumberExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final CountNumberExpressionFunction INSTANCE = new CountNumberExpressionFunction();
+    private static final CountNumberExpressionFunction INSTANCE = new CountNumberExpressionFunction();
 
     private CountNumberExpressionFunction() {
         super();
@@ -39,7 +47,7 @@ final class CountNumberExpressionFunction extends NumberExpressionFunction<Expre
 
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
-                                  final ExpressionFunctionContext context) {
+                                  final C context) {
         return context.expressionNumberKind().create(parameters.size());
     }
 

@@ -17,16 +17,60 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.Either;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
+import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<T>, T> implements ExpressionFunctionTesting<F, T>,
+import java.math.BigDecimal;
+import java.util.List;
+
+public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
         ClassTesting2<F> {
+
+    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     NumberExpressionFunctionTestCase() {
         super();
+    }
+
+    final void apply2(final Object... parameters) {
+        this.createBiFunction().apply(parameters(parameters), this.createContext());
+    }
+
+    final void applyAndCheck2(final List<Object> parameters,
+                              final T result) {
+        this.applyAndCheck2(this.createBiFunction(), parameters, result);
+    }
+
+    final void applyAndCheck2(final ExpressionFunction<T, ExpressionFunctionContext> function,
+                              final List<Object> parameters,
+                              final T result) {
+        this.applyAndCheck2(function, parameters, this.createContext(), result);
+    }
+
+    @Override
+    public ExpressionFunctionContext createContext() {
+        return new FakeExpressionFunctionContext() {
+            @Override
+            public ExpressionNumberKind expressionNumberKind() {
+                return KIND;
+            }
+
+            @Override
+            public <T> Either<T, String> convert(final Object value,
+                                                 final Class<T> target) {
+
+                final Number number = value instanceof String ?
+                        new BigDecimal((String) value) :
+                        (Number) value;
+                return Either.left(target.cast(KIND.create(number)));
+            }
+        };
     }
 
     @Override

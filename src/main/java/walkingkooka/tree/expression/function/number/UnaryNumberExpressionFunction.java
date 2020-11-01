@@ -22,7 +22,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
-abstract class UnaryNumberExpressionFunction extends NumberExpressionFunction<ExpressionNumber> {
+abstract class UnaryNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
 
     /**
      * Package private ctor
@@ -33,7 +33,7 @@ abstract class UnaryNumberExpressionFunction extends NumberExpressionFunction<Ex
 
     @Override
     public final ExpressionNumber apply(final List<Object> parameters,
-                                        final ExpressionFunctionContext context) {
+                                        final C context) {
         this.checkParameterCount(parameters, 1);
         return applyExpressionNumber(this.expressionNumber(parameters, 0, context), context);
     }

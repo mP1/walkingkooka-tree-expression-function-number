@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
@@ -24,12 +25,19 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 /**
  * A round function that expects a single {@link ExpressionNumber}.
  */
-final class RoundNumberExpressionFunction extends UnaryNumberExpressionFunction {
+final class RoundNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+
+    /**
+     * Instance getter.
+     */
+    static <C extends ExpressionFunctionContext> RoundNumberExpressionFunction<C> instance() {
+        return Cast.to(INSTANCE);
+    }
 
     /**
      * Singleton
      */
-    static final RoundNumberExpressionFunction INSTANCE = new RoundNumberExpressionFunction();
+    private static final RoundNumberExpressionFunction INSTANCE = new RoundNumberExpressionFunction();
 
     /**
      * Private ctor

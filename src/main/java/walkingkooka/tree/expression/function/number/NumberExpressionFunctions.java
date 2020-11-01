@@ -21,6 +21,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.function.Consumer;
 
@@ -32,7 +33,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     /**
      * Visit all {@link ExpressionFunction functions}.
      */
-    public static void visit(final Consumer<ExpressionFunction<?>> consumer) {
+    public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(abs(),
                 ceil(),
                 count(),
@@ -45,43 +46,43 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see AbsoluteNumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> abs() {
-        return AbsoluteNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> abs() {
+        return AbsoluteNumberExpressionFunction.instance();
     }
 
     /**
      * {@see CeilNumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> ceil() {
-        return CeilNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ceil() {
+        return CeilNumberExpressionFunction.instance();
     }
 
     /**
      * {@see CountNumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> count() {
-        return CountNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
+        return CountNumberExpressionFunction.instance();
     }
 
     /**
      * {@see FloorNumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> floor() {
-        return FloorNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
+        return FloorNumberExpressionFunction.instance();
     }
 
     /**
      * {@see NumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> number() {
-        return ToNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> number() {
+        return ToNumberExpressionFunction.instance();
     }
 
     /**
      * {@see RoundNumberExpressionFunction}
      */
-    public static ExpressionFunction<ExpressionNumber> round() {
-        return RoundNumberExpressionFunction.INSTANCE;
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
+        return RoundNumberExpressionFunction.instance();
     }
 
     /**
