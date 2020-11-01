@@ -67,16 +67,6 @@ abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> 
     /**
      * Retrieves the parameter at the index or throws a nice exception message.
      */
-    final <TT> TT parameter(final List<?> parameters,
-                            final int i,
-                            final Class<TT> type,
-                            final ExpressionFunctionContext context) {
-        return context.convertOrFail(this.parameter(parameters, i), type);
-    }
-
-    /**
-     * Retrieves the parameter at the index or throws a nice exception message.
-     */
     final Object parameter(final List<?> parameters,
                            final int i) {
         final int count = parameters.size();
