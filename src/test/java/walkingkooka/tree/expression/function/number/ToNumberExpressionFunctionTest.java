@@ -18,10 +18,12 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ToNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<ToNumberExpressionFunction> {
+public final class ToNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<ToNumberExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testZeroParametersFails() {
@@ -54,12 +56,12 @@ public final class ToNumberExpressionFunctionTest extends UnaryNumberExpressionF
     }
 
     @Override
-    public ToNumberExpressionFunction createBiFunction() {
-        return ToNumberExpressionFunction.INSTANCE;
+    public ToNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return ToNumberExpressionFunction.instance();
     }
 
     @Override
-    public Class<ToNumberExpressionFunction> type() {
-        return ToNumberExpressionFunction.class;
+    public Class<ToNumberExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(ToNumberExpressionFunction.class);
     }
 }

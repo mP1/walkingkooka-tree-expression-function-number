@@ -18,8 +18,10 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Cast;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<CeilNumberExpressionFunction> {
+public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<CeilNumberExpressionFunction<ExpressionFunctionContext>> {
 
     // Double........................................................................................................
 
@@ -41,13 +43,13 @@ public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressio
     // helper...........................................................................................................
 
     @Override
-    public CeilNumberExpressionFunction createBiFunction() {
-        return CeilNumberExpressionFunction.INSTANCE;
+    public CeilNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
+        return CeilNumberExpressionFunction.instance();
     }
 
     @Override
-    public Class<CeilNumberExpressionFunction> type() {
-        return CeilNumberExpressionFunction.class;
+    public Class<CeilNumberExpressionFunction<ExpressionFunctionContext>> type() {
+        return Cast.to(CeilNumberExpressionFunction.class);
     }
 
     @Override

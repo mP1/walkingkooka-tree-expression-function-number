@@ -21,16 +21,14 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction> extends NumberExpressionFunctionTestCase<F, ExpressionNumber> {
-
-    final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
+public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F, ExpressionNumber> {
 
     UnaryNumberExpressionFunctionTestCase() {
         super();
