@@ -77,6 +77,11 @@ abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> 
     }
 
     @Override
+    public final boolean resolveReferences() {
+        return true;
+    }
+
+    @Override
     public final String toString() {
         return this.name().toString();
     }
