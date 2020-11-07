@@ -16,6 +16,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - ceil
 - count
 - floor
+- max
 - number
 - round
 - sum

@@ -38,6 +38,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 ceil(),
                 count(),
                 floor(),
+                max(),
                 number(),
                 round(),
                 sum())
@@ -70,6 +71,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
         return FloorNumberExpressionFunction.instance();
+    }
+
+    /**
+     * {@see MaxNumberExpressionFunction}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> max() {
+        return MaxNumberExpressionFunction.instance();
     }
 
     /**
