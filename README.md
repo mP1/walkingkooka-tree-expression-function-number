@@ -13,6 +13,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 ## Available functions
 
 - abs
+- average
 - ceil
 - count
 - floor
