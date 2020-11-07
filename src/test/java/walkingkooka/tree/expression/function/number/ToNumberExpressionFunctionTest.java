@@ -19,6 +19,7 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
+import walkingkooka.convert.ConversionException;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -47,7 +48,7 @@ public final class ToNumberExpressionFunctionTest extends UnaryNumberExpressionF
 
     @Test
     public void testStringNonNumericFails() {
-        assertThrows(NumberFormatException.class, () -> this.apply2("abc"));
+        assertThrows(ConversionException.class, () -> this.apply2("abc"));
     }
 
     @Override
