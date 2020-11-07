@@ -17,6 +17,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - floor
 - number
 - round
+- sum
 
 Many more functions are outstanding and remain TODO.
 

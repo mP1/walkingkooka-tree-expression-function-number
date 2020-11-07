@@ -64,11 +64,14 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
             @Override
             public <T> Either<T, String> convert(final Object value,
                                                  final Class<T> target) {
-
-                final Number number = value instanceof String ?
-                        new BigDecimal((String) value) :
-                        (Number) value;
-                return Either.left(target.cast(KIND.create(number)));
+                try {
+                    final Number number = value instanceof String ?
+                            new BigDecimal((String) value) :
+                            (Number) value;
+                    return Either.left(target.cast(KIND.create(number)));
+                } catch (final Exception fail) {
+                    return this.failConversion(value, target);
+                }
             }
         };
     }

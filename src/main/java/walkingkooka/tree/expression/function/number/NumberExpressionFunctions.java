@@ -39,7 +39,8 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 count(),
                 floor(),
                 number(),
-                round())
+                round(),
+                sum())
                 .forEach(consumer);
     }
 
@@ -83,6 +84,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
         return RoundNumberExpressionFunction.instance();
+    }
+
+    /**
+     * {@see SumNumberExpressionFunction}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sum() {
+        return SumNumberExpressionFunction.instance();
     }
 
     /**
