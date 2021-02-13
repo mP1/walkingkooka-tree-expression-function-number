@@ -18,6 +18,7 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.select.NodeSelectorException;
@@ -40,7 +41,7 @@ abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> 
      * All number functions are pure. Does not assume anyting about any parameters.
      */
     @Override
-    public final boolean isPure() {
+    public final boolean isPure(final ExpressionPurityContext context) {
         return true;
     }
 
