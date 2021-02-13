@@ -17,6 +17,7 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
@@ -36,6 +37,11 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     NumberExpressionFunctionTestCase() {
         super();
+    }
+
+    @Test
+    public final void testIsPureTrue() {
+        this.isPureAndCheck(this.createBiFunction(), true);
     }
 
     final void apply2(final Object... parameters) {
