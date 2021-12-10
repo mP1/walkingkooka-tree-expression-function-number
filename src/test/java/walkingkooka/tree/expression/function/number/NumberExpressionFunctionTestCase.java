@@ -73,8 +73,8 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
             }
 
             @Override
-            public <T> Either<T, String> convert(final Object value,
-                                                 final Class<T> target) {
+            public <TT> Either<TT, String> convert(final Object value,
+                                                   final Class<TT> target) {
                 try {
                     final Number number = value instanceof String ?
                             new BigDecimal((String) value) :
