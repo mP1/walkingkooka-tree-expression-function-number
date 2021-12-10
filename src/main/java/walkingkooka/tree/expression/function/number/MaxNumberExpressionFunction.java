@@ -39,7 +39,7 @@ final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> ext
     /**
      * Singleton
      */
-    private static final MaxNumberExpressionFunction INSTANCE = new MaxNumberExpressionFunction();
+    private static final MaxNumberExpressionFunction<?> INSTANCE = new MaxNumberExpressionFunction<>();
 
     private MaxNumberExpressionFunction() {
         super();

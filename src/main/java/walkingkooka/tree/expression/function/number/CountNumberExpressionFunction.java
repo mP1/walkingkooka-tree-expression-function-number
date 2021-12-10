@@ -39,7 +39,7 @@ final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> e
     /**
      * Singleton
      */
-    private static final CountNumberExpressionFunction INSTANCE = new CountNumberExpressionFunction();
+    private static final CountNumberExpressionFunction<?> INSTANCE = new CountNumberExpressionFunction<>();
 
     private CountNumberExpressionFunction() {
         super();

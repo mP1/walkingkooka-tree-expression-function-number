@@ -38,7 +38,7 @@ final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> exte
     /**
      * Singleton
      */
-    private static final ToNumberExpressionFunction INSTANCE = new ToNumberExpressionFunction();
+    private static final ToNumberExpressionFunction<?> INSTANCE = new ToNumberExpressionFunction<>();
 
     /**
      * Private ctor

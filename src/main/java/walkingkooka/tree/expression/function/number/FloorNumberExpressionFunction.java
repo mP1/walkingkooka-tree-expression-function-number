@@ -38,7 +38,7 @@ final class FloorNumberExpressionFunction<C extends ExpressionFunctionContext> e
     /**
      * Singleton
      */
-    private static final FloorNumberExpressionFunction INSTANCE = new FloorNumberExpressionFunction();
+    private static final FloorNumberExpressionFunction<?> INSTANCE = new FloorNumberExpressionFunction<>();
 
     /**
      * Private ctor

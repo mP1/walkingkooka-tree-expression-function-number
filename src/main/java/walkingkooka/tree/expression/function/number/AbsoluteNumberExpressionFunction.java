@@ -37,7 +37,7 @@ final class AbsoluteNumberExpressionFunction<C extends ExpressionFunctionContext
     /**
      * Singleton
      */
-    private static final AbsoluteNumberExpressionFunction INSTANCE = new AbsoluteNumberExpressionFunction();
+    private static final AbsoluteNumberExpressionFunction<?> INSTANCE = new AbsoluteNumberExpressionFunction<>();
 
     /**
      * Private ctor

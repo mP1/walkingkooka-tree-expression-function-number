@@ -39,7 +39,7 @@ final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> ext
     /**
      * Singleton
      */
-    private static final SumNumberExpressionFunction INSTANCE = new SumNumberExpressionFunction();
+    private static final SumNumberExpressionFunction<?> INSTANCE = new SumNumberExpressionFunction<>();
 
     private SumNumberExpressionFunction() {
         super();

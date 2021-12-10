@@ -37,7 +37,7 @@ final class RoundNumberExpressionFunction<C extends ExpressionFunctionContext> e
     /**
      * Singleton
      */
-    private static final RoundNumberExpressionFunction INSTANCE = new RoundNumberExpressionFunction();
+    private static final RoundNumberExpressionFunction<?> INSTANCE = new RoundNumberExpressionFunction<>();
 
     /**
      * Private ctor

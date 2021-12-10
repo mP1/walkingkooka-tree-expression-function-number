@@ -40,7 +40,7 @@ final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext>
     /**
      * Singleton
      */
-    private static final AverageNumberExpressionFunction INSTANCE = new AverageNumberExpressionFunction();
+    private static final AverageNumberExpressionFunction<?> INSTANCE = new AverageNumberExpressionFunction<>();
 
     private AverageNumberExpressionFunction() {
         super();

@@ -39,7 +39,7 @@ final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> ext
     /**
      * Singleton
      */
-    private static final MinNumberExpressionFunction INSTANCE = new MinNumberExpressionFunction();
+    private static final MinNumberExpressionFunction<?> INSTANCE = new MinNumberExpressionFunction<>();
 
     private MinNumberExpressionFunction() {
         super();
