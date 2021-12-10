@@ -54,7 +54,7 @@ final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return parameters.stream()
                 .skip(1)
                 .map(p -> context.convertOrFail(p, ExpressionNumber.class))
-                .reduce(context.convertOrFail(parameters.get(0), ExpressionNumber.class), (subTotal, p) -> subTotal.min(p));
+                .reduce(context.convertOrFail(parameters.get(0), ExpressionNumber.class), ExpressionNumber::min);
     }
 
     @Override

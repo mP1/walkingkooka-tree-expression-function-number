@@ -54,7 +54,7 @@ final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return parameters.stream()
                 .skip(1)
                 .map(p -> context.convertOrFail(p, ExpressionNumber.class))
-                .reduce(context.convertOrFail(parameters.get(0), ExpressionNumber.class), (subTotal, p) -> subTotal.max(p));
+                .reduce(context.convertOrFail(parameters.get(0), ExpressionNumber.class), ExpressionNumber::max);
     }
 
     @Override
