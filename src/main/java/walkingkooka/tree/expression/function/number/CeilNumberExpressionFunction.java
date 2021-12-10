@@ -37,7 +37,7 @@ final class CeilNumberExpressionFunction<C extends ExpressionFunctionContext> ex
     /**
      * Singleton
      */
-    private static final CeilNumberExpressionFunction INSTANCE = new CeilNumberExpressionFunction();
+    private static final CeilNumberExpressionFunction<?> INSTANCE = new CeilNumberExpressionFunction<>();
 
     /**
      * Private ctor
