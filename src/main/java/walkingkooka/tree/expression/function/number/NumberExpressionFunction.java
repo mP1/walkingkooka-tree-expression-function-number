@@ -17,10 +17,13 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 import walkingkooka.tree.select.NodeSelectorException;
 
 import java.util.List;
@@ -35,6 +38,28 @@ abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> 
      */
     NumberExpressionFunction() {
         super();
+    }
+
+    @Override
+    public final List<ExpressionFunctionParameter<?>> parameters() {
+        return this.lsLastParameterVariable() ?
+                PARAMETERS_VALUES :
+                PARAMETERS_VALUE;
+    }
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = Lists.of(
+            ExpressionFunctionParameterName.with("value")
+                    .setType(Boolean.class)
+    );
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = Lists.of(
+            ExpressionFunctionParameterName.with("values")
+                    .setType(Boolean.class)
+    );
+
+    @Override
+    public final boolean lsLastParameterVariable() {
+        return !(this instanceof UnaryNumberExpressionFunction);
     }
 
     /**
