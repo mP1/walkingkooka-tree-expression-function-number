@@ -17,7 +17,6 @@
 
 package walkingkooka.tree.expression.function.number;
 
-import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
@@ -47,15 +46,15 @@ abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> 
                 PARAMETERS_VALUE;
     }
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = Lists.of(
-            ExpressionFunctionParameterName.with("value")
-                    .setType(Boolean.class)
-    );
+    final static ExpressionFunctionParameter<Number> VALUE = ExpressionFunctionParameterName.with("value")
+            .setType(Number.class);
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = Lists.of(
-            ExpressionFunctionParameterName.with("values")
-                    .setType(Boolean.class)
-    );
+    final static ExpressionFunctionParameter<Number> VALUES = ExpressionFunctionParameterName.with("values")
+            .setType(Number.class);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(VALUE);
+
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = ExpressionFunctionParameter.list(VALUES);
 
     @Override
     public final boolean lsLastParameterVariable() {
