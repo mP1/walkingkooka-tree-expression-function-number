@@ -48,7 +48,8 @@ final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> e
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        return context.expressionNumberKind().create(parameters.size());
+        return context.expressionNumberKind()
+                .create(parameters.size());
     }
 
     @Override

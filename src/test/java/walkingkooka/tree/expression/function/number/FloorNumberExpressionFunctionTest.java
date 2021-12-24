@@ -26,32 +26,18 @@ public final class FloorNumberExpressionFunctionTest extends UnaryNumberExpressi
     // Double...........................................................................................................
 
     @Test
-    public void testDouble() {
+    public void testDown() {
         this.applyAndCheck3(1.25, 1.0);
     }
 
     @Test
-    public void testDouble2() {
+    public void testDown2() {
         this.applyAndCheck3(1.5, 1.0);
     }
 
     @Test
-    public void testDouble3() {
+    public void testAlready() {
         this.applyAndCheck3(1.0);
-    }
-
-    // Long.............................................................................................................
-
-    @Test
-    public void testLong() {
-        this.applyAndCheck3(-2L);
-    }
-
-    // Integer.............................................................................................................
-
-    @Test
-    public void testIntegerNegative() {
-        this.applyAndCheck3(-34, -34);
     }
 
     // helper...........................................................................................................

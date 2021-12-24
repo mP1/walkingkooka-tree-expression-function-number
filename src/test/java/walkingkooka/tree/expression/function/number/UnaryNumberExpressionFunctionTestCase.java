@@ -28,7 +28,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F, ExpressionNumber> {
+public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F> {
 
     UnaryNumberExpressionFunctionTestCase() {
         super();
@@ -44,7 +44,7 @@ public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumbe
         this.applyAndFail(1, 2);
     }
 
-    private void applyAndFail(final Object... parameters) {
+    private void applyAndFail(final Number... parameters) {
         assertThrows(IllegalArgumentException.class, () -> this.apply2(parameters));
     }
 
@@ -59,11 +59,12 @@ public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumbe
         this.applyAndCheck3(number, number);
     }
 
-    final void applyAndCheck3(final Object number, final Number expected) {
+    final void applyAndCheck3(final Number number, final Number expected) {
         this.applyAndCheck3(Lists.of(number), KIND.create(expected));
     }
 
-    final void applyAndCheck3(final List<?> parameters, final ExpressionNumber expected) {
+    final void applyAndCheck3(final List<?> parameters,
+                              final ExpressionNumber expected) {
         this.applyAndCheck2(Cast.to(parameters), expected);
     }
 

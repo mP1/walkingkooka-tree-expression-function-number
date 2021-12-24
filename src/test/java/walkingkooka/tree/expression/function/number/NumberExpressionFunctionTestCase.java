@@ -18,26 +18,43 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.Either;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.tree.expression.ExpressionEvaluationContexts;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionFunctionContext>>
+        implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionFunctionContext>,
         ClassTesting2<F> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
     NumberExpressionFunctionTestCase() {
         super();
+    }
+
+    @Test
+    public final void testDoesntConvert() {
+        if (!(this instanceof CountNumberExpressionFunctionTest)) {
+            assertThrows(
+                    ClassCastException.class,
+                    () -> {
+                        this.createBiFunction()
+                                .apply(Lists.of(1), this.createContext());
+                    }
+            );
+        }
     }
 
     @Test
@@ -49,40 +66,41 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
         );
     }
 
-    final void apply2(final Object... parameters) {
-        this.createBiFunction().apply(parameters(parameters), this.createContext());
+    final void apply2(final Number... parameters) {
+        this.createBiFunction()
+                .apply(parameters(parameters),
+                        this.createContext()
+                );
     }
 
     final void applyAndCheck2(final List<Object> parameters,
-                              final T result) {
-        this.applyAndCheck2(this.createBiFunction(), parameters, result);
+                              final ExpressionNumber result) {
+        this.applyAndCheck2(
+                this.createBiFunction(),
+                parameters,
+                result
+        );
     }
 
-    final void applyAndCheck2(final ExpressionFunction<T, ExpressionFunctionContext> function,
+    final void applyAndCheck2(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
                               final List<Object> parameters,
-                              final T result) {
-        this.applyAndCheck2(function, parameters, this.createContext(), result);
+                              final ExpressionNumber result) {
+        this.applyAndCheck2(
+                function,
+                parameters.stream()
+                        .map(i -> KIND.create((Number) i))
+                        .collect(Collectors.toList()),
+                this.createContext(),
+                result
+        );
     }
 
     @Override
-    public ExpressionFunctionContext createContext() {
+    public final ExpressionFunctionContext createContext() {
         return new FakeExpressionFunctionContext() {
             @Override
             public ExpressionNumberKind expressionNumberKind() {
                 return KIND;
-            }
-
-            @Override
-            public <TT> Either<TT, String> convert(final Object value,
-                                                   final Class<TT> target) {
-                try {
-                    final Number number = value instanceof String ?
-                            new BigDecimal((String) value) :
-                            (Number) value;
-                    return Either.left(target.cast(KIND.create(number)));
-                } catch (final Exception fail) {
-                    return this.failConversion(value, target);
-                }
             }
         };
     }

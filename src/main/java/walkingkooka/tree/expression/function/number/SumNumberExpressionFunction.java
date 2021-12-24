@@ -49,8 +49,12 @@ final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> ext
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
         return parameters.stream()
-                .map(p -> context.convertOrFail(p, ExpressionNumber.class))
-                .reduce(context.expressionNumberKind().create(0), (subTotal, p) -> subTotal.add(p, context));
+                .map(p -> (ExpressionNumber) p)
+                .reduce(
+                        context.expressionNumberKind()
+                                .create(0),
+                        (subTotal, p) -> subTotal.add(p, context)
+                );
     }
 
     @Override

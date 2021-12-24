@@ -20,26 +20,14 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.convert.ConversionException;
-import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Collections;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public final class AverageNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<AverageNumberExpressionFunction<ExpressionFunctionContext>, ExpressionNumber> {
+public final class AverageNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<AverageNumberExpressionFunction<ExpressionFunctionContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
-
-    @Test
-    public void testNonNumericConvertableFails() {
-        assertThrows(ConversionException.class, () -> this.createBiFunction().apply(Lists.of("hello"), this.createContext()));
-    }
 
     @Test
     public void testZeroParameters() {
@@ -54,12 +42,6 @@ public final class AverageNumberExpressionFunctionTest extends NumberExpressionF
     @Test
     public void testTenParameters() {
         this.applyAndCheck2(Collections.nCopies(10, 20), KIND.create(20));
-    }
-
-    @Test
-    public void testDifferentNumberTypes() {
-        this.applyAndCheck2(List.of((byte) 1, (short) 2, 3, 4L, BigInteger.valueOf(5), BigDecimal.valueOf(6), KIND.create(7), 8.5),
-                KIND.create((1 + 2 + 3 + 4 + 5 + 6 + 7 + 8.5) / 8));
     }
 
     @Test

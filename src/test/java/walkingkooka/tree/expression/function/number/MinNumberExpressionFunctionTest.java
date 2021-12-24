@@ -20,9 +20,6 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.convert.ConversionException;
-import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.math.BigDecimal;
@@ -31,14 +28,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class MinNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<MinNumberExpressionFunction<ExpressionFunctionContext>, ExpressionNumber> {
-
-    private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
-
-    @Test
-    public void testNonNumericConvertableFails() {
-        assertThrows(ConversionException.class, () -> this.createBiFunction().apply(Lists.of("hello"), this.createContext()));
-    }
+public final class MinNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<MinNumberExpressionFunction<ExpressionFunctionContext>> {
 
     @Test
     public void testZeroParameters() {

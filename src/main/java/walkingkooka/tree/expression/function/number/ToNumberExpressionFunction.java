@@ -23,10 +23,12 @@ import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import java.util.List;
+
 /**
  * A {@link ExpressionFunction} that performs some operation and returns a {@link ExpressionNumber}.
  */
-final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
@@ -48,9 +50,13 @@ final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> exte
     }
 
     @Override
-    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
-                                           final ExpressionFunctionContext context) {
-        return number;
+    public ExpressionNumber apply(final List<Object> parameters, final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return context.convertOrFail(
+                VALUE.getOrFail(parameters, 0),
+                ExpressionNumber.class
+        );
     }
 
     @Override
