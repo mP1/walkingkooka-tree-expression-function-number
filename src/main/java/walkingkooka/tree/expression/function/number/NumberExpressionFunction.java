@@ -23,7 +23,6 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
-import walkingkooka.tree.select.NodeSelectorException;
 
 import java.util.List;
 
@@ -46,11 +45,11 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
                 PARAMETERS_VALUE;
     }
 
-    final static ExpressionFunctionParameter<Number> VALUE = ExpressionFunctionParameterName.with("value")
-            .setType(Number.class);
+    final static ExpressionFunctionParameter<ExpressionNumber> VALUE = ExpressionFunctionParameterName.with("value")
+            .setType(ExpressionNumber.class);
 
-    final static ExpressionFunctionParameter<Number> VALUES = ExpressionFunctionParameterName.with("values")
-            .setType(Number.class);
+    final static ExpressionFunctionParameter<List> VALUES = ExpressionFunctionParameterName.with("values")
+            .setType(List.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(VALUE);
 
@@ -58,60 +57,20 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     @Override
     public final boolean lsLastParameterVariable() {
-        return !(this instanceof UnaryNumberExpressionFunction);
+        return !(this instanceof UnaryNumberExpressionFunction || this instanceof ToNumberExpressionFunction);
     }
 
     /**
-     * All number functions are pure. Does not assume anyting about any parameters.
+     * All number functions are pure. Does not assume anything about any parameters.
      */
     @Override
     public final boolean isPure(final ExpressionPurityContext context) {
         return true;
     }
 
-    /**
-     * Checks and complains if the parameter count doesnt match the expected count.
-     */
-    final void checkParameterCount(final List<Object> parameters,
-                                   final int expectedCount) {
-        final int count = parameters.size();
-        if (expectedCount != count) {
-            throw new IllegalArgumentException("Expected " + expectedCount + " but got " + count + "=" + parameters);
-        }
-    }
-
-    /**
-     * Converts a value into a {@link Number}.
-     */
-    final ExpressionNumber expressionNumber(final Object value,
-                                            final ExpressionFunctionContext context) {
-        return context.convertOrFail(value, ExpressionNumber.class);
-    }
-
-    /**
-     * Type safe expressionNumber parameter getter.
-     */
-    final ExpressionNumber expressionNumber(final List<?> parameters,
-                                            final int i,
-                                            final ExpressionFunctionContext context) {
-        return this.expressionNumber(this.parameter(parameters, i), context);
-    }
-
-    /**
-     * Retrieves the parameter at the index or throws a nice exception message.
-     */
-    final Object parameter(final List<?> parameters,
-                           final int i) {
-        final int count = parameters.size();
-        if (i < 0 || i >= count) {
-            throw new NodeSelectorException("Parameter " + i + " missing from " + parameters);
-        }
-        return parameters.get(i);
-    }
-
     @Override
     public final boolean resolveReferences() {
-        return true;
+        return false;
     }
 
     @Override

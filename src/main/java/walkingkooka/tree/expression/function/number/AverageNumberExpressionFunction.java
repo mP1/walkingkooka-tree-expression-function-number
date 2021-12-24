@@ -54,9 +54,9 @@ final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext>
         return 0 == count ?
                 kind.create(0) :
                 parameters.stream()
-                .map(p -> context.convertOrFail(p, ExpressionNumber.class))
-                .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
-                .divide(kind.create(count), context);
+                        .map(p -> (ExpressionNumber) p)
+                        .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
+                        .divide(kind.create(count), context);
     }
 
     @Override

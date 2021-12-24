@@ -26,42 +26,18 @@ public final class AbsoluteNumberExpressionFunctionTest extends UnaryNumberExpre
     // Double...........................................................................................................
 
     @Test
-    public void testDoubleNegative() {
+    public void testNegative() {
         this.applyAndCheck3(-2.0, 2.0);
     }
 
     @Test
-    public void testDoubleZero() {
+    public void testZero() {
         this.applyAndCheck3(0.0);
     }
 
     @Test
-    public void testDoublePositive() {
+    public void testPositive() {
         this.applyAndCheck3(3.0);
-    }
-
-    // Long.............................................................................................................
-
-    @Test
-    public void testLongNegative() {
-        this.applyAndCheck3(-2L, 2L);
-    }
-
-    @Test
-    public void testLongZero() {
-        this.applyAndCheck3(0L);
-    }
-
-    @Test
-    public void testLongPositive() {
-        this.applyAndCheck3(3L);
-    }
-
-    // Integer.............................................................................................................
-
-    @Test
-    public void testIntegerNegative() {
-        this.applyAndCheck3(-34, 34.0);
     }
 
     // helper...........................................................................................................

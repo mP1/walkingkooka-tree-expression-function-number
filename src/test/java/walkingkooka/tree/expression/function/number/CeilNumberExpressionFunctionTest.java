@@ -26,17 +26,17 @@ public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressio
     // Double........................................................................................................
 
     @Test
-    public void testDoubleRoundUp() {
+    public void testRoundUp() {
         this.applyAndCheck3(1.25, 2);
     }
 
     @Test
-    public void testDoubleRoundUp2() {
+    public void testRoundUp2() {
         this.applyAndCheck3(1.5, 2);
     }
 
     @Test
-    public void testDoubleNoRounding() {
+    public void testNoRounding() {
         this.applyAndCheck3(99);
     }
 

@@ -51,9 +51,12 @@ final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         if (parameters.isEmpty()) {
             throw new IllegalArgumentException("Expected at least one number");
         }
+
+        final ExpressionNumber first = (ExpressionNumber) parameters.get(0);
         return parameters.stream()
-                .map(p -> context.convertOrFail(p, ExpressionNumber.class))
-                .reduce(context.convertOrFail(parameters.get(0), ExpressionNumber.class), ExpressionNumber::max);
+                .skip(1)
+                .map(p -> (ExpressionNumber) p)
+                .reduce(first, ExpressionNumber::max);
     }
 
     @Override
