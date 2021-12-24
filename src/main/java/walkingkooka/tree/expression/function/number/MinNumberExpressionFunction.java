@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Returns the min value for one or more numbers.
  */
-final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.

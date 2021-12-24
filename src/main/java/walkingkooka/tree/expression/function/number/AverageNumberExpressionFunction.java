@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Sums all the parameters after converting them to a number.
  */
-final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
