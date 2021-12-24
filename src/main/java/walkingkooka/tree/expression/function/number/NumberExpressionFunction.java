@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Base for any function that handles and requires numbers.
  */
-abstract class NumberExpressionFunction<T, C extends ExpressionFunctionContext> implements ExpressionFunction<T, C> {
+abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<ExpressionNumber, C> {
 
     /**
      * Package private ctor

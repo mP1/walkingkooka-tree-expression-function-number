@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Counts the number of parameters given to this function.
  */
-final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.

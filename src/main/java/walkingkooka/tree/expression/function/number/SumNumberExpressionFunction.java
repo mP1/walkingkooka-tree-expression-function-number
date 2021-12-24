@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Sums all the parameters after converting them to a number.
  */
-final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.

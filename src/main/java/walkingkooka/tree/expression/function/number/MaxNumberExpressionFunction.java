@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Returns the max value for one or more numbers.
  */
-final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<ExpressionNumber, C> {
+final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
