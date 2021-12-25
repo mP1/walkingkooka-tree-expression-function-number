@@ -60,6 +60,11 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
         return !(this instanceof UnaryNumberExpressionFunction || this instanceof ToNumberExpressionFunction);
     }
 
+    @Override
+    public final Class<ExpressionNumber> returnType() {
+        return ExpressionNumber.class;
+    }
+
     /**
      * All number functions are pure. Does not assume anything about any parameters.
      */
