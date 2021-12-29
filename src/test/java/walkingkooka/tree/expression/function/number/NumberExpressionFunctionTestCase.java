@@ -18,9 +18,11 @@
 package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.ClassTesting2;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.TypeNameTesting;
 import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -29,6 +31,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +39,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionFunctionContext>>
         implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<F> {
+        ClassTesting2<F>,
+        TypeNameTesting<F> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -46,7 +50,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testDoesntConvert() {
-        if (!(this instanceof CountNumberExpressionFunctionTest)) {
+        if (!(this instanceof NumberExpressionFunctionCountTest || this instanceof NumberExpressionFunctionToTest)) {
             assertThrows(
                     ClassCastException.class,
                     () -> {
@@ -107,11 +111,40 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
             public ExpressionNumberKind expressionNumberKind() {
                 return KIND;
             }
+
+            @Override
+            public <TT> Either<TT, String> convert(final Object value,
+                                                   final Class<TT> target) {
+
+                if (!(NumberExpressionFunctionTestCase.this instanceof NumberExpressionFunctionToTest)) {
+                    throw new UnsupportedOperationException();
+                }
+
+                try {
+                    final Number number = value instanceof String ?
+                            new BigDecimal((String) value) :
+                            (Number) value;
+                    return Either.left(target.cast(KIND.create(number)));
+                } catch (final Exception fail) {
+                    return this.failConversion(value, target);
+                }
+            }
         };
     }
 
     @Override
     public final JavaVisibility typeVisibility() {
         return JavaVisibility.PACKAGE_PRIVATE;
+    }
+
+
+    @Override
+    public final String typeNamePrefix() {
+        return NumberExpressionFunction.class.getSimpleName();
+    }
+
+    @Override
+    public final String typeNameSuffix() {
+        return "";
     }
 }

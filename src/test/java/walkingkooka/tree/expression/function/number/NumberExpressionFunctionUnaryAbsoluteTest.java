@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class AbsoluteNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<AbsoluteNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionUnaryAbsoluteTest extends NumberExpressionFunctionUnaryTestCase<NumberExpressionFunctionUnaryAbsolute<ExpressionFunctionContext>> {
 
     // Double...........................................................................................................
 
@@ -43,13 +43,13 @@ public final class AbsoluteNumberExpressionFunctionTest extends UnaryNumberExpre
     // helper...........................................................................................................
 
     @Override
-    public AbsoluteNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return AbsoluteNumberExpressionFunction.instance();
+    public NumberExpressionFunctionUnaryAbsolute<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionUnaryAbsolute.instance();
     }
 
     @Override
-    public Class<AbsoluteNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(AbsoluteNumberExpressionFunction.class);
+    public Class<NumberExpressionFunctionUnaryAbsolute<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionUnaryAbsolute.class);
     }
 
     @Override

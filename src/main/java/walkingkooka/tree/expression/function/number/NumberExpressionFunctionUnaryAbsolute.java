@@ -22,35 +22,34 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-
 /**
- * A floor function that expects a single {@link ExpressionNumber}.
+ * A abs function that expects a single {@link ExpressionNumber}.
  */
-final class FloorNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnaryAbsolute<C extends ExpressionFunctionContext> extends NumberExpressionFunctionUnary<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> FloorNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnaryAbsolute<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final FloorNumberExpressionFunction<?> INSTANCE = new FloorNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionUnaryAbsolute<?> INSTANCE = new NumberExpressionFunctionUnaryAbsolute<>();
 
     /**
      * Private ctor
      */
-    private FloorNumberExpressionFunction() {
+    private NumberExpressionFunctionUnaryAbsolute() {
         super();
     }
 
     @Override
     ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
                                            final ExpressionFunctionContext context) {
-        return number.floor(context);
+        return number.abs(context);
     }
 
     @Override
@@ -58,6 +57,5 @@ final class FloorNumberExpressionFunction<C extends ExpressionFunctionContext> e
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("abs");
 }
-

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2020 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,34 +22,41 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import java.util.List;
+
 /**
- * A abs function that expects a single {@link ExpressionNumber}.
+ * Returns the max value for one or more numbers.
  */
-final class AbsoluteNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+final class NumberExpressionFunctionMax<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> AbsoluteNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionMax<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final AbsoluteNumberExpressionFunction<?> INSTANCE = new AbsoluteNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionMax<?> INSTANCE = new NumberExpressionFunctionMax<>();
 
-    /**
-     * Private ctor
-     */
-    private AbsoluteNumberExpressionFunction() {
+    private NumberExpressionFunctionMax() {
         super();
     }
 
     @Override
-    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
-                                           final ExpressionFunctionContext context) {
-        return number.abs(context);
+    public ExpressionNumber apply(final List<Object> parameters,
+                                  final C context) {
+        if (parameters.isEmpty()) {
+            throw new IllegalArgumentException("Expected at least one number");
+        }
+
+        final ExpressionNumber first = (ExpressionNumber) parameters.get(0);
+        return parameters.stream()
+                .skip(1)
+                .map(p -> (ExpressionNumber) p)
+                .reduce(first, ExpressionNumber::max);
     }
 
     @Override
@@ -57,5 +64,5 @@ final class AbsoluteNumberExpressionFunction<C extends ExpressionFunctionContext
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("abs");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("max");
 }

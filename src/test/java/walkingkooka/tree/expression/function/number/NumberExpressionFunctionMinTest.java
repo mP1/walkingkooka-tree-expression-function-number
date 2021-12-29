@@ -28,7 +28,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class MaxNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<MaxNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionMinTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionMin<ExpressionFunctionContext>> {
 
     @Test
     public void testZeroParameters() {
@@ -42,36 +42,36 @@ public final class MaxNumberExpressionFunctionTest extends NumberExpressionFunct
 
     @Test
     public void testTwoParameters() {
-        this.applyAndCheck2(Lists.of(-10, 20), KIND.create(20));
+        this.applyAndCheck2(Lists.of(-10, 20), KIND.create(-10));
     }
 
     @Test
     public void testManyParameters() {
-        this.applyAndCheck2(Lists.of(99, 5, 10, 20), KIND.create(99));
+        this.applyAndCheck2(Lists.of(99, 5, 10, 20), KIND.create(5));
     }
 
     @Test
     public void testManyParameters2() {
-        this.applyAndCheck2(Lists.of(-99, -5.5, -10, -20), KIND.create(-5.5));
+        this.applyAndCheck2(Lists.of(-99, -5.5, -10, -20), KIND.create(-99));
     }
 
     @Test
     public void testDifferentNumberTypes() {
-        this.applyAndCheck2(List.of((byte) 1, (short) 2, 3, 4L, BigInteger.valueOf(5), BigDecimal.valueOf(6), KIND.create(7), 8.5), KIND.create(8.5));
+        this.applyAndCheck2(List.of((byte) 1, (short) 2, 3, 4L, BigInteger.valueOf(5), BigDecimal.valueOf(6), KIND.create(7), 8.5), KIND.create(1));
     }
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "max");
+        this.toStringAndCheck(this.createBiFunction(), "min");
     }
 
     @Override
-    public MaxNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return MaxNumberExpressionFunction.instance();
+    public NumberExpressionFunctionMin<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionMin.instance();
     }
 
     @Override
-    public Class<MaxNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(MaxNumberExpressionFunction.class);
+    public Class<NumberExpressionFunctionMin<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionMin.class);
     }
 }

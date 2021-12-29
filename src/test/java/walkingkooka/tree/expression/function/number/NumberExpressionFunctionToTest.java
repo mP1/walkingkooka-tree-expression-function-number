@@ -19,23 +19,14 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.ConversionException;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
-
-import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ToNumberExpressionFunctionTest implements ExpressionFunctionTesting<ToNumberExpressionFunction<ExpressionFunctionContext>, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<ToNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionToTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionTo<ExpressionFunctionContext>> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -44,7 +35,7 @@ public final class ToNumberExpressionFunctionTest implements ExpressionFunctionT
         assertThrows(
                 IllegalArgumentException.class,
                 () -> {
-                    ToNumberExpressionFunction.instance()
+                    NumberExpressionFunctionTo.instance()
                             .apply(
                                     Lists.empty(),
                                     this.createContext()
@@ -58,7 +49,7 @@ public final class ToNumberExpressionFunctionTest implements ExpressionFunctionT
         assertThrows(
                 IllegalArgumentException.class,
                 () -> {
-                    ToNumberExpressionFunction.instance()
+                    NumberExpressionFunctionTo.instance()
                             .apply(
                                     Lists.of(KIND.create(1), KIND.create(2)),
                                     this.createContext()
@@ -90,7 +81,7 @@ public final class ToNumberExpressionFunctionTest implements ExpressionFunctionT
         assertThrows(
                 ConversionException.class,
                 () -> {
-                    ToNumberExpressionFunction.instance()
+                    NumberExpressionFunctionTo.instance()
                             .apply(
                                     Lists.of("!fails"),
                                     this.createContext()
@@ -100,40 +91,12 @@ public final class ToNumberExpressionFunctionTest implements ExpressionFunctionT
     }
 
     @Override
-    public ToNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return ToNumberExpressionFunction.instance();
+    public NumberExpressionFunctionTo<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionTo.instance();
     }
 
     @Override
-    public Class<ToNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(ToNumberExpressionFunction.class);
-    }
-
-    @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
-            @Override
-            public ExpressionNumberKind expressionNumberKind() {
-                return KIND;
-            }
-
-            @Override
-            public <TT> Either<TT, String> convert(final Object value,
-                                                   final Class<TT> target) {
-                try {
-                    final Number number = value instanceof String ?
-                            new BigDecimal((String) value) :
-                            (Number) value;
-                    return Either.left(target.cast(KIND.create(number)));
-                } catch (final Exception fail) {
-                    return this.failConversion(value, target);
-                }
-            }
-        };
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<NumberExpressionFunctionTo<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionTo.class);
     }
 }

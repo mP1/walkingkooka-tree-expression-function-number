@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2020 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,43 +20,36 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
 /**
- * A {@link ExpressionFunction} that performs some operation and returns a {@link ExpressionNumber}.
+ * Counts the number of parameters given to this function.
  */
-final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionCount<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> ToNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionCount<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final ToNumberExpressionFunction<?> INSTANCE = new ToNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionCount<?> INSTANCE = new NumberExpressionFunctionCount<>();
 
-    /**
-     * Private ctor
-     */
-    private ToNumberExpressionFunction() {
+    private NumberExpressionFunctionCount() {
         super();
     }
 
     @Override
-    public ExpressionNumber apply(final List<Object> parameters, final C context) {
-        this.checkOnlyRequiredParameters(parameters);
-
-        return context.convertOrFail(
-                VALUE.getOrFail(parameters, 0),
-                ExpressionNumber.class
-        );
+    public ExpressionNumber apply(final List<Object> parameters,
+                                  final C context) {
+        return context.expressionNumberKind()
+                .create(parameters.size());
     }
 
     @Override
@@ -64,5 +57,5 @@ final class ToNumberExpressionFunction<C extends ExpressionFunctionContext> exte
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("number");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("count");
 }

@@ -57,7 +57,7 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     @Override
     public final boolean lsLastParameterVariable() {
-        return !(this instanceof UnaryNumberExpressionFunction || this instanceof ToNumberExpressionFunction);
+        return !(this instanceof NumberExpressionFunctionUnary || this instanceof NumberExpressionFunctionTo);
     }
 
     @Override

@@ -23,33 +23,33 @@ import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
- * A ceil function that expects a single {@link ExpressionNumber}.
+ * A round function that expects a single {@link ExpressionNumber}.
  */
-final class CeilNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnaryRound<C extends ExpressionFunctionContext> extends NumberExpressionFunctionUnary<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> CeilNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnaryRound<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final CeilNumberExpressionFunction<?> INSTANCE = new CeilNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionUnaryRound<?> INSTANCE = new NumberExpressionFunctionUnaryRound<>();
 
     /**
      * Private ctor
      */
-    private CeilNumberExpressionFunction() {
+    private NumberExpressionFunctionUnaryRound() {
         super();
     }
 
     @Override
     ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
                                            final ExpressionFunctionContext context) {
-        return number.ceil(context);
+        return number.round(context);
     }
 
     @Override
@@ -57,5 +57,5 @@ final class CeilNumberExpressionFunction<C extends ExpressionFunctionContext> ex
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("ceil");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("round");
 }

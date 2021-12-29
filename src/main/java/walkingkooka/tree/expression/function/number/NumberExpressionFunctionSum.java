@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
@@ -28,35 +27,34 @@ import java.util.List;
 /**
  * Sums all the parameters after converting them to a number.
  */
-final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionSum<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> AverageNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionSum<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final AverageNumberExpressionFunction<?> INSTANCE = new AverageNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionSum<?> INSTANCE = new NumberExpressionFunctionSum<>();
 
-    private AverageNumberExpressionFunction() {
+    private NumberExpressionFunctionSum() {
         super();
     }
 
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        final int count = parameters.size();
-        final ExpressionNumberKind kind = context.expressionNumberKind();
-        return 0 == count ?
-                kind.create(0) :
-                parameters.stream()
-                        .map(p -> (ExpressionNumber) p)
-                        .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
-                        .divide(kind.create(count), context);
+        return parameters.stream()
+                .map(p -> (ExpressionNumber) p)
+                .reduce(
+                        context.expressionNumberKind()
+                                .create(0),
+                        (subTotal, p) -> subTotal.add(p, context)
+                );
     }
 
     @Override
@@ -64,5 +62,5 @@ final class AverageNumberExpressionFunction<C extends ExpressionFunctionContext>
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("average");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("sum");
 }

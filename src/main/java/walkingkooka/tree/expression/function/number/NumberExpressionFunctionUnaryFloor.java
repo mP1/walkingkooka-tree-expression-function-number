@@ -22,34 +22,35 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+
 /**
- * A round function that expects a single {@link ExpressionNumber}.
+ * A floor function that expects a single {@link ExpressionNumber}.
  */
-final class RoundNumberExpressionFunction<C extends ExpressionFunctionContext> extends UnaryNumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnaryFloor<C extends ExpressionFunctionContext> extends NumberExpressionFunctionUnary<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> RoundNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnaryFloor<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final RoundNumberExpressionFunction<?> INSTANCE = new RoundNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionUnaryFloor<?> INSTANCE = new NumberExpressionFunctionUnaryFloor<>();
 
     /**
      * Private ctor
      */
-    private RoundNumberExpressionFunction() {
+    private NumberExpressionFunctionUnaryFloor() {
         super();
     }
 
     @Override
     ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
                                            final ExpressionFunctionContext context) {
-        return number.round(context);
+        return number.floor(context);
     }
 
     @Override
@@ -57,5 +58,6 @@ final class RoundNumberExpressionFunction<C extends ExpressionFunctionContext> e
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("round");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
 }
+

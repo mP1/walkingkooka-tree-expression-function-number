@@ -21,39 +21,39 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class CeilNumberExpressionFunctionTest extends UnaryNumberExpressionFunctionTestCase<CeilNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionUnaryFloorTest extends NumberExpressionFunctionUnaryTestCase<NumberExpressionFunctionUnaryFloor<ExpressionFunctionContext>> {
 
-    // Double........................................................................................................
+    // Double...........................................................................................................
 
     @Test
-    public void testRoundUp() {
-        this.applyAndCheck3(1.25, 2);
+    public void testDown() {
+        this.applyAndCheck3(1.25, 1.0);
     }
 
     @Test
-    public void testRoundUp2() {
-        this.applyAndCheck3(1.5, 2);
+    public void testDown2() {
+        this.applyAndCheck3(1.5, 1.0);
     }
 
     @Test
-    public void testNoRounding() {
-        this.applyAndCheck3(99);
+    public void testAlready() {
+        this.applyAndCheck3(1.0);
     }
 
     // helper...........................................................................................................
 
     @Override
-    public CeilNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return CeilNumberExpressionFunction.instance();
+    public NumberExpressionFunctionUnaryFloor<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionUnaryFloor.instance();
     }
 
     @Override
-    public Class<CeilNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(CeilNumberExpressionFunction.class);
+    public Class<NumberExpressionFunctionUnaryFloor<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionUnaryFloor.class);
     }
 
     @Override
     String functionToString() {
-        return "ceil";
+        return "floor";
     }
 }
