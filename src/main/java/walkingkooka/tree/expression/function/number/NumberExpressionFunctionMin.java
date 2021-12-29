@@ -25,23 +25,23 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import java.util.List;
 
 /**
- * Returns the max value for one or more numbers.
+ * Returns the min value for one or more numbers.
  */
-final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionMin<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> MaxNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionMin<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final MaxNumberExpressionFunction<?> INSTANCE = new MaxNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionMin<?> INSTANCE = new NumberExpressionFunctionMin<>();
 
-    private MaxNumberExpressionFunction() {
+    private NumberExpressionFunctionMin() {
         super();
     }
 
@@ -56,7 +56,7 @@ final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return parameters.stream()
                 .skip(1)
                 .map(p -> (ExpressionNumber) p)
-                .reduce(first, ExpressionNumber::max);
+                .reduce(first, ExpressionNumber::min);
     }
 
     @Override
@@ -64,5 +64,5 @@ final class MaxNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("max");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("min");
 }

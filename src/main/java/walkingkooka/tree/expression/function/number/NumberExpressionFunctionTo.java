@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2019 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,41 +20,43 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
+import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
 /**
- * Sums all the parameters after converting them to a number.
+ * A {@link ExpressionFunction} that performs some operation and returns a {@link ExpressionNumber}.
  */
-final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionTo<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> SumNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionTo<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final SumNumberExpressionFunction<?> INSTANCE = new SumNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionTo<?> INSTANCE = new NumberExpressionFunctionTo<>();
 
-    private SumNumberExpressionFunction() {
+    /**
+     * Private ctor
+     */
+    private NumberExpressionFunctionTo() {
         super();
     }
 
     @Override
-    public ExpressionNumber apply(final List<Object> parameters,
-                                  final C context) {
-        return parameters.stream()
-                .map(p -> (ExpressionNumber) p)
-                .reduce(
-                        context.expressionNumberKind()
-                                .create(0),
-                        (subTotal, p) -> subTotal.add(p, context)
-                );
+    public ExpressionNumber apply(final List<Object> parameters, final C context) {
+        this.checkOnlyRequiredParameters(parameters);
+
+        return context.convertOrFail(
+                VALUE.getOrFail(parameters, 0),
+                ExpressionNumber.class
+        );
     }
 
     @Override
@@ -62,5 +64,5 @@ final class SumNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("sum");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("number");
 }

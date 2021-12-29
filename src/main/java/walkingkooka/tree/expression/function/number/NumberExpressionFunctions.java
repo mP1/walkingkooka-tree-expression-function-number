@@ -47,66 +47,66 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see AbsoluteNumberExpressionFunction}
+     * {@see NumberExpressionFunctionUnaryAbsolute}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> abs() {
-        return AbsoluteNumberExpressionFunction.instance();
+        return NumberExpressionFunctionUnaryAbsolute.instance();
     }
 
     /**
-     * {@see AverageNumberExpressionFunction}
+     * {@see NumberExpressionFunctionAverage}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> average() {
-        return AverageNumberExpressionFunction.instance();
+        return NumberExpressionFunctionAverage.instance();
     }
 
     /**
-     * {@see CeilNumberExpressionFunction}
+     * {@see NumberExpressionFunctionUnaryCeil}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ceil() {
-        return CeilNumberExpressionFunction.instance();
+        return NumberExpressionFunctionUnaryCeil.instance();
     }
 
     /**
-     * {@see CountNumberExpressionFunction}
+     * {@see NumberExpressionFunctionCount}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
-        return CountNumberExpressionFunction.instance();
+        return NumberExpressionFunctionCount.instance();
     }
 
     /**
-     * {@see FloorNumberExpressionFunction}
+     * {@see NumberExpressionFunctionUnaryFloor}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
-        return FloorNumberExpressionFunction.instance();
+        return NumberExpressionFunctionUnaryFloor.instance();
     }
 
     /**
-     * {@see MaxNumberExpressionFunction}
+     * {@see NumberExpressionFunctionMax}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> max() {
-        return MaxNumberExpressionFunction.instance();
+        return NumberExpressionFunctionMax.instance();
     }
 
     /**
      * {@see NumberExpressionFunction}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> number() {
-        return ToNumberExpressionFunction.instance();
+        return NumberExpressionFunctionTo.instance();
     }
 
     /**
-     * {@see RoundNumberExpressionFunction}
+     * {@see NumberExpressionFunctionUnaryRound}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
-        return RoundNumberExpressionFunction.instance();
+        return NumberExpressionFunctionUnaryRound.instance();
     }
 
     /**
-     * {@see SumNumberExpressionFunction}
+     * {@see NumberExpressionFunctionSum}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sum() {
-        return SumNumberExpressionFunction.instance();
+        return NumberExpressionFunctionSum.instance();
     }
 
     /**

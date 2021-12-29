@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Miroslav Pokorny (github.com/mP1)
+ * Copyright 2019 Miroslav Pokorny (github.com/mP1)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,34 +22,34 @@ import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-import java.util.List;
-
 /**
- * Counts the number of parameters given to this function.
+ * A ceil function that expects a single {@link ExpressionNumber}.
  */
-final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnaryCeil<C extends ExpressionFunctionContext> extends NumberExpressionFunctionUnary<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> CountNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnaryCeil<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final CountNumberExpressionFunction<?> INSTANCE = new CountNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionUnaryCeil<?> INSTANCE = new NumberExpressionFunctionUnaryCeil<>();
 
-    private CountNumberExpressionFunction() {
+    /**
+     * Private ctor
+     */
+    private NumberExpressionFunctionUnaryCeil() {
         super();
     }
 
     @Override
-    public ExpressionNumber apply(final List<Object> parameters,
-                                  final C context) {
-        return context.expressionNumberKind()
-                .create(parameters.size());
+    ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
+                                           final ExpressionFunctionContext context) {
+        return number.ceil(context);
     }
 
     @Override
@@ -57,5 +57,5 @@ final class CountNumberExpressionFunction<C extends ExpressionFunctionContext> e
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("count");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("ceil");
 }

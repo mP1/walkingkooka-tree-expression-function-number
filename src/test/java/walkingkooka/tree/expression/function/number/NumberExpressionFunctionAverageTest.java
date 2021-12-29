@@ -25,7 +25,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.Collections;
 
-public final class CountNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<CountNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionAverageTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionAverage<ExpressionFunctionContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -41,21 +41,21 @@ public final class CountNumberExpressionFunctionTest extends NumberExpressionFun
 
     @Test
     public void testTenParameters() {
-        this.applyAndCheck2(Collections.nCopies(10, 99), KIND.create(10));
+        this.applyAndCheck2(Collections.nCopies(10, 20), KIND.create(20));
     }
 
     @Test
     public void testToString() {
-        this.toStringAndCheck(this.createBiFunction(), "count");
+        this.toStringAndCheck(this.createBiFunction(), "average");
     }
 
     @Override
-    public CountNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return CountNumberExpressionFunction.instance();
+    public NumberExpressionFunctionAverage<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionAverage.instance();
     }
 
     @Override
-    public Class<CountNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(CountNumberExpressionFunction.class);
+    public Class<NumberExpressionFunctionAverage<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionAverage.class);
     }
 }

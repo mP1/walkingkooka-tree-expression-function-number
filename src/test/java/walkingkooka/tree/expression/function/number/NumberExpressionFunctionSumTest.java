@@ -24,7 +24,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.Collections;
 
-public final class SumNumberExpressionFunctionTest extends NumberExpressionFunctionTestCase<SumNumberExpressionFunction<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionSumTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionSum<ExpressionFunctionContext>> {
 
     @Test
     public void testZeroParameters() {
@@ -61,12 +61,12 @@ public final class SumNumberExpressionFunctionTest extends NumberExpressionFunct
     }
 
     @Override
-    public SumNumberExpressionFunction<ExpressionFunctionContext> createBiFunction() {
-        return SumNumberExpressionFunction.instance();
+    public NumberExpressionFunctionSum<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionSum.instance();
     }
 
     @Override
-    public Class<SumNumberExpressionFunction<ExpressionFunctionContext>> type() {
-        return Cast.to(SumNumberExpressionFunction.class);
+    public Class<NumberExpressionFunctionSum<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionSum.class);
     }
 }

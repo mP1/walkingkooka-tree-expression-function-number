@@ -21,16 +21,15 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumberExpressionFunction<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F> {
+public abstract class NumberExpressionFunctionUnaryTestCase<F extends NumberExpressionFunctionUnary<ExpressionFunctionContext>> extends NumberExpressionFunctionTestCase<F> {
 
-    UnaryNumberExpressionFunctionTestCase() {
+    NumberExpressionFunctionUnaryTestCase() {
         super();
     }
 
@@ -67,15 +66,4 @@ public abstract class UnaryNumberExpressionFunctionTestCase<F extends UnaryNumbe
                               final ExpressionNumber expected) {
         this.applyAndCheck2(Cast.to(parameters), expected);
     }
-
-    @Override
-    public final String typeNamePrefix() {
-        return "";
-    }
-
-    @Override
-    public final String typeNameSuffix() {
-        return Number.class.getSimpleName() + ExpressionFunction.class.getSimpleName();
-    }
-
 }

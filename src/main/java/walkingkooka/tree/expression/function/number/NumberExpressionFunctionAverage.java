@@ -19,44 +19,44 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
 
 /**
- * Returns the min value for one or more numbers.
+ * Sums all the parameters after converting them to a number.
  */
-final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionAverage<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> MinNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionAverage<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final MinNumberExpressionFunction<?> INSTANCE = new MinNumberExpressionFunction<>();
+    private static final NumberExpressionFunctionAverage<?> INSTANCE = new NumberExpressionFunctionAverage<>();
 
-    private MinNumberExpressionFunction() {
+    private NumberExpressionFunctionAverage() {
         super();
     }
 
     @Override
     public ExpressionNumber apply(final List<Object> parameters,
                                   final C context) {
-        if (parameters.isEmpty()) {
-            throw new IllegalArgumentException("Expected at least one number");
-        }
-
-        final ExpressionNumber first = (ExpressionNumber) parameters.get(0);
-        return parameters.stream()
-                .skip(1)
-                .map(p -> (ExpressionNumber) p)
-                .reduce(first, ExpressionNumber::min);
+        final int count = parameters.size();
+        final ExpressionNumberKind kind = context.expressionNumberKind();
+        return 0 == count ?
+                kind.create(0) :
+                parameters.stream()
+                        .map(p -> (ExpressionNumber) p)
+                        .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
+                        .divide(kind.create(count), context);
     }
 
     @Override
@@ -64,5 +64,5 @@ final class MinNumberExpressionFunction<C extends ExpressionFunctionContext> ext
         return NAME;
     }
 
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("min");
+    private final static FunctionExpressionName NAME = FunctionExpressionName.with("average");
 }
