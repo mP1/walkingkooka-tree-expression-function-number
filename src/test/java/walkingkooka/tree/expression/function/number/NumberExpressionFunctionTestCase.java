@@ -82,18 +82,10 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                 );
     }
 
-    final void applyAndCheck2(final List<Object> parameters,
-                              final ExpressionNumber result) {
-        this.applyAndCheck2(
-                this.createBiFunction(),
-                parameters,
-                result
-        );
-    }
-
-    final void applyAndCheck2(final ExpressionFunction<ExpressionNumber, ExpressionFunctionContext> function,
-                              final List<Object> parameters,
-                              final ExpressionNumber result) {
+    @Override
+    public final void applyAndCheck2(final F function,
+                                     final List<Object> parameters,
+                                     final ExpressionNumber result) {
         this.applyAndCheck2(
                 function,
                 parameters.stream()
