@@ -75,7 +75,7 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     @Override
     public final boolean resolveReferences() {
-        return false;
+        return true;
     }
 
     @Override
