@@ -66,6 +66,11 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
         );
     }
 
+    @Test
+    public final void testResolveReferencesTrue() {
+        this.resolveReferenceAndCheck(true);
+    }
+
     final void apply2(final Number... parameters) {
         this.createBiFunction()
                 .apply(parameters(parameters),
