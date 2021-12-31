@@ -12,16 +12,16 @@ A collection of ExpressionFunction(s) that operate and return number results.
 
 ## Available functions
 
-- abs
-- average
-- ceil
-- count
-- floor
-- max
-- min
-- number
-- round
-- sum
+- abs(number)
+- average(number...)
+- ceil(number)
+- count(object...)
+- floor(number)
+- max(number...)
+- min(number...)
+- number(object)
+- round(number)
+- sum(number...)
 
 
 Many more functions are outstanding and remain TODO.
