@@ -37,7 +37,7 @@ abstract class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext
         this.checkOnlyRequiredParameters(parameters);
 
         return applyExpressionNumber(
-                VALUE.getOrFail(parameters, 0),
+                NUMBER.getOrFail(parameters, 0),
                 context
         );
     }

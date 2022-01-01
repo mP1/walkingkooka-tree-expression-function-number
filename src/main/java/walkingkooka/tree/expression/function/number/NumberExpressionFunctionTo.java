@@ -54,7 +54,7 @@ final class NumberExpressionFunctionTo<C extends ExpressionFunctionContext> exte
         this.checkOnlyRequiredParameters(parameters);
 
         return context.convertOrFail(
-                VALUE.getOrFail(parameters, 0),
+                NUMBER.getOrFail(parameters, 0),
                 ExpressionNumber.class
         );
     }
