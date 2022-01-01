@@ -45,15 +45,14 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
                 PARAMETERS_VALUE;
     }
 
-    final static ExpressionFunctionParameter<ExpressionNumber> VALUE = ExpressionFunctionParameterName.with("value")
-            .setType(ExpressionNumber.class);
+    final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
 
-    final static ExpressionFunctionParameter<List> VALUES = ExpressionFunctionParameterName.with("values")
+    final static ExpressionFunctionParameter<List> NUMBERS = ExpressionFunctionParameterName.with("numbers")
             .setType(List.class);
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(VALUE);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(NUMBER);
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = ExpressionFunctionParameter.list(VALUES);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = ExpressionFunctionParameter.list(NUMBERS);
 
     @Override
     public final boolean lsLastParameterVariable() {
