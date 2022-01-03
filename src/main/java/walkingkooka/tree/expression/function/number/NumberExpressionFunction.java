@@ -19,6 +19,7 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionPurityContext;
+import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
@@ -34,9 +35,17 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
     /**
      * Package private ctor
      */
-    NumberExpressionFunction() {
+    NumberExpressionFunction(final String name) {
         super();
+        this.name = FunctionExpressionName.with(name);
     }
+
+    @Override
+    public final FunctionExpressionName name() {
+        return name;
+    }
+
+    private final FunctionExpressionName name;
 
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters() {

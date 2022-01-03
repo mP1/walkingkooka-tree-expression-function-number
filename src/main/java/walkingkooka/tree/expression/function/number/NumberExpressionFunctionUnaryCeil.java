@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -43,7 +42,7 @@ final class NumberExpressionFunctionUnaryCeil<C extends ExpressionFunctionContex
      * Private ctor
      */
     private NumberExpressionFunctionUnaryCeil() {
-        super();
+        super("ceil");
     }
 
     @Override
@@ -51,11 +50,4 @@ final class NumberExpressionFunctionUnaryCeil<C extends ExpressionFunctionContex
                                            final ExpressionFunctionContext context) {
         return number.ceil(context);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("ceil");
 }

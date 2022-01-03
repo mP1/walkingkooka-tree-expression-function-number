@@ -27,8 +27,8 @@ abstract class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext
     /**
      * Package private ctor
      */
-    NumberExpressionFunctionUnary() {
-        super();
+    NumberExpressionFunctionUnary(final String name) {
+        super(name);
     }
 
     @Override

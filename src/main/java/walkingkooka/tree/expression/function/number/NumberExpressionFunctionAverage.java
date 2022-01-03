@@ -20,7 +20,6 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
@@ -43,7 +42,7 @@ final class NumberExpressionFunctionAverage<C extends ExpressionFunctionContext>
     private static final NumberExpressionFunctionAverage<?> INSTANCE = new NumberExpressionFunctionAverage<>();
 
     private NumberExpressionFunctionAverage() {
-        super();
+        super("average");
     }
 
     @Override
@@ -58,11 +57,4 @@ final class NumberExpressionFunctionAverage<C extends ExpressionFunctionContext>
                         .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
                         .divide(kind.create(count), context);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("average");
 }
