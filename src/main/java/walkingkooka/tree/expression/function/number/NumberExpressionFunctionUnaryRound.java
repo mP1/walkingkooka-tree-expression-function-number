@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -43,7 +42,7 @@ final class NumberExpressionFunctionUnaryRound<C extends ExpressionFunctionConte
      * Private ctor
      */
     private NumberExpressionFunctionUnaryRound() {
-        super();
+        super("round");
     }
 
     @Override
@@ -51,11 +50,4 @@ final class NumberExpressionFunctionUnaryRound<C extends ExpressionFunctionConte
                                            final ExpressionFunctionContext context) {
         return number.round(context);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("round");
 }

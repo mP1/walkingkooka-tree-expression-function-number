@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
@@ -42,7 +41,7 @@ final class NumberExpressionFunctionCount<C extends ExpressionFunctionContext> e
     private static final NumberExpressionFunctionCount<?> INSTANCE = new NumberExpressionFunctionCount<>();
 
     private NumberExpressionFunctionCount() {
-        super();
+        super("count");
     }
 
     @Override
@@ -51,11 +50,4 @@ final class NumberExpressionFunctionCount<C extends ExpressionFunctionContext> e
         return context.expressionNumberKind()
                 .create(parameters.size());
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("count");
 }

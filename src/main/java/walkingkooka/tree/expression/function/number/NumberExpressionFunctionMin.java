@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
@@ -42,7 +41,7 @@ final class NumberExpressionFunctionMin<C extends ExpressionFunctionContext> ext
     private static final NumberExpressionFunctionMin<?> INSTANCE = new NumberExpressionFunctionMin<>();
 
     private NumberExpressionFunctionMin() {
-        super();
+        super("min");
     }
 
     @Override
@@ -58,11 +57,4 @@ final class NumberExpressionFunctionMin<C extends ExpressionFunctionContext> ext
                 .map(p -> (ExpressionNumber) p)
                 .reduce(first, ExpressionNumber::min);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("min");
 }

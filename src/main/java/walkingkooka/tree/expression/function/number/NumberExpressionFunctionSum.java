@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
@@ -42,7 +41,7 @@ final class NumberExpressionFunctionSum<C extends ExpressionFunctionContext> ext
     private static final NumberExpressionFunctionSum<?> INSTANCE = new NumberExpressionFunctionSum<>();
 
     private NumberExpressionFunctionSum() {
-        super();
+        super("sum");
     }
 
     @Override
@@ -56,11 +55,4 @@ final class NumberExpressionFunctionSum<C extends ExpressionFunctionContext> ext
                         (subTotal, p) -> subTotal.add(p, context)
                 );
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("sum");
 }

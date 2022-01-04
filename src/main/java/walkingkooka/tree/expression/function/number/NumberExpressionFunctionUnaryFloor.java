@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 
@@ -44,7 +43,7 @@ final class NumberExpressionFunctionUnaryFloor<C extends ExpressionFunctionConte
      * Private ctor
      */
     private NumberExpressionFunctionUnaryFloor() {
-        super();
+        super("floor");
     }
 
     @Override
@@ -52,12 +51,5 @@ final class NumberExpressionFunctionUnaryFloor<C extends ExpressionFunctionConte
                                            final ExpressionFunctionContext context) {
         return number.floor(context);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("floor");
 }
 

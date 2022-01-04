@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 /**
@@ -43,7 +42,7 @@ final class NumberExpressionFunctionUnaryAbsolute<C extends ExpressionFunctionCo
      * Private ctor
      */
     private NumberExpressionFunctionUnaryAbsolute() {
-        super();
+        super("abs");
     }
 
     @Override
@@ -51,11 +50,4 @@ final class NumberExpressionFunctionUnaryAbsolute<C extends ExpressionFunctionCo
                                            final ExpressionFunctionContext context) {
         return number.abs(context);
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private final static FunctionExpressionName NAME = FunctionExpressionName.with("abs");
 }
