@@ -18,40 +18,29 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.FunctionExpressionName;
-import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
 // https://support.google.com/docs/answer/3093296?hl=en&ref_topic=3105471
-final class IsNumberExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Boolean, C> {
+final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> IsNumberExpressionFunction<C> instance() {
+    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsNumber<C> instance() {
         return Cast.to(INSTANCE);
     }
 
     /**
      * Singleton
      */
-    private static final IsNumberExpressionFunction<?> INSTANCE = new IsNumberExpressionFunction<>();
+    private static final BooleanExpressionFunctionIsNumber<?> INSTANCE = new BooleanExpressionFunctionIsNumber<>();
 
-
-    private IsNumberExpressionFunction() {
-        super();
+    private BooleanExpressionFunctionIsNumber() {
+        super("isNumber");
     }
-
-    @Override
-    public FunctionExpressionName name() {
-        return NAME;
-    }
-
-    private FunctionExpressionName NAME = FunctionExpressionName.with("isNumber");
 
     @Override
     public Boolean apply(final List<Object> parameters,
@@ -66,32 +55,4 @@ final class IsNumberExpressionFunction<C extends ExpressionFunctionContext> impl
     }
 
     private static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(ExpressionFunctionParameter.VALUE);
-
-    @Override
-    public boolean lsLastParameterVariable() {
-        return false;
-    }
-
-    @Override
-    public Class<Boolean> returnType() {
-        return Boolean.class;
-    }
-
-    /**
-     * All number functions are pure. Does not assume anything about any parameters.
-     */
-    @Override
-    public boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-    @Override
-    public boolean resolveReferences() {
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return this.name().toString();
-    }
 }

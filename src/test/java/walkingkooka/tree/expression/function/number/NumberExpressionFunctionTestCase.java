@@ -20,15 +20,10 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.TypeNameTesting;
-import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.math.BigDecimal;
@@ -37,10 +32,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionFunctionContext>>
-        implements ExpressionFunctionTesting<F, ExpressionNumber, ExpressionFunctionContext>,
-        ClassTesting2<F>,
-        TypeNameTesting<F> {
+public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -59,20 +51,6 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                     }
             );
         }
-    }
-
-    @Test
-    public final void testIsPureTrue() {
-        this.isPureAndCheck(
-                this.createBiFunction(),
-                ExpressionEvaluationContexts.fake(),
-                true
-        );
-    }
-
-    @Test
-    public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
     }
 
     final void apply2(final Number... parameters) {
@@ -125,18 +103,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     }
 
     @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
-
-
-    @Override
     public final String typeNamePrefix() {
         return NumberExpressionFunction.class.getSimpleName();
-    }
-
-    @Override
-    public final String typeNameSuffix() {
-        return "";
     }
 }

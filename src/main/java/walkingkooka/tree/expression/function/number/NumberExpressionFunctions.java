@@ -83,10 +83,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see IsNumberExpressionFunction}
+     * {@see BooleanExpressionFunctionIsNumber}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNumber() {
-        return IsNumberExpressionFunction.instance();
+        return BooleanExpressionFunctionIsNumber.instance();
     }
 
     /**

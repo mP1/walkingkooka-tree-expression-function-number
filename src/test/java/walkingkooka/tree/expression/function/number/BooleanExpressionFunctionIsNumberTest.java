@@ -19,18 +19,12 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
-import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
-public final class IsNumberExpressionFunctionTest implements ExpressionFunctionTesting<IsNumberExpressionFunction<FakeExpressionFunctionContext>, Boolean, FakeExpressionFunctionContext>,
-        ClassTesting2<IsNumberExpressionFunction<FakeExpressionFunctionContext>>,
-        ToStringTesting<IsNumberExpressionFunction<FakeExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsNumber<ExpressionFunctionContext>> {
 
     @Test
     public void testNullParameterFalse() {
@@ -71,22 +65,17 @@ public final class IsNumberExpressionFunctionTest implements ExpressionFunctionT
     }
 
     @Override
-    public IsNumberExpressionFunction<FakeExpressionFunctionContext> createBiFunction() {
-        return IsNumberExpressionFunction.instance();
+    public BooleanExpressionFunctionIsNumber<ExpressionFunctionContext> createBiFunction() {
+        return BooleanExpressionFunctionIsNumber.instance();
     }
 
     @Override
-    public FakeExpressionFunctionContext createContext() {
+    public ExpressionFunctionContext createContext() {
         return Cast.to(ExpressionFunctionContexts.fake());
     }
 
     @Override
-    public Class<IsNumberExpressionFunction<FakeExpressionFunctionContext>> type() {
-        return Cast.to(IsNumberExpressionFunction.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
+    public Class<BooleanExpressionFunctionIsNumber<ExpressionFunctionContext>> type() {
+        return Cast.to(BooleanExpressionFunctionIsNumber.class);
     }
 }
