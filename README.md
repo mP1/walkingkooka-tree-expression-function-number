@@ -17,6 +17,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - ceil(number)
 - count(object...)
 - floor(number)
+- isNumber(object)
 - max(number...)
 - min(number...)
 - number(object)

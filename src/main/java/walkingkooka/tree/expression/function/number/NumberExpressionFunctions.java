@@ -35,14 +35,15 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(abs(),
-                average(),
-                ceil(),
-                count(),
-                floor(),
-                max(),
-                number(),
-                round(),
-                sum())
+                        average(),
+                        ceil(),
+                        count(),
+                        floor(),
+                        isNumber(),
+                        max(),
+                        number(),
+                        round(),
+                        sum())
                 .forEach(consumer);
     }
 
@@ -79,6 +80,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
         return NumberExpressionFunctionUnaryFloor.instance();
+    }
+
+    /**
+     * {@see IsNumberExpressionFunction}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNumber() {
+        return IsNumberExpressionFunction.instance();
     }
 
     /**
