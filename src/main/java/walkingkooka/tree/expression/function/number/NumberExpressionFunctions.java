@@ -39,7 +39,9 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         ceil(),
                         count(),
                         floor(),
+                        isEven(),
                         isNumber(),
+                        isOdd(),
                         max(),
                         number(),
                         round(),
@@ -83,10 +85,24 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
+     * {@see BooleanExpressionFunctionIsEvenIsOdd#isEven}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isEven() {
+        return BooleanExpressionFunctionIsEvenIsOdd.isEven();
+    }
+
+    /**
      * {@see BooleanExpressionFunctionIsNumber}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNumber() {
         return BooleanExpressionFunctionIsNumber.instance();
+    }
+
+    /**
+     * {@see BooleanExpressionFunctionIsEvenIsOdd#isOdd}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isOdd() {
+        return BooleanExpressionFunctionIsEvenIsOdd.isOdd();
     }
 
     /**
