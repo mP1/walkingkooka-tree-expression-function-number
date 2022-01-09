@@ -53,6 +53,11 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
     }
 
     @Test
+    public final void testRequiresEvaluatedParameters() {
+        this.requiresEvaluatedParametersAndCheck(true);
+    }
+
+    @Test
     public final void testResolveReferencesTrue() {
         this.resolveReferencesAndCheck(true);
     }
