@@ -54,7 +54,7 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
 
     @Test
     public final void testResolveReferencesTrue() {
-        this.resolveReferenceAndCheck(true);
+        this.resolveReferencesAndCheck(true);
     }
 
     @Override
