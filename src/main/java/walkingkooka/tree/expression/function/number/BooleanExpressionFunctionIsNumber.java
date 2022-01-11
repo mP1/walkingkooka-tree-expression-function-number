@@ -45,7 +45,7 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContex
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
         return ExpressionFunctionParameter.VALUE.getOrFail(parameters, 0) instanceof Number;
     }
 

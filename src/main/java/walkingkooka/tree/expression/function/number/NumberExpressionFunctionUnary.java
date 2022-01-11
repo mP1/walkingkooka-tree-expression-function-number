@@ -34,7 +34,7 @@ abstract class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext
     @Override
     public final ExpressionNumber apply(final List<Object> parameters,
                                         final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return applyExpressionNumber(
                 NUMBER.getOrFail(parameters, 0),
