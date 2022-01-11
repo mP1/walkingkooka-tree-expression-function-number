@@ -60,7 +60,7 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionFunctionCon
     @Override
     public Boolean apply(final List<Object> parameters,
                          final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         final ExpressionNumber number = PARAMETER.getOrFail(parameters, 0);
         if (null == number) {

@@ -50,7 +50,7 @@ final class NumberExpressionFunctionTo<C extends ExpressionFunctionContext> exte
 
     @Override
     public ExpressionNumber apply(final List<Object> parameters, final C context) {
-        this.checkOnlyRequiredParameters(parameters);
+        this.checkParameterCount(parameters);
 
         return context.convertOrFail(
                 NUMBER.getOrFail(parameters, 0),
