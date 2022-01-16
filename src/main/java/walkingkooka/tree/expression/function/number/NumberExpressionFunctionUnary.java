@@ -17,31 +17,94 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
+import java.util.function.BiFunction;
 
-abstract class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
-     * Package private ctor
+     * ABSOLUTE getter.
      */
-    NumberExpressionFunctionUnary(final String name) {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> absolute() {
+        return Cast.to(ABSOLUTE);
+    }
+
+    /**
+     * Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> ABSOLUTE = new NumberExpressionFunctionUnary<>(
+            "abs",
+            (n, c) -> n.abs(c)
+    );
+
+    /**
+     * CEIL getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> ceil() {
+        return Cast.to(CEIL);
+    }
+
+    /**
+     * CEIL Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> CEIL = new NumberExpressionFunctionUnary<>(
+            "ceil",
+            (n, c) -> n.ceil(c)
+    );
+
+    /**
+     * FLOOR getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> floor() {
+        return Cast.to(FLOOR);
+    }
+
+    /**
+     * FLOOR Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> FLOOR = new NumberExpressionFunctionUnary<>(
+            "floor",
+            (n, c) -> n.floor(c)
+    );
+
+    /**
+     * ROUND getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> round() {
+        return Cast.to(ROUND);
+    }
+
+    /**
+     * ROUND Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> ROUND = new NumberExpressionFunctionUnary<>(
+            "round",
+            (n, c) -> n.round(c)
+    );
+
+    /**
+     * Private ctor
+     */
+    private NumberExpressionFunctionUnary(final String name,
+                                          final BiFunction<ExpressionNumber, C, ExpressionNumber> function) {
         super(name);
+        this.function = function;
     }
 
     @Override
-    public final ExpressionNumber apply(final List<Object> parameters,
-                                        final C context) {
+    public ExpressionNumber apply(final List<Object> parameters,
+                                  final C context) {
         this.checkParameterCount(parameters);
 
-        return applyExpressionNumber(
+        return this.function.apply(
                 NUMBER.getOrFail(parameters, 0),
                 context
         );
     }
 
-    abstract ExpressionNumber applyExpressionNumber(final ExpressionNumber number,
-                                                    final ExpressionFunctionContext context);
+    private final BiFunction<ExpressionNumber, C, ExpressionNumber> function;
 }

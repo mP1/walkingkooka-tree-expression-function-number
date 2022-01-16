@@ -50,10 +50,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionUnaryAbsolute}
+     * {@see NumberExpressionFunctionUnary#absolute}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> abs() {
-        return NumberExpressionFunctionUnaryAbsolute.instance();
+        return NumberExpressionFunctionUnary.absolute();
     }
 
     /**
@@ -64,10 +64,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionUnaryCeil}
+     * {@see NumberExpressionFunctionUnary#ceil}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ceil() {
-        return NumberExpressionFunctionUnaryCeil.instance();
+        return NumberExpressionFunctionUnary.ceil();
     }
 
     /**
@@ -78,10 +78,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionUnaryFloor}
+     * {@see NumberExpressionFunctionUnary#floor}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
-        return NumberExpressionFunctionUnaryFloor.instance();
+        return NumberExpressionFunctionUnary.floor();
     }
 
     /**
@@ -120,10 +120,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionUnaryRound}
+     * {@see NumberExpressionFunctionUnary#round}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
-        return NumberExpressionFunctionUnaryRound.instance();
+        return NumberExpressionFunctionUnary.round();
     }
 
     /**
