@@ -87,6 +87,26 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     /**
+     * SIGN getter.
+     * <br>
+     * https://exceljet.net/excel-functions/excel-sign-function
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> sign() {
+        return Cast.to(SIGN);
+    }
+
+    /**
+     * SIGN Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> SIGN = new NumberExpressionFunctionUnary<>(
+            "sign",
+            (n, c) -> c.expressionNumberKind()
+                    .setSign(
+                            n.sign()
+                    )
+    );
+
+    /**
      * Private ctor
      */
     private NumberExpressionFunctionUnary(final String name,
