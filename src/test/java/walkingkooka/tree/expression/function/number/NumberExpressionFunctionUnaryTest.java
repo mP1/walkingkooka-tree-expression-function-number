@@ -84,6 +84,46 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // even............................................................................................................
+
+    @Test
+    public void testEvenZero() {
+        this.evenAndCheck(0);
+    }
+
+    @Test
+    public void testEven4() {
+        this.evenAndCheck(4);
+    }
+
+    @Test
+    public void testEven6Half() {
+        this.evenAndCheck(6.5, 8);
+    }
+
+    @Test
+    public void testEven1() {
+        this.evenAndCheck(1, 2);
+    }
+
+    @Test
+    public void testEvenMinus1() {
+        this.evenAndCheck(-1, -2);
+    }
+
+    private void evenAndCheck(final double value) {
+        this.evenAndCheck(value, value);
+    }
+
+    private void evenAndCheck(final double value,
+                              final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.even(),
+                value,
+                expected
+        );
+    }
+
     // floor............................................................................................................
 
     @Test
@@ -109,6 +149,51 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
                                final double expected) {
         this.applyAndCheck3(
                 NumberExpressionFunctionUnary.floor(),
+                value,
+                expected
+        );
+    }
+
+    // odd............................................................................................................
+
+    @Test
+    public void testOddZero() {
+        this.oddAndCheck(1);
+    }
+
+    @Test
+    public void testOdd1() {
+        this.oddAndCheck(1);
+    }
+
+    @Test
+    public void testOdd3() {
+        this.oddAndCheck(3, 3);
+    }
+
+    @Test
+    public void testOdd4() {
+        this.oddAndCheck(4, 5);
+    }
+
+    @Test
+    public void testOdd3Half() {
+        this.oddAndCheck(3.5, 5);
+    }
+
+    @Test
+    public void testOddMinus2() {
+        this.oddAndCheck(-2, -3);
+    }
+
+    private void oddAndCheck(final double value) {
+        this.oddAndCheck(value, value);
+    }
+
+    private void oddAndCheck(final double value,
+                             final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.odd(),
                 value,
                 expected
         );

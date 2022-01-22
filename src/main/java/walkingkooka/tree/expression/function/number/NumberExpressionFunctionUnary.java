@@ -18,7 +18,11 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.NeverError;
 import walkingkooka.tree.expression.ExpressionNumber;
+import walkingkooka.tree.expression.ExpressionNumberContext;
+import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.List;
@@ -57,6 +61,60 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     /**
+     * EVEN getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> even() {
+        return Cast.to(EVEN);
+    }
+
+    private final static ExpressionNumber TWO = ExpressionNumberKind.DEFAULT.create(2);
+
+    // https://github.com/cuba-platform/apache-poi/blob/master/poi/src/java/org/apache/poi/ss/formula/functions/Even.java
+    /**
+     * EVEN Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> EVEN = new NumberExpressionFunctionUnary<>(
+            "even",
+            (n, c) -> {
+                final ExpressionNumberSign sign = n.sign();
+                final ExpressionNumberKind kind = c.expressionNumberKind();
+
+                final ExpressionNumber number;
+
+                switch (sign) {
+                    case NEGATIVE:
+                        number = calculateEven(
+                                n.negate(c),
+                                c
+                        ).negate(c);
+                        break;
+                    case ZERO:
+                        number = kind.create(0);
+                        break;
+                    case POSITIVE:
+                        number = calculateEven(n, c);
+                        break;
+                    default:
+                        NeverError.unhandledCase(sign, ExpressionNumberSign.values());
+                        number = null;
+                        break;
+                }
+
+                return number;
+            }
+    );
+
+    private static ExpressionNumber calculateEven(final ExpressionNumber number,
+                                                  final ExpressionNumberContext context) {
+        final ExpressionNumber clearBit0 = number.setKind(context.expressionNumberKind())
+                .andNot(ONE);
+
+        return clearBit0.equals(number) ?
+                clearBit0 :
+                clearBit0.add(TWO, context);
+    }
+
+    /**
      * FLOOR getter.
      */
     static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> floor() {
@@ -70,6 +128,63 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
             "floor",
             (n, c) -> n.floor(c)
     );
+
+    /**
+     * ODD getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> odd() {
+        return Cast.to(ODD);
+    }
+
+    /**
+     * ODD Singleton
+     * <br>
+     * https://github.com/cuba-platform/apache-poi/blob/master/poi/src/java/org/apache/poi/ss/formula/functions/Odd.java
+     */
+    private static final NumberExpressionFunctionUnary<?> ODD = new NumberExpressionFunctionUnary<>(
+            "odd",
+            (n, c) -> {
+                final ExpressionNumberSign sign = n.sign();
+                final ExpressionNumberKind kind = c.expressionNumberKind();
+
+                final ExpressionNumber number;
+
+                switch (sign) {
+                    case NEGATIVE:
+                        number = calculateOdd(
+                                n.negate(c),
+                                c
+                        ).negate(c);
+                        break;
+                    case ZERO:
+                        number = kind.create(1);
+                        break;
+                    case POSITIVE:
+                        number = calculateOdd(n, c);
+                        break;
+                    default:
+                        NeverError.unhandledCase(sign, ExpressionNumberSign.values());
+                        number = null;
+                        break;
+                }
+
+                return number;
+            }
+    );
+
+    private static ExpressionNumber calculateOdd(final ExpressionNumber number,
+                                                 final ExpressionNumberContext context) {
+        final ExpressionNumber plus1 = number.setKind(context.expressionNumberKind())
+                .add(ONE, context);
+
+        final ExpressionNumber clearBit0 = plus1.andNot(ONE);
+
+        return plus1.equals(clearBit0) ?
+                clearBit0.subtract(ONE, context) :
+                clearBit0.add(ONE, context);
+    }
+
+    private final static ExpressionNumber ONE = ExpressionNumberKind.DEFAULT.create(1);
 
     /**
      * ROUND getter.

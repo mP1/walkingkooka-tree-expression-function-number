@@ -38,12 +38,14 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         average(),
                         ceil(),
                         count(),
+                        even(),
                         floor(),
                         isEven(),
                         isNumber(),
                         isOdd(),
                         max(),
                         number(),
+                        odd(),
                         round(),
                         sign(),
                         sum())
@@ -76,6 +78,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
         return NumberExpressionFunctionCount.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#even}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> even() {
+        return NumberExpressionFunctionUnary.even();
     }
 
     /**
@@ -118,6 +127,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> number() {
         return NumberExpressionFunctionTo.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#odd}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> odd() {
+        return NumberExpressionFunctionUnary.odd();
     }
 
     /**
