@@ -44,6 +44,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         isNumber(),
                         isOdd(),
                         max(),
+                        min(),
                         number(),
                         odd(),
                         round(),
@@ -120,6 +121,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> max() {
         return NumberExpressionFunctionMax.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionMin}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> min() {
+        return NumberExpressionFunctionMin.instance();
     }
 
     /**
