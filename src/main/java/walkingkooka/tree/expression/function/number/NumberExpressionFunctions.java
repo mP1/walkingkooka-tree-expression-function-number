@@ -45,6 +45,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         max(),
                         number(),
                         round(),
+                        sign(),
                         sum())
                 .forEach(consumer);
     }
@@ -124,6 +125,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
         return NumberExpressionFunctionUnary.round();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#sign}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sign() {
+        return NumberExpressionFunctionUnary.sign();
     }
 
     /**

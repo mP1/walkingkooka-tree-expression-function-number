@@ -149,6 +149,32 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // sign............................................................................................................
+
+    @Test
+    public void testSignZero() {
+        this.signAndCheck(0, 0);
+    }
+
+    @Test
+    public void testSignNegative() {
+        this.signAndCheck(-10, -1);
+    }
+
+    @Test
+    public void testSignPositive() {
+        this.signAndCheck(+20, 1);
+    }
+
+    private void signAndCheck(final double value,
+                              final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.sign(),
+                value,
+                expected
+        );
+    }
+
     // helper...........................................................................................................
 
     private void applyAndCheck3(final NumberExpressionFunctionUnary<ExpressionFunctionContext> function,
