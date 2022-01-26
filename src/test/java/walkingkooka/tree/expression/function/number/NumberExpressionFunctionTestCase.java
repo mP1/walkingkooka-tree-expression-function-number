@@ -42,7 +42,9 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testDoesntConvert() {
-        if (!(this instanceof NumberExpressionFunctionCountTest || this instanceof NumberExpressionFunctionToTest)) {
+        if (!(this instanceof NumberExpressionFunctionRandomTest ||
+                this instanceof NumberExpressionFunctionCountTest ||
+                this instanceof NumberExpressionFunctionToTest)) {
             assertThrows(
                     ClassCastException.class,
                     () -> {

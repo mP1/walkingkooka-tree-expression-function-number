@@ -49,9 +49,11 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     @Override
     public final List<ExpressionFunctionParameter<?>> parameters() {
-        return this instanceof NumberExpressionFunctionUnary || this instanceof NumberExpressionFunctionTo ?
-                PARAMETERS_VALUE :
-                PARAMETERS_VALUES;
+        return this instanceof NumberExpressionFunctionRandom ?
+                ExpressionFunctionParameter.EMPTY :
+                this instanceof NumberExpressionFunctionUnary || this instanceof NumberExpressionFunctionTo ?
+                        PARAMETERS_VALUE :
+                        PARAMETERS_VALUES;
     }
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
