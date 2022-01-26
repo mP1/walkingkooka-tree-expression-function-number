@@ -24,6 +24,7 @@ import walkingkooka.tree.expression.ExpressionNumberContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 import java.util.function.BiFunction;
@@ -245,6 +246,11 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
                                           final BiFunction<ExpressionNumber, C, ExpressionNumber> function) {
         super(name);
         this.function = function;
+    }
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS_VALUE;
     }
 
     @Override

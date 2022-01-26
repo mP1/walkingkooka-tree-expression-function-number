@@ -20,6 +20,7 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
@@ -42,6 +43,11 @@ final class NumberExpressionFunctionMax<C extends ExpressionFunctionContext> ext
 
     private NumberExpressionFunctionMax() {
         super("max");
+    }
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS_VALUES;
     }
 
     @Override
