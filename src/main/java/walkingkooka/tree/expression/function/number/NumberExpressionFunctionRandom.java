@@ -20,6 +20,7 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
@@ -43,6 +44,11 @@ final class NumberExpressionFunctionRandom<C extends ExpressionFunctionContext> 
      */
     private NumberExpressionFunctionRandom() {
         super("random");
+    }
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return ExpressionFunctionParameter.EMPTY;
     }
 
     @Override

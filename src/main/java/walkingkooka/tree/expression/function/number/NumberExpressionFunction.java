@@ -47,23 +47,14 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
 
     private final FunctionExpressionName name;
 
-    @Override
-    public final List<ExpressionFunctionParameter<?>> parameters() {
-        return this instanceof NumberExpressionFunctionRandom ?
-                ExpressionFunctionParameter.EMPTY :
-                this instanceof NumberExpressionFunctionUnary || this instanceof NumberExpressionFunctionTo ?
-                        PARAMETERS_VALUE :
-                        PARAMETERS_VALUES;
-    }
-
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
 
     final static ExpressionFunctionParameter<List> NUMBERS = ExpressionFunctionParameterName.with("numbers")
             .required(List.class);
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(NUMBER);
+    final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(NUMBER);
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = ExpressionFunctionParameter.list(NUMBERS);
+    final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUES = ExpressionFunctionParameter.list(NUMBERS);
 
     @Override
     public final Class<ExpressionNumber> returnType() {

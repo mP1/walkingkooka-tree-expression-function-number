@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
@@ -46,6 +47,11 @@ final class NumberExpressionFunctionTo<C extends ExpressionFunctionContext> exte
      */
     private NumberExpressionFunctionTo() {
         super("number");
+    }
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS_VALUE;
     }
 
     @Override

@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
@@ -43,6 +44,11 @@ final class NumberExpressionFunctionAverage<C extends ExpressionFunctionContext>
 
     private NumberExpressionFunctionAverage() {
         super("average");
+    }
+
+    @Override
+    public List<ExpressionFunctionParameter<?>> parameters() {
+        return PARAMETERS_VALUES;
     }
 
     @Override
