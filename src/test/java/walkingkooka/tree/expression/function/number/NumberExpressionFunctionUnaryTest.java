@@ -260,6 +260,32 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // sqrt............................................................................................................
+
+    @Test
+    public void testSqrtZero() {
+        this.sqrtAndCheck(0, 0);
+    }
+
+    @Test
+    public void testSqrt1() {
+        this.sqrtAndCheck(1, 1);
+    }
+
+    @Test
+    public void testSqrt9() {
+        this.sqrtAndCheck(9, 3);
+    }
+
+    private void sqrtAndCheck(final double value,
+                              final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.sqrt(),
+                value,
+                expected
+        );
+    }
+
     // helper...........................................................................................................
 
     private void applyAndCheck3(final NumberExpressionFunctionUnary<ExpressionFunctionContext> function,

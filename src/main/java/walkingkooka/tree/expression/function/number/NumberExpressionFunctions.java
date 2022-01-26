@@ -49,6 +49,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         odd(),
                         round(),
                         sign(),
+                        sqrt(),
                         sum())
                 .forEach(consumer);
     }
@@ -156,6 +157,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sign() {
         return NumberExpressionFunctionUnary.sign();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#sqrt}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sqrt() {
+        return NumberExpressionFunctionUnary.sqrt();
     }
 
     /**
