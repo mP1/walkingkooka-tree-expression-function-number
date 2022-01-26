@@ -147,7 +147,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionUnary#random}
+     * {@see NumberExpressionFunctionRandom}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> random() {
         return NumberExpressionFunctionRandom.instance();
