@@ -47,6 +47,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         min(),
                         number(),
                         odd(),
+                        random(),
                         round(),
                         sign(),
                         sqrt(),
@@ -143,6 +144,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> odd() {
         return NumberExpressionFunctionUnary.odd();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#random}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> random() {
+        return NumberExpressionFunctionRandom.instance();
     }
 
     /**

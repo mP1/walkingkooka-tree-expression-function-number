@@ -25,6 +25,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - min(number...)
 - number(object)
 - odd(number)
+- random()
 - round(number)
 - sign(number)
 - sqrt(number)
