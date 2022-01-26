@@ -222,6 +222,23 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     /**
+     * SQRT getter.
+     * <br>
+     * https://exceljet.net/excel-functions/excel-sqrt-function
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> sqrt() {
+        return Cast.to(SQRT);
+    }
+
+    /**
+     * SQRT Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> SQRT = new NumberExpressionFunctionUnary<>(
+            "sqrt",
+            (n, c) -> n.sqrt(c)
+    );
+
+    /**
      * Private ctor
      */
     private NumberExpressionFunctionUnary(final String name,

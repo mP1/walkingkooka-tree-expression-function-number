@@ -27,6 +27,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - odd(number)
 - round(number)
 - sign(number)
+- sqrt(number)
 - sum(number...)
 
 
