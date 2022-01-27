@@ -31,12 +31,12 @@ public final class NumberExpressionFunctionCountTest extends NumberExpressionFun
 
     @Test
     public void testZeroParameters() {
-        this.applyAndCheck2(Lists.empty(), KIND.create(0));
+        this.applyAndCheck2(Lists.empty(), KIND.zero());
     }
 
     @Test
     public void testOneParameters() {
-        this.applyAndCheck2(Lists.of(1), KIND.create(1));
+        this.applyAndCheck2(Lists.of(1), KIND.one());
     }
 
     @Test

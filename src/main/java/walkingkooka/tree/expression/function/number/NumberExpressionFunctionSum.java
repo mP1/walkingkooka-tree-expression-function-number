@@ -57,7 +57,7 @@ final class NumberExpressionFunctionSum<C extends ExpressionFunctionContext> ext
                 .map(p -> (ExpressionNumber) p)
                 .reduce(
                         context.expressionNumberKind()
-                                .create(0),
+                                .zero(),
                         (subTotal, p) -> subTotal.add(p, context)
                 );
     }

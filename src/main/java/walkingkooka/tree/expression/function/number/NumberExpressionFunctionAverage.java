@@ -60,7 +60,7 @@ final class NumberExpressionFunctionAverage<C extends ExpressionFunctionContext>
                 kind.create(0) :
                 parameters.stream()
                         .map(p -> (ExpressionNumber) p)
-                        .reduce(kind.create(0), (subTotal, p) -> subTotal.add(p, context))
+                        .reduce(kind.zero(), (subTotal, p) -> subTotal.add(p, context))
                         .divide(kind.create(count), context);
     }
 }

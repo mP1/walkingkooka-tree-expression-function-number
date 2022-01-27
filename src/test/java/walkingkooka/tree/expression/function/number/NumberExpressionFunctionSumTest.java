@@ -30,7 +30,7 @@ public final class NumberExpressionFunctionSumTest extends NumberExpressionFunct
     public void testZeroParameters() {
         this.applyAndCheck2(
                 Lists.empty(),
-                KIND.create(0)
+                KIND.zero()
         );
     }
 
@@ -38,7 +38,7 @@ public final class NumberExpressionFunctionSumTest extends NumberExpressionFunct
     public void testOneParameters() {
         this.applyAndCheck2(
                 Lists.of(1),
-                KIND.create(1)
+                KIND.one()
         );
     }
 

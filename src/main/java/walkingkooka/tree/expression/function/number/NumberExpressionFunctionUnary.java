@@ -90,7 +90,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
                         ).negate(c);
                         break;
                     case ZERO:
-                        number = kind.create(0);
+                        number = kind.zero();
                         break;
                     case POSITIVE:
                         number = calculateEven(n, c);
