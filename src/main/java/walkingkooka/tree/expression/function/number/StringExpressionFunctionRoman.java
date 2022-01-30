@@ -129,6 +129,7 @@ final class StringExpressionFunctionRoman<C extends ExpressionFunctionContext> e
      * @param input the input string
      * @param form  the level of conciseness [0..4] with 4 being most concise and simplified
      */
+    @SuppressWarnings("lgtm[java/index-out-of-bounds]")
     private String makeConcise(final String input, final int form) {
         String result = input;
         for (int i = 0; i <= form && i <= 4 && form > 0; i++) {
