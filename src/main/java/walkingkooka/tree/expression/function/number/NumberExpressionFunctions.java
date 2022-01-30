@@ -49,6 +49,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         odd(),
                         random(),
                         randomBetween(),
+                        roman(),
                         round(),
                         sign(),
                         sqrt(),
@@ -159,6 +160,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> randomBetween() {
         return NumberExpressionFunctionRandomBetween.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionRoman}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> roman() {
+        return StringExpressionFunctionRoman.instance();
     }
 
     /**
