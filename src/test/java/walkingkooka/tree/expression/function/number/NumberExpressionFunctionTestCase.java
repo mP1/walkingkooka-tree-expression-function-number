@@ -42,7 +42,8 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testDoesntConvert() {
-        if (!(this instanceof NumberExpressionFunctionRandomTest ||
+        if (!(this instanceof NumberExpressionFunctionQuotientTest ||
+                this instanceof NumberExpressionFunctionRandomTest ||
                 this instanceof NumberExpressionFunctionRandomBetweenTest ||
                 this instanceof NumberExpressionFunctionCountTest ||
                 this instanceof NumberExpressionFunctionToTest)) {
