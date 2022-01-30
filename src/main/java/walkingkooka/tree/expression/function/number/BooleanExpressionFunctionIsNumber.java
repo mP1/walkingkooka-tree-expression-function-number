@@ -54,5 +54,5 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContex
         return PARAMETERS;
     }
 
-    private static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(ExpressionFunctionParameter.VALUE);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(ExpressionFunctionParameter.VALUE);
 }

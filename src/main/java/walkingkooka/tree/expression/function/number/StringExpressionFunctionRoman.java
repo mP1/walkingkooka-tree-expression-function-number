@@ -55,12 +55,12 @@ final class StringExpressionFunctionRoman<C extends ExpressionFunctionContext> e
         return PARAMETERS;
     }
 
-    private final ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
+    private final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
 
-    private final ExpressionFunctionParameter<ExpressionNumber> FORM = ExpressionFunctionParameterName.with("form")
+    private final static ExpressionFunctionParameter<ExpressionNumber> FORM = ExpressionFunctionParameterName.with("form")
             .optional(ExpressionNumber.class);
 
-    private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER,
             FORM
     );
