@@ -23,6 +23,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - isOdd(number)
 - max(number...)
 - min(number...)
+- mod(number, number) // follows excel mod semantics
 - number(object)
 - odd(number)
 - quotient(number, number)

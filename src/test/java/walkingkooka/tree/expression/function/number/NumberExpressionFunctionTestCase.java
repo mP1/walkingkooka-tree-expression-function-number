@@ -27,6 +27,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,7 +43,8 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Test
     public final void testDoesntConvert() {
-        if (!(this instanceof NumberExpressionFunctionQuotientTest ||
+        if (!(this instanceof NumberExpressionFunctionModTest ||
+                this instanceof NumberExpressionFunctionQuotientTest ||
                 this instanceof NumberExpressionFunctionRandomTest ||
                 this instanceof NumberExpressionFunctionRandomBetweenTest ||
                 this instanceof NumberExpressionFunctionCountTest ||
@@ -80,10 +82,19 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     @Override
     public final ExpressionFunctionContext createContext() {
+        return this.createContext(KIND);
+    }
+
+    final ExpressionFunctionContext createContext(final ExpressionNumberKind kind) {
         return new FakeExpressionFunctionContext() {
             @Override
             public ExpressionNumberKind expressionNumberKind() {
-                return KIND;
+                return kind;
+            }
+
+            @Override
+            public MathContext mathContext() {
+                return MathContext.DECIMAL128;
             }
 
             @Override
@@ -98,7 +109,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                     final Number number = value instanceof String ?
                             new BigDecimal((String) value) :
                             (Number) value;
-                    return Either.left(target.cast(KIND.create(number)));
+                    return Either.left(target.cast(kind.create(number)));
                 } catch (final Exception fail) {
                     return this.failConversion(value, target);
                 }
