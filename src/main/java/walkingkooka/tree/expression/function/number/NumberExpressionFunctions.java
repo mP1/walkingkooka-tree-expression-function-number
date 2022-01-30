@@ -47,6 +47,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         min(),
                         number(),
                         odd(),
+                        quotient(),
                         random(),
                         randomBetween(),
                         roman(),
@@ -146,6 +147,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> odd() {
         return NumberExpressionFunctionUnary.odd();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionQuotient}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> quotient() {
+        return NumberExpressionFunctionQuotient.instance();
     }
 
     /**
