@@ -142,7 +142,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      */
     private static final NumberExpressionFunctionUnary<?> LN = new NumberExpressionFunctionUnary<>(
             "ln",
-            (n, c) -> n.log(c)
+            (n, c) -> n.ln(c)
     );
 
     /**

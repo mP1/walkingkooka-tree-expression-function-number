@@ -163,7 +163,7 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         assertThrows(
                 IllegalArgumentException.class,
                 () -> KIND.create(-1)
-                        .log(this.createContext())
+                        .ln(this.createContext())
         );
     }
 
