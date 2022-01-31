@@ -30,6 +30,8 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - random()
 - randomBetween(lower, upper)
 - round(number)
+- roundDown(number, number)
+- roundUp(number, number)
 - sign(number)
 - sqrt(number)
 - sum(number...)

@@ -47,6 +47,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                 this instanceof NumberExpressionFunctionQuotientTest ||
                 this instanceof NumberExpressionFunctionRandomTest ||
                 this instanceof NumberExpressionFunctionRandomBetweenTest ||
+                this instanceof NumberExpressionFunctionRoundDownRoundUpTest ||
                 this instanceof NumberExpressionFunctionCountTest ||
                 this instanceof NumberExpressionFunctionToTest)) {
             assertThrows(
