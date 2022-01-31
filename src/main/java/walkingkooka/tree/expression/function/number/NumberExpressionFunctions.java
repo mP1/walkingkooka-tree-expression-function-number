@@ -38,6 +38,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         average(),
                         ceil(),
                         count(),
+                        e(),
                         even(),
                         floor(),
                         isEven(),
@@ -51,6 +52,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         mod(),
                         number(),
                         odd(),
+                        pi(),
                         quotient(),
                         random(),
                         randomBetween(),
@@ -90,6 +92,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
         return NumberExpressionFunctionCount.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionConstants#e()}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> e() {
+        return NumberExpressionFunctionConstants.e();
     }
 
     /**
@@ -181,6 +190,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> odd() {
         return NumberExpressionFunctionUnary.odd();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionConstants#pi()}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
+        return NumberExpressionFunctionConstants.pi();
     }
 
     /**
