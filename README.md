@@ -30,6 +30,8 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - mod(number, number) // follows excel mod semantics
 - number(object)
 - odd(number)
+- pi()
+- product(number, number)
 - quotient(number, number)
 - random()
 - randomBetween(lower, upper)
