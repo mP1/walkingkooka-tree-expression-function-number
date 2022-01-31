@@ -44,6 +44,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         isNumber(),
                         isOdd(),
                         ln(),
+                        log(),
                         log10(),
                         max(),
                         min(),
@@ -131,6 +132,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ln() {
         return NumberExpressionFunctionUnary.ln();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionLog}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> log() {
+        return NumberExpressionFunctionLog.instance();
     }
 
     /**
