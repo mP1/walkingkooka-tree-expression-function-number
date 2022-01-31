@@ -116,6 +116,21 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     }
 
     /**
+     * EXP getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> exp() {
+        return Cast.to(EXP);
+    }
+
+    /**
+     * EXP Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> EXP = new NumberExpressionFunctionUnary<>(
+            "exp",
+            (n, c) -> n.exp(c)
+    );
+
+    /**
      * FLOOR getter.
      */
     static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> floor() {

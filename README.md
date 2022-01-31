@@ -17,6 +17,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - ceil(number)
 - count(object...)
 - even(number)
+- exp(number)
 - floor(number)
 - isEven(number)
 - isNumber(object)

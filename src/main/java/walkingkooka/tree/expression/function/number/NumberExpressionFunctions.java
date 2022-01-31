@@ -39,6 +39,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         ceil(),
                         count(),
                         even(),
+                        exp(),
                         floor(),
                         isEven(),
                         isNumber(),
@@ -97,6 +98,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> even() {
         return NumberExpressionFunctionUnary.even();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#exp}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> exp() {
+        return NumberExpressionFunctionUnary.exp();
     }
 
     /**

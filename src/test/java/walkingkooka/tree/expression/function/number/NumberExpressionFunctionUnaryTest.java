@@ -126,6 +126,27 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // exp............................................................................................................
+
+    @Test
+    public void testExp0() {
+        this.expAndCheck(0, 1);
+    }
+
+    @Test
+    public void testExp10() {
+        this.expAndCheck(10, 22026.465794806718);
+    }
+
+    private void expAndCheck(final double value,
+                             final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.exp(),
+                value,
+                expected
+        );
+    }
+
     // floor............................................................................................................
 
     @Test
