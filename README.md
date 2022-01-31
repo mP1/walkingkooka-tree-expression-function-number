@@ -22,6 +22,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - isNumber(object)
 - isOdd(number)
 - ln(number)
+- log(number)
 - log10(number)
 - max(number...)
 - min(number...)
