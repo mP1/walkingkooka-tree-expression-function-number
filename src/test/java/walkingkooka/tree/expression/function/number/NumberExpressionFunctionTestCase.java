@@ -46,6 +46,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
         if (!(this instanceof NumberExpressionFunctionConstantsTest ||
                 this instanceof NumberExpressionFunctionLogTest ||
                 this instanceof NumberExpressionFunctionModTest ||
+                this instanceof NumberExpressionFunctionProductTest ||
                 this instanceof NumberExpressionFunctionQuotientTest ||
                 this instanceof NumberExpressionFunctionRandomTest ||
                 this instanceof NumberExpressionFunctionRandomBetweenTest ||
