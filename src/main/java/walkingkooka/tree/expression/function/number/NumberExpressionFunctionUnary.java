@@ -131,6 +131,21 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     /**
+     * LN getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> ln() {
+        return Cast.to(LN);
+    }
+
+    /**
+     * LN Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> LN = new NumberExpressionFunctionUnary<>(
+            "ln",
+            (n, c) -> n.log(c)
+    );
+
+    /**
      * ODD getter.
      */
     static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> odd() {

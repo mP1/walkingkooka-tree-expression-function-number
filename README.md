@@ -21,6 +21,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - isEven(number)
 - isNumber(object)
 - isOdd(number)
+- ln(number)
 - max(number...)
 - min(number...)
 - mod(number, number) // follows excel mod semantics
