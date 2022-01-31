@@ -191,6 +191,41 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // log10............................................................................................................
+
+    @Test
+    public void testLog10NegativeFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> KIND.create(-1)
+                        .log10(this.createContext())
+        );
+    }
+
+    @Test
+    public void testLog10_1() {
+        this.log10AndCheck(1, 0);
+    }
+
+    @Test
+    public void testLog10_10() {
+        this.log10AndCheck(10, 1);
+    }
+
+    @Test
+    public void testLog10_1000() {
+        this.log10AndCheck(1000, 3);
+    }
+
+    private void log10AndCheck(final double value,
+                               final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.log10(),
+                value,
+                expected
+        );
+    }
+
     // odd............................................................................................................
 
     @Test
