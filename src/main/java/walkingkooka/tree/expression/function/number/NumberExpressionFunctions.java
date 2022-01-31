@@ -53,6 +53,8 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         randomBetween(),
                         roman(),
                         round(),
+                        roundDown(),
+                        roundUp(),
                         sign(),
                         sqrt(),
                         sum())
@@ -190,6 +192,20 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
         return NumberExpressionFunctionUnary.round();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionRoundDownRoundUp#roundDown}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundDown() {
+        return NumberExpressionFunctionRoundDownRoundUp.roundDown();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionRoundDownRoundUp#roundUp}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundUp() {
+        return NumberExpressionFunctionRoundDownRoundUp.roundUp();
     }
 
     /**
