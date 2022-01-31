@@ -43,6 +43,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         isEven(),
                         isNumber(),
                         isOdd(),
+                        ln(),
                         max(),
                         min(),
                         mod(),
@@ -122,6 +123,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isOdd() {
         return BooleanExpressionFunctionIsEvenIsOdd.isOdd();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#ln}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ln() {
+        return NumberExpressionFunctionUnary.ln();
     }
 
     /**

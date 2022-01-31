@@ -22,6 +22,8 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnary<ExpressionFunctionContext>> {
 
     // abs........................................................................................................
@@ -149,6 +151,41 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
                                final double expected) {
         this.applyAndCheck3(
                 NumberExpressionFunctionUnary.floor(),
+                value,
+                expected
+        );
+    }
+
+    // ln............................................................................................................
+
+    @Test
+    public void testLnNegativeFails() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> KIND.create(-1)
+                        .log(this.createContext())
+        );
+    }
+
+    @Test
+    public void testLn1() {
+        this.lnAndCheck(1, 0);
+    }
+
+    @Test
+    public void testLn15() {
+        this.lnAndCheck(1.5, 0.4054651081081644);
+    }
+
+    @Test
+    public void testLn5() {
+        this.lnAndCheck(5, 1.6094379124341003);
+    }
+
+    private void lnAndCheck(final double value,
+                            final double expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.ln(),
                 value,
                 expected
         );
