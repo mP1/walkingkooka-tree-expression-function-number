@@ -161,7 +161,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      */
     private static final NumberExpressionFunctionUnary<?> INT = new NumberExpressionFunctionUnary<>(
             "int",
-            (n, c) -> n.round(c)
+            (n, c) -> round(n, c, RoundingMode.DOWN)
     );
 
     /**
@@ -265,10 +265,22 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      */
     private static final NumberExpressionFunctionUnary<?> ROUND = new NumberExpressionFunctionUnary<>(
             "round",
-            (n, c) -> n.round(
-                    NumberExpressionFunctionUnaryRoundExpressionNumberContext.with(new MathContext(c.mathContext().getPrecision(), RoundingMode.HALF_UP))
-            )
+            (n, c) -> round(n, c, RoundingMode.HALF_UP)
     );
+
+    private static ExpressionNumber round(final ExpressionNumber number,
+                                          final ExpressionNumberContext context,
+                                          final RoundingMode roundingMode) {
+        return number.round(
+                NumberExpressionFunctionUnaryExpressionNumberContext.with(
+                        new MathContext(
+                                context.mathContext()
+                                        .getPrecision(),
+                                roundingMode
+                        )
+                )
+        );
+    }
 
     /**
      * SIGN getter.

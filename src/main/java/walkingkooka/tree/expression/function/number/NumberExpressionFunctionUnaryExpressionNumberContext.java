@@ -21,13 +21,13 @@ import walkingkooka.tree.expression.FakeExpressionNumberContext;
 
 import java.math.MathContext;
 
-final class NumberExpressionFunctionUnaryRoundExpressionNumberContext extends FakeExpressionNumberContext {
+final class NumberExpressionFunctionUnaryExpressionNumberContext extends FakeExpressionNumberContext {
 
-    static NumberExpressionFunctionUnaryRoundExpressionNumberContext with(final MathContext mathContext) {
-        return new NumberExpressionFunctionUnaryRoundExpressionNumberContext(mathContext);
+    static NumberExpressionFunctionUnaryExpressionNumberContext with(final MathContext mathContext) {
+        return new NumberExpressionFunctionUnaryExpressionNumberContext(mathContext);
     }
 
-    private NumberExpressionFunctionUnaryRoundExpressionNumberContext(final MathContext mathContext) {
+    private NumberExpressionFunctionUnaryExpressionNumberContext(final MathContext mathContext) {
         this.mathContext = mathContext;
     }
 

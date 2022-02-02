@@ -19,6 +19,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - even(number)
 - exp(number)
 - floor(number)
+- int(number)
 - isEven(number)
 - isNumber(object)
 - isOdd(number)
