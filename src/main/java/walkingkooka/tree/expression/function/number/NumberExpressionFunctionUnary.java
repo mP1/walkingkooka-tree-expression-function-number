@@ -109,8 +109,10 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
 
     private static ExpressionNumber calculateEven(final ExpressionNumber number,
                                                   final ExpressionNumberContext context) {
-        final ExpressionNumber clearBit0 = number.setKind(context.expressionNumberKind())
-                .andNot(ONE);
+        final ExpressionNumberKind kind = context.expressionNumberKind();
+
+        final ExpressionNumber clearBit0 = number.setKind(kind)
+                .andNot(kind.one());
 
         return clearBit0.equals(number) ?
                 clearBit0 :
@@ -237,17 +239,19 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
 
     private static ExpressionNumber calculateOdd(final ExpressionNumber number,
                                                  final ExpressionNumberContext context) {
-        final ExpressionNumber plus1 = number.setKind(context.expressionNumberKind())
-                .add(ONE, context);
+        final ExpressionNumberKind kind = context.expressionNumberKind();
 
-        final ExpressionNumber clearBit0 = plus1.andNot(ONE);
+        final ExpressionNumber one = kind.one();
+
+        final ExpressionNumber plus1 = number.setKind(kind)
+                .add(one, context);
+
+        final ExpressionNumber clearBit0 = plus1.andNot(one);
 
         return plus1.equals(clearBit0) ?
-                clearBit0.subtract(ONE, context) :
-                clearBit0.add(ONE, context);
+                clearBit0.subtract(one, context) :
+                clearBit0.add(one, context);
     }
-
-    private final static ExpressionNumber ONE = ExpressionNumberKind.DEFAULT.create(1);
 
     /**
      * ROUND getter.
