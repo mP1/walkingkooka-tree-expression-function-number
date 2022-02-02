@@ -42,6 +42,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - sign(number)
 - sqrt(number)
 - sum(number...)
+- trunc(number, number?)
 
 
 Many more functions are outstanding and remain TODO.
