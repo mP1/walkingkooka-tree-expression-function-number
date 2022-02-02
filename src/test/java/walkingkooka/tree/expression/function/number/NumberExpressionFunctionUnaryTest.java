@@ -182,6 +182,82 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
         );
     }
 
+    // int............................................................................................................
+
+    @Test
+    public void testIntBigDecimal() {
+        this.intBigDecimalAndCheck(1.25, 1L);
+    }
+
+    @Test
+    public void testIntBigDecimal2() {
+        this.intBigDecimalAndCheck(1.5, 1L);
+    }
+
+    @Test
+    public void testIntBigDecimalInteger() {
+        this.intBigDecimalAndCheck(-2L);
+    }
+
+    @Test
+    public void testIntBigDecimalIntegerNegative() {
+        this.intBigDecimalAndCheck(-34.2, -34);
+    }
+
+    private void intBigDecimalAndCheck(final Number value) {
+        this.intBigDecimalAndCheck(value, value);
+    }
+
+    private void intBigDecimalAndCheck(final Number value,
+                                       final Number expected) {
+        this.applyAndCheck(
+                NumberExpressionFunctionUnary.intFunction(),
+                Lists.of(
+                        ExpressionNumberKind.BIG_DECIMAL.create(value)
+                ),
+                new FakeExpressionFunctionContext() {
+                    @Override
+                    public MathContext mathContext() {
+                        return new MathContext(0, RoundingMode.DOWN);
+                    }
+                },
+                ExpressionNumberKind.BIG_DECIMAL.create(expected)
+        );
+    }
+
+    @Test
+    public void testIntDoubleDown() {
+        this.intDoubleAndCheck(1.25, 1L);
+    }
+
+    @Test
+    public void testIntDoubleUp() {
+        this.intDoubleAndCheck(1.5, 1L);
+    }
+
+    @Test
+    public void testIntDoubleInteger() {
+        this.intDoubleAndCheck(-2L);
+    }
+
+    @Test
+    public void testIntDoubleIntegerNegative() {
+        this.intDoubleAndCheck(-34.2, -34);
+    }
+
+    private void intDoubleAndCheck(final Number value) {
+        this.intDoubleAndCheck(value, value);
+    }
+
+    private void intDoubleAndCheck(final Number value,
+                                   final Number expected) {
+        this.applyAndCheck3(
+                NumberExpressionFunctionUnary.intFunction(),
+                value,
+                expected
+        );
+    }
+
     // ln............................................................................................................
 
     @Test
