@@ -54,18 +54,19 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                         number(),
                         odd(),
                         pi(),
-                        product(),
-                        quotient(),
-                        random(),
-                        randomBetween(),
-                        roman(),
-                        round(),
-                        roundDown(),
-                        roundUp(),
-                        sign(),
-                        sqrt(),
-                        sum())
-                .forEach(consumer);
+                product(),
+                quotient(),
+                random(),
+                randomBetween(),
+                roman(),
+                round(),
+                roundDown(),
+                roundUp(),
+                sign(),
+                sqrt(),
+                sum(),
+                trunc()
+        ).forEach(consumer);
     }
 
     /**
@@ -283,6 +284,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sum() {
         return NumberExpressionFunctionSum.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionTrunc}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> trunc() {
+        return NumberExpressionFunctionTrunc.instance();
     }
 
     /**
