@@ -20,7 +20,12 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+
+import java.math.MathContext;
+import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -295,31 +300,72 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     // round............................................................................................................
 
     @Test
+    public void testRoundBigDecimalDown() {
+        this.roundBigDecimalAndCheck(1.25, 1L);
+    }
+
+    @Test
+    public void testRoundBigDecimalUp() {
+        this.roundBigDecimalAndCheck(1.5, 2L);
+    }
+
+    @Test
+    public void testRoundBigDecimalInteger() {
+        this.roundBigDecimalAndCheck(-2L);
+    }
+
+    @Test
+    public void testRoundBigDecimalIntegerNegative() {
+        this.roundBigDecimalAndCheck(-34.2, -34);
+    }
+
+    private void roundBigDecimalAndCheck(final Number value) {
+        this.roundBigDecimalAndCheck(value, value);
+    }
+
+    private void roundBigDecimalAndCheck(final Number value,
+                                         final Number expected) {
+        this.applyAndCheck(
+                NumberExpressionFunctionUnary.round(),
+                Lists.of(
+                        ExpressionNumberKind.BIG_DECIMAL.create(value)
+                ),
+                new FakeExpressionFunctionContext() {
+                    @Override
+                    public MathContext mathContext() {
+                        return new MathContext(0, RoundingMode.HALF_UP);
+                    }
+                },
+                ExpressionNumberKind.BIG_DECIMAL.create(expected)
+        );
+    }
+
+    @Test
     public void testRoundDoubleDown() {
-        this.roundAndCheck(1.25, 1L);
+        this.roundDoubleAndCheck(1.25, 1L);
     }
 
     @Test
     public void testRoundDoubleUp() {
-        this.roundAndCheck(1.5, 2L);
+        this.roundDoubleAndCheck(1.5, 2L);
     }
 
     @Test
-    public void testRoundLong() {
-        this.roundAndCheck(-2L);
+    public void testRoundDoubleInteger() {
+        this.roundDoubleAndCheck(-2L);
     }
 
     @Test
-    public void testRoundIntegerNegative() {
-        this.roundAndCheck(-34.2, -34);
+    public void testRoundDoubleIntegerNegative() {
+        this.roundDoubleAndCheck(-34.2, -34);
     }
 
-    private void roundAndCheck(final Number value) {
-        this.roundAndCheck(value, value);
+    private void roundDoubleAndCheck(final Number value) {
+        this.roundDoubleAndCheck(value, value);
     }
 
-    private void roundAndCheck(final Number value,
-                               final Number expected) {
+    private void roundDoubleAndCheck(final Number value,
+                                     final Number expected) {
         this.applyAndCheck3(
                 NumberExpressionFunctionUnary.round(),
                 value,

@@ -26,6 +26,8 @@ import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.function.BiFunction;
 
@@ -146,6 +148,21 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     );
 
     /**
+     * INT getter.
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> intFunction() {
+        return Cast.to(INT);
+    }
+
+    /**
+     * INT Singleton
+     */
+    private static final NumberExpressionFunctionUnary<?> INT = new NumberExpressionFunctionUnary<>(
+            "int",
+            (n, c) -> n.round(c)
+    );
+
+    /**
      * LN getter.
      */
     static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> ln() {
@@ -244,7 +261,9 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      */
     private static final NumberExpressionFunctionUnary<?> ROUND = new NumberExpressionFunctionUnary<>(
             "round",
-            (n, c) -> n.round(c)
+            (n, c) -> n.round(
+                    NumberExpressionFunctionUnaryRoundExpressionNumberContext.with(new MathContext(c.mathContext().getPrecision(), RoundingMode.HALF_UP))
+            )
     );
 
     /**
