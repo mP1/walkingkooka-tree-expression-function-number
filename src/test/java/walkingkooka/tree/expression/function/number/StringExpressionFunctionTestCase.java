@@ -21,6 +21,9 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> extends ExpressionFunctionTestCase<F, T> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
@@ -35,6 +38,25 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
             @Override
             public ExpressionNumberKind expressionNumberKind() {
                 return KIND;
+            }
+
+            public MathContext mathContext() {
+                return new MathContext(0, RoundingMode.HALF_UP);
+            }
+
+            @Override
+            public char decimalSeparator() {
+                return 'd';
+            }
+
+            @Override
+            public char groupingSeparator() {
+                return 'g';
+            }
+
+            @Override
+            public char negativeSign() {
+                return 'n';
             }
         };
     }

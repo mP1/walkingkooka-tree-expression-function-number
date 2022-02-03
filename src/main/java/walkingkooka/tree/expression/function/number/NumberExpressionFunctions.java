@@ -35,21 +35,22 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(abs(),
-                        average(),
-                        ceil(),
-                        count(),
-                        e(),
-                        even(),
-                        floor(),
-                        intFunction(),
-                        isEven(),
-                        isNumber(),
-                        isOdd(),
-                        ln(),
-                        log(),
-                        log10(),
-                        max(),
-                        min(),
+                average(),
+                ceil(),
+                count(),
+                e(),
+                even(),
+                fixed(),
+                floor(),
+                intFunction(),
+                isEven(),
+                isNumber(),
+                isOdd(),
+                ln(),
+                log(),
+                log10(),
+                max(),
+                min(),
                         mod(),
                         number(),
                         odd(),
@@ -109,6 +110,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> even() {
         return NumberExpressionFunctionUnary.even();
+    }
+
+    /**
+     * {@see StringExpressionFunctionFixed#fixed}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> fixed() {
+        return StringExpressionFunctionFixed.instance();
     }
 
     /**
