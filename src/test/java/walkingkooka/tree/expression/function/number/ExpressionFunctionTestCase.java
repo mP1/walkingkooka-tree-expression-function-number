@@ -26,7 +26,6 @@ import walkingkooka.tree.expression.ExpressionPurityTesting;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
 import walkingkooka.tree.expression.function.ExpressionFunctionTesting;
 
 public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> implements ExpressionFunctionTesting<F, T, ExpressionFunctionContext>,
@@ -60,11 +59,6 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
     @Test
     public final void testResolveReferencesTrue() {
         this.resolveReferencesAndCheck(true);
-    }
-
-    @Override
-    public ExpressionFunctionContext createContext() {
-        return ExpressionFunctionContexts.fake();
     }
 
     @Override
