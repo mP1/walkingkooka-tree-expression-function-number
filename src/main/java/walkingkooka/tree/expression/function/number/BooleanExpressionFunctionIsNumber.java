@@ -18,11 +18,18 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
+/**
+ * A {@link walkingkooka.tree.expression.function.ExpressionFunction} that requires a single parameter, and return true
+ * if it is a {@link ExpressionNumber} or can be converted to a {@link ExpressionNumber}.
+ *
+ * @param <C>
+ */
 // https://support.google.com/docs/answer/3093296?hl=en&ref_topic=3105471
 final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
 
@@ -46,7 +53,11 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContex
     public Boolean apply(final List<Object> parameters,
                          final C context) {
         this.checkParameterCount(parameters);
-        return ExpressionFunctionParameter.VALUE.getOrFail(parameters, 0) instanceof Number;
+
+        return context.convert(
+                ExpressionFunctionParameter.VALUE.getOrFail(parameters, 0),
+                ExpressionNumber.class
+        ).isLeft();
     }
 
     @Override
