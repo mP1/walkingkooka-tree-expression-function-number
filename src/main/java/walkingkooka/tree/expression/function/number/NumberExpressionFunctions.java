@@ -38,6 +38,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 average(),
                 ceil(),
                 count(),
+                decimal(),
                 e(),
                 even(),
                 fixed(),
@@ -96,6 +97,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
         return NumberExpressionFunctionCount.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionDecimal}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> decimal() {
+        return NumberExpressionFunctionDecimal.instance();
     }
 
     /**
