@@ -44,6 +44,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     @Test
     public final void testDoesntConvert() {
         if (!(this instanceof NumberExpressionFunctionConstantsTest ||
+                this instanceof NumberExpressionFunctionDecimalTest ||
                 this instanceof NumberExpressionFunctionLogTest ||
                 this instanceof NumberExpressionFunctionModTest ||
                 this instanceof NumberExpressionFunctionProductTest ||
@@ -92,6 +93,16 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
             @Override
             public MathContext mathContext() {
                 return MathContext.DECIMAL128;
+            }
+
+            @Override
+            public char negativeSign() {
+                return '-';
+            }
+
+            @Override
+            public char positiveSign() {
+                return '+';
             }
 
             @Override

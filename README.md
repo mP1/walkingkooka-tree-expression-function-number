@@ -16,6 +16,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - average(number...)
 - ceil(number)
 - count(object...)
+- decimal(string, number base)
 - even(number)
 - exp(number)
 - fixed(number, number decimalplaces, boolean skipGroupingSeparator)
