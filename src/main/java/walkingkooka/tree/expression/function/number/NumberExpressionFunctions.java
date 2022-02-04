@@ -36,6 +36,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(abs(),
                 average(),
+                base(),
                 ceil(),
                 count(),
                 decimal(),
@@ -83,6 +84,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> average() {
         return NumberExpressionFunctionAverage.instance();
+    }
+
+    /**
+     * {@see StringExpressionFunctionBase}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> base() {
+        return StringExpressionFunctionBase.instance();
     }
 
     /**

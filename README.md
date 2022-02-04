@@ -14,6 +14,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 
 - abs(number)
 - average(number...)
+- base(number, number base, number minLength)
 - ceil(number)
 - count(object...)
 - decimal(string, number base)

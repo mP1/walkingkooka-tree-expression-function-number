@@ -23,6 +23,7 @@ import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Locale;
 
 public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunction<T, ExpressionFunctionContext>, T> extends ExpressionFunctionTestCase<F, T> {
 
@@ -57,6 +58,11 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
             @Override
             public char negativeSign() {
                 return 'n';
+            }
+
+            @Override
+            public Locale locale() {
+                return Locale.forLanguageTag("EN-AU");
             }
         };
     }
