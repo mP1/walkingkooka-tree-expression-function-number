@@ -13,10 +13,8 @@ A collection of ExpressionFunction(s) that operate and return number results.
 ## Available functions
 
 - abs(number)
-- average(number...)
 - base(number, number base, number minLength)
 - ceil(number)
-- count(object...)
 - decimal(string, number base)
 - even(number)
 - exp(number)
@@ -29,8 +27,6 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - ln(number)
 - log(number)
 - log10(number)
-- max(number...)
-- min(number...)
 - mod(number, number) // follows excel mod semantics
 - number(object)
 - odd(number)
@@ -44,7 +40,6 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - roundUp(number, number)
 - sign(number)
 - sqrt(number)
-- sum(number...)
 - trunc(number, number?)
 
 

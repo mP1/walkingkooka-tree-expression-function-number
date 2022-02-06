@@ -35,10 +35,8 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
         Lists.of(abs(),
-                average(),
                 base(),
                 ceil(),
-                count(),
                 decimal(),
                 e(),
                 even(),
@@ -51,12 +49,10 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 ln(),
                 log(),
                 log10(),
-                max(),
-                min(),
-                        mod(),
-                        number(),
-                        odd(),
-                        pi(),
+                mod(),
+                number(),
+                odd(),
+                pi(),
                 product(),
                 quotient(),
                 random(),
@@ -67,7 +63,6 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 roundUp(),
                 sign(),
                 sqrt(),
-                sum(),
                 trunc()
         ).forEach(consumer);
     }
@@ -77,13 +72,6 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> abs() {
         return NumberExpressionFunctionUnary.absolute();
-    }
-
-    /**
-     * {@see NumberExpressionFunctionAverage}
-     */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> average() {
-        return NumberExpressionFunctionAverage.instance();
     }
 
     /**
@@ -98,13 +86,6 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ceil() {
         return NumberExpressionFunctionUnary.ceil();
-    }
-
-    /**
-     * {@see NumberExpressionFunctionCount}
-     */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> count() {
-        return NumberExpressionFunctionCount.instance();
     }
 
     /**
@@ -189,20 +170,6 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> log10() {
         return NumberExpressionFunctionUnary.log10();
-    }
-
-    /**
-     * {@see NumberExpressionFunctionMax}
-     */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> max() {
-        return NumberExpressionFunctionMax.instance();
-    }
-
-    /**
-     * {@see NumberExpressionFunctionMin}
-     */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> min() {
-        return NumberExpressionFunctionMin.instance();
     }
 
     /**
@@ -301,13 +268,6 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sqrt() {
         return NumberExpressionFunctionUnary.sqrt();
-    }
-
-    /**
-     * {@see NumberExpressionFunctionSum}
-     */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sum() {
-        return NumberExpressionFunctionSum.instance();
     }
 
     /**
