@@ -44,7 +44,6 @@ public final class NumberExpressionFunctionsTest implements PublicStaticHelperTe
                         .size(),
                 names.size());
         this.checkEquals(true, names.contains(NumberExpressionFunctions.ceil().name()));
-        this.checkEquals(true, names.contains(NumberExpressionFunctions.count().name()));
     }
 
     @Test
