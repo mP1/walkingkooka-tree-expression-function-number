@@ -38,6 +38,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 base(),
                 ceil(),
                 decimal(),
+                delta(),
                 e(),
                 even(),
                 fixed(),
@@ -93,6 +94,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> decimal() {
         return NumberExpressionFunctionDecimal.instance();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionDelta}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> delta() {
+        return NumberExpressionFunctionDelta.instance();
     }
 
     /**
