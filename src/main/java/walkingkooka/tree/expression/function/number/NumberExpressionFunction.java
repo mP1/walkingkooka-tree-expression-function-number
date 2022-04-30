@@ -22,10 +22,13 @@ import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Base for any function that handles and requires numbers.
@@ -61,21 +64,21 @@ abstract class NumberExpressionFunction<C extends ExpressionFunctionContext> imp
         return ExpressionNumber.class;
     }
 
+    @Override
+    public Set<ExpressionFunctionKind> kinds() {
+        return KINDS;
+    }
+
+    private final Set<ExpressionFunctionKind> KINDS = EnumSet.of(
+            ExpressionFunctionKind.REQUIRES_EVALUATED_PARAMETERS,
+            ExpressionFunctionKind.RESOLVE_REFERENCES
+    );
+
     /**
      * All number functions are pure. Does not assume anything about any parameters.
      */
     @Override
     public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
-    }
-
-    @Override
-    public final boolean requiresEvaluatedParameters() {
-        return true;
-    }
-
-    @Override
-    public final boolean resolveReferences() {
         return true;
     }
 
