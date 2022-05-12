@@ -18,7 +18,6 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - decimal(string, number base)
 - decimal(number1, number2?)
 - even(number)
-- exp(number)
 - fixed(number, number decimalplaces, boolean skipGroupingSeparator)
 - floor(number)
 - int(number)
