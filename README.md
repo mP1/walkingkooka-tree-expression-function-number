@@ -35,6 +35,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - quotient(number, number)
 - random()
 - randomBetween(lower, upper)
+- roman(number)
 - round(number)
 - roundDown(number, number)
 - roundUp(number, number)
