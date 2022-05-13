@@ -17,6 +17,8 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - ceil(number)
 - decimal(string, number base)
 - decimal(number1, number2?)
+- delta(number, number2)
+- e()
 - even(number)
 - fixed(number, number decimalplaces, boolean skipGroupingSeparator)
 - floor(number)
