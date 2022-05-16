@@ -84,6 +84,7 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
     final ExpressionFunctionContext createContext(final ExpressionNumberKind kind) {
         return new FakeExpressionFunctionContext() {
+
             @Override
             public ExpressionNumberKind expressionNumberKind() {
                 return kind;
@@ -92,6 +93,11 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
             @Override
             public MathContext mathContext() {
                 return MathContext.DECIMAL128;
+            }
+
+            @Override
+            public char decimalSeparator() {
+                return '.';
             }
 
             @Override
