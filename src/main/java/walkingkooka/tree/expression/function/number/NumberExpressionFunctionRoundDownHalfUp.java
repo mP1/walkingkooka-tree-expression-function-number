@@ -29,20 +29,34 @@ import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-rounddown-function
 // https://exceljet.net/excel-functions/excel-roundup-function
-final class NumberExpressionFunctionRoundDownRoundUp<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
 
     /**
      * ROUNDDOWN Instance getter.
      * <br>
      * https://exceljet.net/excel-functions/excel-rounddown-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownRoundUp<C> roundDown() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundDown() {
         return Cast.to(ROUND_DOWN);
     }
 
-    private static final NumberExpressionFunctionRoundDownRoundUp<?> ROUND_DOWN = new NumberExpressionFunctionRoundDownRoundUp<>(
+    private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_DOWN = new NumberExpressionFunctionRoundDownHalfUp<>(
             "roundDown",
             RoundingMode.DOWN
+    );
+
+    /**
+     * ROUNDHALF Instance getter.
+     * <br>
+     * https://exceljet.net/excel-functions/excel-round-function
+     */
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundHalf() {
+        return Cast.to(ROUND_HALF);
+    }
+
+    private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_HALF = new NumberExpressionFunctionRoundDownHalfUp<>(
+            "roundHalf",
+            RoundingMode.HALF_UP
     );
 
     /**
@@ -50,11 +64,11 @@ final class NumberExpressionFunctionRoundDownRoundUp<C extends ExpressionFunctio
      * <br>
      * https://exceljet.net/excel-functions/excel-roundup-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownRoundUp<C> roundUp() {
+    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundUp() {
         return Cast.to(ROUND_UP);
     }
 
-    private static final NumberExpressionFunctionRoundDownRoundUp<?> ROUND_UP = new NumberExpressionFunctionRoundDownRoundUp<>(
+    private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_UP = new NumberExpressionFunctionRoundDownHalfUp<>(
             "roundUp",
             RoundingMode.UP
     );
@@ -63,8 +77,8 @@ final class NumberExpressionFunctionRoundDownRoundUp<C extends ExpressionFunctio
     /**
      * Private ctor
      */
-    private NumberExpressionFunctionRoundDownRoundUp(final String name,
-                                                     final RoundingMode roundingMode) {
+    private NumberExpressionFunctionRoundDownHalfUp(final String name,
+                                                    final RoundingMode roundingMode) {
         super(name);
         this.roundingMode = roundingMode;
     }

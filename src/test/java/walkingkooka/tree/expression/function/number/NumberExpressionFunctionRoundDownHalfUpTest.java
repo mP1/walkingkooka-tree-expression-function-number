@@ -22,7 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRoundDownRoundUp<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext>> {
 
     // roundDown.......................................................................................................
     // https://exceljet.net/excel-functions/excel-rounddown-function
@@ -112,7 +112,101 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
                                    final Number digits,
                                    final Number expected) {
         this.roundAndCheck(
-                NumberExpressionFunctionRoundDownRoundUp.roundDown(),
+                NumberExpressionFunctionRoundDownHalfUp.roundDown(),
+                number,
+                digits,
+                expected
+        );
+    }
+
+    // roundHalf.........................................................................................................
+
+    @Test
+    public void testRoundHalfDigitsMinus4() {
+        this.roundHalfAndCheck(
+                23542.5,
+                -4,
+                20000
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsMinus3() {
+        this.roundHalfAndCheck(
+                23542.5,
+                -3,
+                24000
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsMinus2() {
+        this.roundHalfAndCheck(
+                23542.5,
+                -2,
+                23500
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsMinus1() {
+        this.roundHalfAndCheck(
+                23542.5,
+                -1,
+                23540
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigits0() {
+        this.roundHalfAndCheck(
+                23542.5,
+                0,
+                23543
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsPlus1() {
+        this.roundHalfAndCheck(
+                5.7845,
+                1,
+                5.8
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsPlus2() {
+        this.roundHalfAndCheck(
+                5.7845,
+                2,
+                5.78
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsPlus3() {
+        this.roundHalfAndCheck(
+                5.7845,
+                3,
+                5.785
+        );
+    }
+
+    @Test
+    public void testRoundHalfDigitsPlus4() {
+        this.roundHalfAndCheck(
+                5.7845,
+                4,
+                5.7845
+        );
+    }
+
+    private void roundHalfAndCheck(final Number number,
+                                   final Number digits,
+                                   final Number expected) {
+        this.roundAndCheck(
+                NumberExpressionFunctionRoundDownHalfUp.roundHalf(),
                 number,
                 digits,
                 expected
@@ -120,7 +214,7 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
     }
 
     // roundUp.........................................................................................................
-// https://exceljet.net/excel-functions/excel-roundup-function
+    // https://exceljet.net/excel-functions/excel-roundup-function
 
     @Test
     public void testRoundUpDigits0() {
@@ -207,14 +301,14 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
                                  final Number digits,
                                  final Number expected) {
         this.roundAndCheck(
-                NumberExpressionFunctionRoundDownRoundUp.roundUp(),
+                NumberExpressionFunctionRoundDownHalfUp.roundUp(),
                 number,
                 digits,
                 expected
         );
     }
 
-    private void roundAndCheck(final NumberExpressionFunctionRoundDownRoundUp<ExpressionFunctionContext> function,
+    private void roundAndCheck(final NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext> function,
                                final Number number,
                                final Number digits,
                                final Number expected) {
@@ -234,7 +328,7 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
     @Test
     public void testToStringRoundDown() {
         this.toStringAndCheck(
-                NumberExpressionFunctionRoundDownRoundUp.roundDown(),
+                NumberExpressionFunctionRoundDownHalfUp.roundDown(),
                 "roundDown"
         );
     }
@@ -242,7 +336,7 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
     @Test
     public void testToStringRoundUp() {
         this.toStringAndCheck(
-                NumberExpressionFunctionRoundDownRoundUp.roundUp(),
+                NumberExpressionFunctionRoundDownHalfUp.roundUp(),
                 "roundUp"
         );
     }
@@ -250,12 +344,12 @@ public final class NumberExpressionFunctionRoundDownRoundUpTest extends NumberEx
     // ExpressionFunctionTesting........................................................................................
 
     @Override
-    public NumberExpressionFunctionRoundDownRoundUp<ExpressionFunctionContext> createBiFunction() {
-        return NumberExpressionFunctionRoundDownRoundUp.roundDown();
+    public NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext> createBiFunction() {
+        return NumberExpressionFunctionRoundDownHalfUp.roundDown();
     }
 
     @Override
-    public Class<NumberExpressionFunctionRoundDownRoundUp<ExpressionFunctionContext>> type() {
-        return Cast.to(NumberExpressionFunctionRoundDownRoundUp.class);
+    public Class<NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext>> type() {
+        return Cast.to(NumberExpressionFunctionRoundDownHalfUp.class);
     }
 }

@@ -62,6 +62,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 roman(),
                 round(),
                 roundDown(),
+                roundHalf(),
                 roundUp(),
                 sign(),
                 sqrt(),
@@ -259,17 +260,24 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     }
 
     /**
-     * {@see NumberExpressionFunctionRoundDownRoundUp#roundDown}
+     * {@see NumberExpressionFunctionRoundDownHalfUp#roundDown}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundDown() {
-        return NumberExpressionFunctionRoundDownRoundUp.roundDown();
+        return NumberExpressionFunctionRoundDownHalfUp.roundDown();
     }
 
     /**
-     * {@see NumberExpressionFunctionRoundDownRoundUp#roundUp}
+     * {@see NumberExpressionFunctionRoundHalfRoundUp#roundHalf}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundHalf() {
+        return NumberExpressionFunctionRoundDownHalfUp.roundHalf();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionRoundDownHalfUp#roundUp}
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundUp() {
-        return NumberExpressionFunctionRoundDownRoundUp.roundUp();
+        return NumberExpressionFunctionRoundDownHalfUp.roundUp();
     }
 
     /**
