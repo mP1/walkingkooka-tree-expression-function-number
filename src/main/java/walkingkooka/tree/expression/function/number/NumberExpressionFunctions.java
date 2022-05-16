@@ -41,6 +41,7 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
                 delta(),
                 e(),
                 even(),
+                exp(),
                 fixed(),
                 floor(),
                 intFunction(),
@@ -115,6 +116,13 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
      */
     public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> even() {
         return NumberExpressionFunctionUnary.even();
+    }
+
+    /**
+     * {@see NumberExpressionFunctionUnary#exp}
+     */
+    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> exp() {
+        return NumberExpressionFunctionUnary.exp();
     }
 
     /**
