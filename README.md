@@ -20,6 +20,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - delta(number, number2)
 - e()
 - even(number)
+- exp(number)
 - fixed(number, number decimalplaces, boolean skipGroupingSeparator)
 - floor(number)
 - int(number)
