@@ -41,6 +41,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - roman(number)
 - round(number)
 - roundDown(number, number)
+- roundHalf(number, number)
 - roundUp(number, number)
 - sign(number)
 - sqrt(number)
