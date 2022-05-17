@@ -55,6 +55,7 @@ abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> im
     }
 
     private final Set<ExpressionFunctionKind> KINDS = EnumSet.of(
+            ExpressionFunctionKind.CONVERT_PARAMETERS,
             ExpressionFunctionKind.EVALUATE_PARAMETERS,
             ExpressionFunctionKind.RESOLVE_REFERENCES
     );
