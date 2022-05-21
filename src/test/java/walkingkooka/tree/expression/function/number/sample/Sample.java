@@ -23,7 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.number.NumberExpressionFunctions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,7 +33,7 @@ public final class Sample {
         final ExpressionNumber value = ExpressionNumberKind.DEFAULT.create(-1.5);
         final Object result = NumberExpressionFunctions.abs()
                 .apply(Lists.of(value),
-                        new FakeExpressionFunctionContext() {
+                        new FakeExpressionEvaluationContext() {
 
                             public <T> Either<T, String> convert(final Object v,
                                                                  final Class<T> target) {

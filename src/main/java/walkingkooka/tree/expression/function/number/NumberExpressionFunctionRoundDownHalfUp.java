@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,14 +29,14 @@ import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-rounddown-function
 // https://exceljet.net/excel-functions/excel-roundup-function
-final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * ROUNDDOWN Instance getter.
      * <br>
      * https://exceljet.net/excel-functions/excel-rounddown-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundDown() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionRoundDownHalfUp<C> roundDown() {
         return Cast.to(ROUND_DOWN);
     }
 
@@ -50,7 +50,7 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionFunction
      * <br>
      * https://exceljet.net/excel-functions/excel-round-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundHalf() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionRoundDownHalfUp<C> roundHalf() {
         return Cast.to(ROUND_HALF);
     }
 
@@ -64,7 +64,7 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionFunction
      * <br>
      * https://exceljet.net/excel-functions/excel-roundup-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRoundDownHalfUp<C> roundUp() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionRoundDownHalfUp<C> roundUp() {
         return Cast.to(ROUND_UP);
     }
 

@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,12 +29,12 @@ import java.text.DecimalFormatSymbols;
 import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-fixed-function
-final class StringExpressionFunctionFixed<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionFixed<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionFixed<C> instance() {
         return Cast.to(INSTANCE);
     }
 

@@ -19,20 +19,20 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
 
 // https://support.google.com/docs/answer/3093438?hl=en&ref_topic=3105474
-final class NumberExpressionFunctionRandomBetween<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRandomBetween<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionRandomBetween<C> instance() {
         return Cast.to(INSTANCE);
     }
 

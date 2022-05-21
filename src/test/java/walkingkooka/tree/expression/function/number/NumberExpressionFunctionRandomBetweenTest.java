@@ -20,15 +20,15 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NumberExpressionFunctionRandomBetweenTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRandomBetween<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionRandomBetweenTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRandomBetween<ExpressionEvaluationContext>> {
 
     @Test
     public void testZeroParameters() {
-        final ExpressionFunctionContext context = this.createContext();
+        final ExpressionEvaluationContext context = this.createContext();
 
         final ExpressionNumberKind kind = context.expressionNumberKind();
         final ExpressionNumber lower = kind.create(10);
@@ -68,12 +68,12 @@ public final class NumberExpressionFunctionRandomBetweenTest extends NumberExpre
     }
 
     @Override
-    public NumberExpressionFunctionRandomBetween<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionRandomBetween<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionRandomBetween.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionRandomBetween<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionRandomBetween<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRandomBetween.class);
     }
 }

@@ -20,10 +20,10 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
-public final class NumberExpressionFunctionModTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionMod<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionModTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionMod<ExpressionEvaluationContext>> {
 
     private final static ExpressionNumberKind KIND = ExpressionNumberKind.BIG_DECIMAL; // necessary to avoid double precision loss
 
@@ -127,12 +127,12 @@ public final class NumberExpressionFunctionModTest extends NumberExpressionFunct
     }
 
     @Override
-    public NumberExpressionFunctionMod<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionMod<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionMod.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionMod<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionMod<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionMod.class);
     }
 }

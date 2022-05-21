@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberSign;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,12 +29,12 @@ import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-roman-function
 // https://support.google.com/docs/answer/3094153?hl=en
-final class StringExpressionFunctionRoman<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionRoman<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionRoman<C> instance() {
         return Cast.to(INSTANCE);
     }
 

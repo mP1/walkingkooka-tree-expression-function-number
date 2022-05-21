@@ -19,8 +19,8 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -29,12 +29,12 @@ import java.util.function.Function;
 /**
  * Functions that return constants like E and PI.
  */
-final class NumberExpressionFunctionConstants<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionConstants<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * e Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionConstants<C> e() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionConstants<C> e() {
         return Cast.to(E);
     }
 
@@ -46,7 +46,7 @@ final class NumberExpressionFunctionConstants<C extends ExpressionFunctionContex
     /**
      * e Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionConstants<C> pi() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionConstants<C> pi() {
         return Cast.to(PI);
     }
 
@@ -56,7 +56,7 @@ final class NumberExpressionFunctionConstants<C extends ExpressionFunctionContex
     );
 
     private NumberExpressionFunctionConstants(final String name,
-                                              final Function<ExpressionFunctionContext, ExpressionNumber> getter) {
+                                              final Function<ExpressionEvaluationContext, ExpressionNumber> getter) {
         super(name);
         this.getter = getter;
     }
@@ -74,5 +74,5 @@ final class NumberExpressionFunctionConstants<C extends ExpressionFunctionContex
         return this.getter.apply(context);
     }
 
-    private final Function<ExpressionFunctionContext, ExpressionNumber> getter;
+    private final Function<ExpressionEvaluationContext, ExpressionNumber> getter;
 }

@@ -18,8 +18,8 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -31,12 +31,12 @@ import java.util.List;
  * @param <C>
  */
 // https://support.google.com/docs/answer/3093296?hl=en&ref_topic=3105471
-final class BooleanExpressionFunctionIsNumber<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
+final class BooleanExpressionFunctionIsNumber<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsNumber<C> instance() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionIsNumber<C> instance() {
         return Cast.to(INSTANCE);
     }
 

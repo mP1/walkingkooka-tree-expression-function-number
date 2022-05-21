@@ -19,15 +19,15 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionConstantsTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionConstants<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionConstantsTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionConstants<ExpressionEvaluationContext>> {
 
     @Test
     public void testE() {
         this.applyAndCheck2(
                 NumberExpressionFunctionConstants.e(),
-                ExpressionFunctionContext.NO_PARAMETERS,
+                ExpressionEvaluationContext.NO_PARAMETERS,
                 KIND.create(Math.E)
         );
     }
@@ -36,7 +36,7 @@ public final class NumberExpressionFunctionConstantsTest extends NumberExpressio
     public void testPI() {
         this.applyAndCheck2(
                 NumberExpressionFunctionConstants.pi(),
-                ExpressionFunctionContext.NO_PARAMETERS,
+                ExpressionEvaluationContext.NO_PARAMETERS,
                 KIND.create(Math.PI)
         );
     }
@@ -58,12 +58,12 @@ public final class NumberExpressionFunctionConstantsTest extends NumberExpressio
     }
 
     @Override
-    public NumberExpressionFunctionConstants<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionConstants<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionConstants.e();
     }
 
     @Override
-    public Class<NumberExpressionFunctionConstants<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionConstants<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionConstants.class);
     }
 }

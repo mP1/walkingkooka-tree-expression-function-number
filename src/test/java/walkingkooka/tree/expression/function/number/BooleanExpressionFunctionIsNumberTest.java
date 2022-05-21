@@ -21,11 +21,11 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 
-public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsNumber<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsNumber<ExpressionEvaluationContext>> {
 
     @Test
     public void testNullParameterFalse() {
@@ -79,13 +79,13 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
     }
 
     @Override
-    public BooleanExpressionFunctionIsNumber<ExpressionFunctionContext> createBiFunction() {
+    public BooleanExpressionFunctionIsNumber<ExpressionEvaluationContext> createBiFunction() {
         return BooleanExpressionFunctionIsNumber.instance();
     }
 
     @Override
-    public ExpressionFunctionContext createContext() {
-        return new FakeExpressionFunctionContext() {
+    public ExpressionEvaluationContext createContext() {
+        return new FakeExpressionEvaluationContext() {
             @Override
             public <T> Either<T, String> convert(final Object value,
                                                  final Class<T> target) {
@@ -115,7 +115,7 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
     }
 
     @Override
-    public Class<BooleanExpressionFunctionIsNumber<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunctionIsNumber<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionIsNumber.class);
     }
 }

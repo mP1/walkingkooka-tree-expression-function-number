@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import java.util.function.Consumer;
 
@@ -73,231 +73,231 @@ public final class NumberExpressionFunctions implements PublicStaticHelper {
     /**
      * {@see NumberExpressionFunctionUnary#absolute}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> abs() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> abs() {
         return NumberExpressionFunctionUnary.absolute();
     }
 
     /**
      * {@see StringExpressionFunctionBase}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> base() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> base() {
         return StringExpressionFunctionBase.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#ceil}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ceil() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> ceil() {
         return NumberExpressionFunctionUnary.ceil();
     }
 
     /**
      * {@see NumberExpressionFunctionDecimal}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> decimal() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> decimal() {
         return NumberExpressionFunctionDecimal.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionDelta}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> delta() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> delta() {
         return NumberExpressionFunctionDelta.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionConstants#e()}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> e() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> e() {
         return NumberExpressionFunctionConstants.e();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#even}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> even() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> even() {
         return NumberExpressionFunctionUnary.even();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#exp}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> exp() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> exp() {
         return NumberExpressionFunctionUnary.exp();
     }
 
     /**
      * {@see StringExpressionFunctionFixed#fixed}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> fixed() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> fixed() {
         return StringExpressionFunctionFixed.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#floor}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> floor() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> floor() {
         return NumberExpressionFunctionUnary.floor();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#intFunction}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> intFunction() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> intFunction() {
         return NumberExpressionFunctionUnary.intFunction();
     }
 
     /**
      * {@see BooleanExpressionFunctionIsEvenIsOdd#isEven}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isEven() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> isEven() {
         return BooleanExpressionFunctionIsEvenIsOdd.isEven();
     }
 
     /**
      * {@see BooleanExpressionFunctionIsNumber}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isNumber() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> isNumber() {
         return BooleanExpressionFunctionIsNumber.instance();
     }
 
     /**
      * {@see BooleanExpressionFunctionIsEvenIsOdd#isOdd}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<Boolean, C> isOdd() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<Boolean, C> isOdd() {
         return BooleanExpressionFunctionIsEvenIsOdd.isOdd();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#ln}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> ln() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> ln() {
         return NumberExpressionFunctionUnary.ln();
     }
 
     /**
      * {@see NumberExpressionFunctionLog}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> log() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> log() {
         return NumberExpressionFunctionLog.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#log10}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> log10() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> log10() {
         return NumberExpressionFunctionUnary.log10();
     }
 
     /**
      * {@see NumberExpressionFunctionMod}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> mod() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> mod() {
         return NumberExpressionFunctionMod.instance();
     }
 
     /**
      * {@see NumberExpressionFunction}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> number() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> number() {
         return NumberExpressionFunctionTo.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#odd}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> odd() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> odd() {
         return NumberExpressionFunctionUnary.odd();
     }
 
     /**
      * {@see NumberExpressionFunctionConstants#pi()}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> pi() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> pi() {
         return NumberExpressionFunctionConstants.pi();
     }
 
     /**
      * {@see NumberExpressionFunctionProduct}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> product() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> product() {
         return NumberExpressionFunctionProduct.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionQuotient}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> quotient() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> quotient() {
         return NumberExpressionFunctionQuotient.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionRandom}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> random() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> random() {
         return NumberExpressionFunctionRandom.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionRandomBetween}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> randomBetween() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> randomBetween() {
         return NumberExpressionFunctionRandomBetween.instance();
     }
 
     /**
      * {@see StringExpressionFunctionRoman}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<String, C> roman() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<String, C> roman() {
         return StringExpressionFunctionRoman.instance();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#round}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> round() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> round() {
         return NumberExpressionFunctionUnary.round();
     }
 
     /**
      * {@see NumberExpressionFunctionRoundDownHalfUp#roundDown}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundDown() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> roundDown() {
         return NumberExpressionFunctionRoundDownHalfUp.roundDown();
     }
 
     /**
      * {@see NumberExpressionFunctionRoundHalfRoundUp#roundHalf}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundHalf() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> roundHalf() {
         return NumberExpressionFunctionRoundDownHalfUp.roundHalf();
     }
 
     /**
      * {@see NumberExpressionFunctionRoundDownHalfUp#roundUp}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> roundUp() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> roundUp() {
         return NumberExpressionFunctionRoundDownHalfUp.roundUp();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#sign}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sign() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> sign() {
         return NumberExpressionFunctionUnary.sign();
     }
 
     /**
      * {@see NumberExpressionFunctionUnary#sqrt}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> sqrt() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> sqrt() {
         return NumberExpressionFunctionUnary.sqrt();
     }
 
     /**
      * {@see NumberExpressionFunctionTrunc}
      */
-    public static <C extends ExpressionFunctionContext> ExpressionFunction<ExpressionNumber, C> trunc() {
+    public static <C extends ExpressionEvaluationContext> ExpressionFunction<ExpressionNumber, C> trunc() {
         return NumberExpressionFunctionTrunc.instance();
     }
 

@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRoundDownHalfUp<ExpressionEvaluationContext>> {
 
     // roundDown.......................................................................................................
     // https://exceljet.net/excel-functions/excel-rounddown-function
@@ -308,7 +308,7 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
         );
     }
 
-    private void roundAndCheck(final NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext> function,
+    private void roundAndCheck(final NumberExpressionFunctionRoundDownHalfUp<ExpressionEvaluationContext> function,
                                final Number number,
                                final Number digits,
                                final Number expected) {
@@ -344,12 +344,12 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     // ExpressionFunctionTesting........................................................................................
 
     @Override
-    public NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionRoundDownHalfUp<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionRoundDownHalfUp.roundDown();
     }
 
     @Override
-    public Class<NumberExpressionFunctionRoundDownHalfUp<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionRoundDownHalfUp<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRoundDownHalfUp.class);
     }
 }

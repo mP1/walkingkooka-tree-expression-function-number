@@ -21,12 +21,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.ConversionException;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NumberExpressionFunctionToTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionTo<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionToTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionTo<ExpressionEvaluationContext>> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -91,12 +91,12 @@ public final class NumberExpressionFunctionToTest extends NumberExpressionFuncti
     }
 
     @Override
-    public NumberExpressionFunctionTo<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionTo<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionTo.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionTo<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionTo<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionTo.class);
     }
 }

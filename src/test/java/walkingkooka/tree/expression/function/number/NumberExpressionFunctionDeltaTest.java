@@ -20,11 +20,11 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionDelta<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionDelta<ExpressionEvaluationContext>> {
 
     @Test
     public void testNonNumberFails() {
@@ -104,12 +104,12 @@ public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFun
     }
 
     @Override
-    public NumberExpressionFunctionDelta<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionDelta<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionDelta.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionDelta<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionDelta<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionDelta.class);
     }
 }

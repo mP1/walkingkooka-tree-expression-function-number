@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionQuotientTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionQuotient<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionQuotientTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionQuotient<ExpressionEvaluationContext>> {
 
     @Test
     public void test3And5() {
@@ -81,12 +81,12 @@ public final class NumberExpressionFunctionQuotientTest extends NumberExpression
     }
 
     @Override
-    public NumberExpressionFunctionQuotient<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionQuotient<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionQuotient.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionQuotient<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionQuotient<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionQuotient.class);
     }
 }

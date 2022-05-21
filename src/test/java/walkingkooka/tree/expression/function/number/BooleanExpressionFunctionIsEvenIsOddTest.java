@@ -20,13 +20,13 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.ExpressionFunctionContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsEvenIsOdd<ExpressionFunctionContext>> {
+public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpressionFunctionTestCase<BooleanExpressionFunctionIsEvenIsOdd<ExpressionEvaluationContext>> {
 
     @Test
     public void testIsEvenNullParameterFalse() {
@@ -115,7 +115,7 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
         );
     }
 
-    private void isAndCheck(final BooleanExpressionFunctionIsEvenIsOdd<ExpressionFunctionContext> function,
+    private void isAndCheck(final BooleanExpressionFunctionIsEvenIsOdd<ExpressionEvaluationContext> function,
                             final Number parameter,
                             final boolean expected) {
         this.applyAndCheck(
@@ -143,17 +143,17 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
     }
 
     @Override
-    public BooleanExpressionFunctionIsEvenIsOdd<ExpressionFunctionContext> createBiFunction() {
+    public BooleanExpressionFunctionIsEvenIsOdd<ExpressionEvaluationContext> createBiFunction() {
         return BooleanExpressionFunctionIsEvenIsOdd.isOdd();
     }
 
     @Override
-    public ExpressionFunctionContext createContext() {
-        return Cast.to(ExpressionFunctionContexts.fake());
+    public ExpressionEvaluationContext createContext() {
+        return Cast.to(ExpressionEvaluationContexts.fake());
     }
 
     @Override
-    public Class<BooleanExpressionFunctionIsEvenIsOdd<ExpressionFunctionContext>> type() {
+    public Class<BooleanExpressionFunctionIsEvenIsOdd<ExpressionEvaluationContext>> type() {
         return Cast.to(BooleanExpressionFunctionIsEvenIsOdd.class);
     }
 }

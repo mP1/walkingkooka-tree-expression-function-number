@@ -18,20 +18,20 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-iseven-function
 // https://exceljet.net/excel-functions/excel-isodd-function
-final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionFunctionContext> extends BooleanExpressionFunction<C> {
+final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationContext> extends BooleanExpressionFunction<C> {
 
     /**
      * isEven
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsEvenIsOdd<C> isEven() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionIsEvenIsOdd<C> isEven() {
         return Cast.to(IS_EVEN);
     }
 
@@ -43,7 +43,7 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionFunctionCon
     /**
      * isOdd
      */
-    static <C extends ExpressionFunctionContext> BooleanExpressionFunctionIsEvenIsOdd<C> isOdd() {
+    static <C extends ExpressionEvaluationContext> BooleanExpressionFunctionIsEvenIsOdd<C> isOdd() {
         return Cast.to(IS_ODD);
     }
 

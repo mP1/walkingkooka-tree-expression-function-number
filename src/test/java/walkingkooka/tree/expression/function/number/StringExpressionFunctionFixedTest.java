@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class StringExpressionFunctionFixedTest extends StringExpressionFunctionTestCase<StringExpressionFunctionFixed<ExpressionFunctionContext>, String> {
+public final class StringExpressionFunctionFixedTest extends StringExpressionFunctionTestCase<StringExpressionFunctionFixed<ExpressionEvaluationContext>, String> {
 
     @Test
     public void testOnlyNumber() {
@@ -166,12 +166,12 @@ public final class StringExpressionFunctionFixedTest extends StringExpressionFun
     }
 
     @Override
-    public StringExpressionFunctionFixed<ExpressionFunctionContext> createBiFunction() {
+    public StringExpressionFunctionFixed<ExpressionEvaluationContext> createBiFunction() {
         return StringExpressionFunctionFixed.instance();
     }
 
     @Override
-    public Class<StringExpressionFunctionFixed<ExpressionFunctionContext>> type() {
+    public Class<StringExpressionFunctionFixed<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionFixed.class);
     }
 }
