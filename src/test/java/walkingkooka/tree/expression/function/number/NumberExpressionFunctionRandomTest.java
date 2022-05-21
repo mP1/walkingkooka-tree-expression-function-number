@@ -19,16 +19,16 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionRandomTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRandom<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionRandomTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionRandom<ExpressionEvaluationContext>> {
 
     @Test
     public void testZeroParameters() {
         this.checkNotEquals(
                 null,
                 this.createBiFunction().apply(
-                        ExpressionFunctionContext.NO_PARAMETERS,
+                        ExpressionEvaluationContext.NO_PARAMETERS,
                         this.createContext()
                 )
         );
@@ -43,12 +43,12 @@ public final class NumberExpressionFunctionRandomTest extends NumberExpressionFu
     }
 
     @Override
-    public NumberExpressionFunctionRandom<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionRandom<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionRandom.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionRandom<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionRandom<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRandom.class);
     }
 }

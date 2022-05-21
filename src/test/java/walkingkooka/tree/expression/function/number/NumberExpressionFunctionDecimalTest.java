@@ -20,9 +20,9 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 
-public final class NumberExpressionFunctionDecimalTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionDecimal<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionDecimalTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionDecimal<ExpressionEvaluationContext>> {
 
     @Test
     public void testBase2() {
@@ -64,12 +64,12 @@ public final class NumberExpressionFunctionDecimalTest extends NumberExpressionF
     }
 
     @Override
-    public NumberExpressionFunctionDecimal<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionDecimal<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionDecimal.instance();
     }
 
     @Override
-    public Class<NumberExpressionFunctionDecimal<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionDecimal<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionDecimal.class);
     }
 }

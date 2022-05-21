@@ -19,11 +19,11 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.NeverError;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.ExpressionNumberSign;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.math.MathContext;
@@ -31,12 +31,12 @@ import java.math.RoundingMode;
 import java.util.List;
 import java.util.function.BiFunction;
 
-final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * ABSOLUTE getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> absolute() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> absolute() {
         return Cast.to(ABSOLUTE);
     }
 
@@ -51,7 +51,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * CEIL getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> ceil() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> ceil() {
         return Cast.to(CEIL);
     }
 
@@ -66,7 +66,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * EVEN getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> even() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> even() {
         return Cast.to(EVEN);
     }
 
@@ -122,7 +122,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * EXP getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> exp() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> exp() {
         return Cast.to(EXP);
     }
 
@@ -137,7 +137,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * FLOOR getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> floor() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> floor() {
         return Cast.to(FLOOR);
     }
 
@@ -152,7 +152,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * INT getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> intFunction() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> intFunction() {
         return Cast.to(INT);
     }
 
@@ -167,7 +167,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * LN getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> ln() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> ln() {
         return Cast.to(LN);
     }
 
@@ -182,7 +182,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * LOG10 getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> log10() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> log10() {
         return Cast.to(LOG10);
     }
 
@@ -197,7 +197,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * ODD getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> odd() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> odd() {
         return Cast.to(ODD);
     }
 
@@ -256,7 +256,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
     /**
      * ROUND getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> round() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> round() {
         return Cast.to(ROUND);
     }
 
@@ -287,7 +287,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      * <br>
      * https://exceljet.net/excel-functions/excel-sign-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> sign() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> sign() {
         return Cast.to(SIGN);
     }
 
@@ -307,7 +307,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionFunctionContext> e
      * <br>
      * https://exceljet.net/excel-functions/excel-sqrt-function
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionUnary<C> sqrt() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionUnary<C> sqrt() {
         return Cast.to(SQRT);
     }
 

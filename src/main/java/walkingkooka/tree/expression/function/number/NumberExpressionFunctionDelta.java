@@ -19,9 +19,9 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -32,12 +32,12 @@ import java.util.List;
  * Excel requires that non number parameters are a #VALUE or {@link IllegalArgumentException}.
  */
 // https://exceljet.net/excel-functions/excel-delta-function
-final class NumberExpressionFunctionDelta<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionDelta<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionDelta<C> instance() {
         return Cast.to(INSTANCE);
     }
 

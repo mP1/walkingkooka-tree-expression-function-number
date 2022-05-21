@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -30,12 +30,12 @@ import java.util.List;
  * Returns the quotient for the given parameters.
  */
 // https://exceljet.net/excel-functions/excel-mod-function
-final class NumberExpressionFunctionMod<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionMod<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionMod<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionMod<C> instance() {
         return Cast.to(INSTANCE);
     }
 

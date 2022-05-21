@@ -18,10 +18,10 @@
 
 package walkingkooka.tree.expression.function.number;
 
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionKind;
 
 import java.util.EnumSet;
@@ -30,7 +30,7 @@ import java.util.Set;
 /**
  * Common abstract base class for all boolean functions in this package.
  */
-abstract class BooleanExpressionFunction<C extends ExpressionFunctionContext> implements ExpressionFunction<Boolean, C> {
+abstract class BooleanExpressionFunction<C extends ExpressionEvaluationContext> implements ExpressionFunction<Boolean, C> {
 
     BooleanExpressionFunction(final String name) {
         super();

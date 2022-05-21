@@ -20,8 +20,8 @@ package walkingkooka.tree.expression.function.number;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.text.CharSequences;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -29,12 +29,12 @@ import java.util.List;
 import java.util.Optional;
 
 // https://support.google.com/docs/answer/9084167?hl=en&ref_topic=3105474
-final class StringExpressionFunctionBase<C extends ExpressionFunctionContext> extends StringExpressionFunction<C> {
+final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> StringExpressionFunctionBase<C> instance() {
+    static <C extends ExpressionEvaluationContext> StringExpressionFunctionBase<C> instance() {
         return Cast.to(INSTANCE);
     }
 

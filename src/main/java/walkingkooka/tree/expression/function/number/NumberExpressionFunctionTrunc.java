@@ -19,8 +19,8 @@ package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
@@ -28,12 +28,12 @@ import java.math.RoundingMode;
 import java.util.List;
 
 // https://exceljet.net/excel-functions/excel-trunc-function
-final class NumberExpressionFunctionTrunc<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionTrunc<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionTrunc<C> instance() {
         return Cast.to(INSTANCE);
     }
 

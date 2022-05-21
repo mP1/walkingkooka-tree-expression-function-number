@@ -20,16 +20,16 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 
 import java.math.MathContext;
 import java.math.RoundingMode;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnary<ExpressionFunctionContext>> {
+public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFunctionTestCase<NumberExpressionFunctionUnary<ExpressionEvaluationContext>> {
 
     // abs........................................................................................................
 
@@ -215,7 +215,7 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
                 Lists.of(
                         ExpressionNumberKind.BIG_DECIMAL.create(value)
                 ),
-                new FakeExpressionFunctionContext() {
+                new FakeExpressionEvaluationContext() {
                     @Override
                     public MathContext mathContext() {
                         return new MathContext(0, RoundingMode.DOWN);
@@ -406,7 +406,7 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
                 Lists.of(
                         ExpressionNumberKind.BIG_DECIMAL.create(value)
                 ),
-                new FakeExpressionFunctionContext() {
+                new FakeExpressionEvaluationContext() {
                     @Override
                     public MathContext mathContext() {
                         return new MathContext(0, RoundingMode.HALF_UP);
@@ -503,7 +503,7 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
 
     // helper...........................................................................................................
 
-    private void applyAndCheck3(final NumberExpressionFunctionUnary<ExpressionFunctionContext> function,
+    private void applyAndCheck3(final NumberExpressionFunctionUnary<ExpressionEvaluationContext> function,
                                 final Number value,
                                 final Number expected) {
         this.applyAndCheck(
@@ -551,12 +551,12 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     }
 
     @Override
-    public NumberExpressionFunctionUnary<ExpressionFunctionContext> createBiFunction() {
+    public NumberExpressionFunctionUnary<ExpressionEvaluationContext> createBiFunction() {
         return NumberExpressionFunctionUnary.absolute();
     }
 
     @Override
-    public Class<NumberExpressionFunctionUnary<ExpressionFunctionContext>> type() {
+    public Class<NumberExpressionFunctionUnary<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionUnary.class);
     }
 }

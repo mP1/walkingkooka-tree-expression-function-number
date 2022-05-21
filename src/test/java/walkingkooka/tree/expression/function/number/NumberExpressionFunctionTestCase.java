@@ -20,11 +20,11 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
+import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
-import walkingkooka.tree.expression.function.FakeExpressionFunctionContext;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -33,7 +33,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionFunctionContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
+public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunction<ExpressionNumber, ExpressionEvaluationContext>> extends ExpressionFunctionTestCase<F, ExpressionNumber> {
 
     final static ExpressionNumberKind KIND = ExpressionNumberKind.DEFAULT;
 
@@ -78,12 +78,12 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     }
 
     @Override
-    public final ExpressionFunctionContext createContext() {
+    public final ExpressionEvaluationContext createContext() {
         return this.createContext(KIND);
     }
 
-    final ExpressionFunctionContext createContext(final ExpressionNumberKind kind) {
-        return new FakeExpressionFunctionContext() {
+    final ExpressionEvaluationContext createContext(final ExpressionNumberKind kind) {
+        return new FakeExpressionEvaluationContext() {
 
             @Override
             public ExpressionNumberKind expressionNumberKind() {

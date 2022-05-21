@@ -18,19 +18,19 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
 
 // https://support.google.com/docs/answer/3093438?hl=en&ref_topic=3105474
-final class NumberExpressionFunctionRandom<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionRandom<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionRandom<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionRandom<C> instance() {
         return Cast.to(INSTANCE);
     }
 

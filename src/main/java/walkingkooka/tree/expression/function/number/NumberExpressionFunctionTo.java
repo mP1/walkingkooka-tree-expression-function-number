@@ -18,9 +18,9 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.Cast;
+import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionContext;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 
 import java.util.List;
@@ -28,12 +28,12 @@ import java.util.List;
 /**
  * A {@link ExpressionFunction} that performs some operation and returns a {@link ExpressionNumber}.
  */
-final class NumberExpressionFunctionTo<C extends ExpressionFunctionContext> extends NumberExpressionFunction<C> {
+final class NumberExpressionFunctionTo<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
 
     /**
      * Instance getter.
      */
-    static <C extends ExpressionFunctionContext> NumberExpressionFunctionTo<C> instance() {
+    static <C extends ExpressionEvaluationContext> NumberExpressionFunctionTo<C> instance() {
         return Cast.to(INSTANCE);
     }
 
