@@ -17,7 +17,6 @@
 
 package walkingkooka.tree.expression.function.number.sample;
 
-import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -39,7 +38,10 @@ public final class Sample {
                                                                  final Class<T> target) {
                                 assertEquals(value, v);
                                 assertEquals(ExpressionNumber.class, target);
-                                return Cast.to(Either.left(value));
+                                return this.successfulConversion(
+                                        value,
+                                        target
+                                );
                             }
                         });
         assertEquals(value.abs(ExpressionNumberContexts.fake()), result);

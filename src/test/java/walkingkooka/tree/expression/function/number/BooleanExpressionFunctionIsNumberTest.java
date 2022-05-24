@@ -90,19 +90,17 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
             public <T> Either<T, String> convert(final Object value,
                                                  final Class<T> target) {
                 if (value instanceof Number) {
-                    return Cast.to(
-                            Either.left(
-                                    ExpressionNumberKind.DEFAULT.create((Number) value)
-                            )
+                    return this.successfulConversion(
+                            ExpressionNumberKind.DEFAULT.create((Number) value),
+                            target
                     );
                 }
                 try {
-                    return Cast.to(
-                            Either.left(
-                                    ExpressionNumberKind.DEFAULT.create(
-                                            Integer.parseInt((String) value)
-                                    )
-                            )
+                    return this.successfulConversion(
+                            ExpressionNumberKind.DEFAULT.create(
+                                    Integer.parseInt((String) value)
+                            ),
+                            target
                     );
                 } catch (final Exception fail) {
                     return this.failConversion(

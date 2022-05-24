@@ -42,7 +42,10 @@ public class JunitTest {
                                                                  final Class<T> target) {
                                 Assert.assertEquals(value, v);
                                 Assert.assertEquals(ExpressionNumber.class, target);
-                                return Cast.to(Either.left(value));
+                                return this.successfulConversion(
+                                        value,
+                                        target
+                                );
                             }
                         });
         Assert.assertEquals(value.abs(ExpressionNumberContexts.fake()), result);
