@@ -58,9 +58,6 @@ final class NumberExpressionFunctionTo<C extends ExpressionEvaluationContext> ex
     public ExpressionNumber apply(final List<Object> parameters, final C context) {
         this.checkParameterCount(parameters);
 
-        return context.convertOrFail(
-                NUMBER.getOrFail(parameters, 0),
-                ExpressionNumber.class
-        );
+        return NUMBER.getOrFail(parameters, 0);
     }
 }
