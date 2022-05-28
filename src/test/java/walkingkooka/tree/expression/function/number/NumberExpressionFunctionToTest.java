@@ -20,8 +20,8 @@ package walkingkooka.tree.expression.function.number;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.convert.ConversionException;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
+import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -59,34 +59,15 @@ public final class NumberExpressionFunctionToTest extends NumberExpressionFuncti
     }
 
     @Test
-    public void testInteger() {
-        this.applyAndCheck(
-                Lists.of(1),
-                this.createContext(),
-                KIND.create(1)
-        );
-    }
+    public void testExpressionNumber() {
+        final ExpressionNumber value = KIND.create(10);
 
-    @Test
-    public void testString() {
         this.applyAndCheck(
-                Lists.of("123.5"),
+                Lists.of(
+                        value
+                ),
                 this.createContext(),
-                KIND.create(123.5)
-        );
-    }
-
-    @Test
-    public void testStringNonNumericFails() {
-        assertThrows(
-                ConversionException.class,
-                () -> {
-                    NumberExpressionFunctionTo.instance()
-                            .apply(
-                                    Lists.of("!fails"),
-                                    this.createContext()
-                            );
-                }
+                value
         );
     }
 
