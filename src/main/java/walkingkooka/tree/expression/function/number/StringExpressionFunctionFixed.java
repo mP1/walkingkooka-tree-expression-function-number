@@ -60,13 +60,13 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
     private final static ExpressionFunctionParameter<ExpressionNumber> DECIMALS = ExpressionFunctionParameterName.with("decimals")
             .optional(ExpressionNumber.class);
 
-    private final static ExpressionFunctionParameter<Boolean> COMMAS = ExpressionFunctionParameterName.with("commas")
+    private final static ExpressionFunctionParameter<Boolean> NO_COMMAS = ExpressionFunctionParameterName.with("no-commas")
             .optional(Boolean.class);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER,
             DECIMALS,
-            COMMAS
+            NO_COMMAS
     );
 
     // https://github.com/apache/poi/blob/7eaca60a1a364ce6e232363d27823e971a992705/poi/src/main/java/org/apache/poi/ss/formula/functions/Roman.java
@@ -80,7 +80,7 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
         final int decimals = DECIMALS.get(parameters, 1)
                 .orElseGet(() -> context.expressionNumberKind().create(2))
                 .intValueExact();
-        final Boolean commas = COMMAS.get(parameters, 2).orElse(false);
+        final Boolean commas = NO_COMMAS.get(parameters, 2).orElse(false);
 
         final DecimalFormatSymbols symbols = new DecimalFormatSymbols();
 
