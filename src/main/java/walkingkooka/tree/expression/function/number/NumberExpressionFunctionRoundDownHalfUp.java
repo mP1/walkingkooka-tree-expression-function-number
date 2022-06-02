@@ -118,6 +118,7 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
                 .create(
                         number.bigDecimal()
                                 .setScale(digits, this.roundingMode)
+                                .stripTrailingZeros()
                 );
     }
 
