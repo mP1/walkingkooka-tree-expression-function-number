@@ -41,16 +41,21 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
     }
 
     @Test
-    public final void testIsPureTrue() {
+    public final void testIsPure() {
+        final F function = this.createBiFunction();
+
         this.isPureAndCheck(
-                this.createBiFunction(),
+                function,
                 new ExpressionPurityContext() {
                     @Override
                     public boolean isPure(final FunctionExpressionName name) {
                         throw new UnsupportedOperationException();
                     }
                 },
-                true
+                !function.name()
+                        .value()
+                        .toLowerCase()
+                        .startsWith("rand")
         );
     }
 

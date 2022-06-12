@@ -76,11 +76,14 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
     );
 
     /**
-     * All number functions are pure. Does not assume anything about any parameters.
+     * All number functions are pure except for the randomXXX functions
      */
     @Override
     public final boolean isPure(final ExpressionPurityContext context) {
-        return true;
+        return !(
+                this instanceof NumberExpressionFunctionRandom ||
+                        this instanceof NumberExpressionFunctionRandomBetween
+        );
     }
 
     @Override
