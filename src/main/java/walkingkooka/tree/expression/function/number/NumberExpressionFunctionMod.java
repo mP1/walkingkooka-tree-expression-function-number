@@ -49,7 +49,7 @@ final class NumberExpressionFunctionMod<C extends ExpressionEvaluationContext> e
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

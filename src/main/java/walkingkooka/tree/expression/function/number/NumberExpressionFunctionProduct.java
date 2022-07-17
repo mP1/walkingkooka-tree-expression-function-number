@@ -49,7 +49,7 @@ final class NumberExpressionFunctionProduct<C extends ExpressionEvaluationContex
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

@@ -74,7 +74,7 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationC
     private final boolean bit0;
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
