@@ -61,7 +61,7 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionEvaluationCont
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 

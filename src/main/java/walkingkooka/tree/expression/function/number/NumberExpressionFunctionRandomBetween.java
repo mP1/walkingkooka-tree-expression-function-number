@@ -49,7 +49,7 @@ final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluation
     }
 
     @Override
-    public List<ExpressionFunctionParameter<?>> parameters() {
+    public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
