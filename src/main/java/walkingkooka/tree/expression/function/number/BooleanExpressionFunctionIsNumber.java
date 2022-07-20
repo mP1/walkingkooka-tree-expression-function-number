@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 
 import java.util.List;
 
@@ -55,15 +56,18 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionEvaluationCont
         this.checkParameterCount(parameters);
 
         return context.convert(
-                ExpressionFunctionParameter.VALUE.getOrFail(parameters, 0),
+                VALUE.getOrFail(parameters, 0),
                 ExpressionNumber.class
         ).isLeft();
     }
+
+    private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE
+            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {
         return PARAMETERS;
     }
 
-    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(ExpressionFunctionParameter.VALUE);
+    private final static List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(VALUE);
 }
