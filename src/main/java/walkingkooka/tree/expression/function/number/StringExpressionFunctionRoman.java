@@ -23,6 +23,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberSign;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -55,10 +56,9 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
-
     private final static ExpressionFunctionParameter<ExpressionNumber> FORM = ExpressionFunctionParameterName.with("form")
-            .optional(ExpressionNumber.class);
+            .optional(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER,

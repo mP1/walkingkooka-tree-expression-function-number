@@ -22,6 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.math.RoundingMode;
@@ -54,10 +55,9 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
         return PARAMETERS;
     }
 
-    private final ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
-
     private final ExpressionFunctionParameter<ExpressionNumber> DIGITS = ExpressionFunctionParameterName.with("digits")
-            .optional(ExpressionNumber.class);
+            .optional(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER,
