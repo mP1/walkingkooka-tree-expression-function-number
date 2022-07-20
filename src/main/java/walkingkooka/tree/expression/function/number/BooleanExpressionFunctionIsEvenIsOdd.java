@@ -21,6 +21,7 @@ import walkingkooka.Cast;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 
 import java.util.List;
 
@@ -78,7 +79,8 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationC
         return PARAMETERS;
     }
 
-    private static final ExpressionFunctionParameter<ExpressionNumber> PARAMETER = ExpressionFunctionParameter.NUMBER;
+    private static final ExpressionFunctionParameter<ExpressionNumber> PARAMETER = ExpressionFunctionParameter.NUMBER
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private static final List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(PARAMETER);
 }

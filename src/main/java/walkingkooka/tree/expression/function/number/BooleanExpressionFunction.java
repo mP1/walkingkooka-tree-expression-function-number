@@ -22,10 +22,6 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionPurityContext;
 import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-import walkingkooka.tree.expression.function.ExpressionFunctionKind;
-
-import java.util.EnumSet;
-import java.util.Set;
 
 /**
  * Common abstract base class for all boolean functions in this package.
@@ -48,17 +44,6 @@ abstract class BooleanExpressionFunction<C extends ExpressionEvaluationContext> 
     public final Class<Boolean> returnType() {
         return Boolean.class;
     }
-
-    @Override
-    public Set<ExpressionFunctionKind> kinds() {
-        return KINDS;
-    }
-
-    private final Set<ExpressionFunctionKind> KINDS = EnumSet.of(
-            ExpressionFunctionKind.CONVERT_PARAMETERS,
-            ExpressionFunctionKind.EVALUATE_PARAMETERS,
-            ExpressionFunctionKind.RESOLVE_REFERENCES
-    );
 
     @Override
     public final boolean isPure(final ExpressionPurityContext context) {

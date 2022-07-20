@@ -23,6 +23,7 @@ import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -59,10 +60,12 @@ final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext>
     }
 
     private final ExpressionFunctionParameter<Object> NUMBER1 = ExpressionFunctionParameterName.with("number1")
-            .required(Object.class);
+            .required(Object.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<Object> NUMBER2 = ExpressionFunctionParameterName.with("number2")
-            .optional(Object.class);
+            .optional(Object.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER1,

@@ -23,6 +23,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -55,13 +56,13 @@ final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> 
         return PARAMETERS;
     }
 
-    private final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER;
-
     private final static ExpressionFunctionParameter<ExpressionNumber> BASE = ExpressionFunctionParameterName.with("base")
-            .required(ExpressionNumber.class);
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> MIN_LENGTH = ExpressionFunctionParameterName.with("min-length")
-            .optional(ExpressionNumber.class);
+            .optional(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             NUMBER,

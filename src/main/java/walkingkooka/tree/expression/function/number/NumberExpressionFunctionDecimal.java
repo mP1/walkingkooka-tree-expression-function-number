@@ -22,6 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -53,10 +54,12 @@ final class NumberExpressionFunctionDecimal<C extends ExpressionEvaluationContex
         return PARAMETERS;
     }
 
-    private final ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT;
+    private final ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<ExpressionNumber> BASE = ExpressionFunctionParameterName.with("base")
-            .required(ExpressionNumber.class);
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             TEXT,

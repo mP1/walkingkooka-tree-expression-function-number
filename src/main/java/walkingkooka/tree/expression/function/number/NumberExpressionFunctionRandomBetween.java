@@ -22,6 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
+import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
@@ -54,10 +55,12 @@ final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluation
     }
 
     private final ExpressionFunctionParameter<ExpressionNumber> LOWER = ExpressionFunctionParameterName.with("lower")
-            .required(ExpressionNumber.class);
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<ExpressionNumber> UPPER = ExpressionFunctionParameterName.with("upper")
-            .required(ExpressionNumber.class);
+            .required(ExpressionNumber.class)
+            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
             LOWER,
