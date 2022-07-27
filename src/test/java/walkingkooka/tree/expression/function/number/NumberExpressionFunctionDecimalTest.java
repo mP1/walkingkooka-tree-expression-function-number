@@ -69,6 +69,11 @@ public final class NumberExpressionFunctionDecimalTest extends NumberExpressionF
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionDecimal<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionDecimal.class);
     }

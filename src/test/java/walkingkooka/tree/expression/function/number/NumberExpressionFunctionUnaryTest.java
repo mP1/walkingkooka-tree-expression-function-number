@@ -556,6 +556,11 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionUnary<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionUnary.class);
     }

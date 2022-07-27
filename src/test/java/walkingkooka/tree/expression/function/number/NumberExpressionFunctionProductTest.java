@@ -77,6 +77,11 @@ public final class NumberExpressionFunctionProductTest extends NumberExpressionF
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionProduct<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionProduct.class);
     }

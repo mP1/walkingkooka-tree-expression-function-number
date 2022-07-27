@@ -109,6 +109,11 @@ public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionDelta<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionDelta.class);
     }

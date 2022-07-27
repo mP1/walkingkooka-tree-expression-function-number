@@ -86,6 +86,11 @@ public final class NumberExpressionFunctionQuotientTest extends NumberExpression
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionQuotient<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionQuotient.class);
     }

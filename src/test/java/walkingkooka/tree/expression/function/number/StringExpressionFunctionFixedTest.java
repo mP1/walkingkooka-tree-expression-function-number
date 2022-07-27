@@ -171,6 +171,11 @@ public final class StringExpressionFunctionFixedTest extends StringExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<StringExpressionFunctionFixed<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionFixed.class);
     }

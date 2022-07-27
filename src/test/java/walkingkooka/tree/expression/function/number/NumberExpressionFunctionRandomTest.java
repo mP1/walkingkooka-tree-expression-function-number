@@ -48,6 +48,11 @@ public final class NumberExpressionFunctionRandomTest extends NumberExpressionFu
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 0;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionRandom<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRandom.class);
     }

@@ -349,6 +349,11 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionRoundDownHalfUp<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRoundDownHalfUp.class);
     }
