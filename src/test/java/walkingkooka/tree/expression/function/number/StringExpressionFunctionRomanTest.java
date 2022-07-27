@@ -139,6 +139,11 @@ public final class StringExpressionFunctionRomanTest extends StringExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public Class<StringExpressionFunctionRoman<ExpressionEvaluationContext>> type() {
         return Cast.to(StringExpressionFunctionRoman.class);
     }

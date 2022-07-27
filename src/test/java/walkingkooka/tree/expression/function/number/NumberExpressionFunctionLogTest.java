@@ -49,6 +49,11 @@ public final class NumberExpressionFunctionLogTest extends NumberExpressionFunct
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionLog<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionLog.class);
     }

@@ -121,6 +121,11 @@ public final class NumberExpressionFunctionTruncTest extends NumberExpressionFun
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionTrunc<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionTrunc.class);
     }

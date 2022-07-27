@@ -148,6 +148,11 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public ExpressionEvaluationContext createContext() {
         return Cast.to(ExpressionEvaluationContexts.fake());
     }

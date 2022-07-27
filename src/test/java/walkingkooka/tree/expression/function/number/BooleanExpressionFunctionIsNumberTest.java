@@ -84,6 +84,11 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 1;
+    }
+
+    @Override
     public ExpressionEvaluationContext createContext() {
         return new FakeExpressionEvaluationContext() {
             @Override

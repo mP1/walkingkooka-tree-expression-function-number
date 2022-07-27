@@ -73,6 +73,11 @@ public final class NumberExpressionFunctionRandomBetweenTest extends NumberExpre
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 2;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionRandomBetween<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionRandomBetween.class);
     }

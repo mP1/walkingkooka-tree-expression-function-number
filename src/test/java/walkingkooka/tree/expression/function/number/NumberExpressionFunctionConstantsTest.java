@@ -63,6 +63,11 @@ public final class NumberExpressionFunctionConstantsTest extends NumberExpressio
     }
 
     @Override
+    public int minimumParameterCount() {
+        return 0;
+    }
+
+    @Override
     public Class<NumberExpressionFunctionConstants<ExpressionEvaluationContext>> type() {
         return Cast.to(NumberExpressionFunctionConstants.class);
     }
