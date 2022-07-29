@@ -50,6 +50,7 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
                     }
                 },
                 !function.name()
+                        .get()
                         .value()
                         .toLowerCase()
                         .startsWith("rand")

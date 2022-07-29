@@ -27,6 +27,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Base for any function that handles and requires numbers.
@@ -38,15 +39,17 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
      */
     NumberExpressionFunction(final String name) {
         super();
-        this.name = FunctionExpressionName.with(name);
+        this.name = Optional.of(
+                FunctionExpressionName.with(name)
+        );
     }
 
     @Override
-    public final FunctionExpressionName name() {
-        return name;
+    public final Optional<FunctionExpressionName> name() {
+        return this.name;
     }
 
-    private final FunctionExpressionName name;
+    private final Optional<FunctionExpressionName> name;
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER
             .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
@@ -75,6 +78,8 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
 
     @Override
     public final String toString() {
-        return this.name().toString();
+        return this.name()
+                .get()
+                .toString();
     }
 }

@@ -35,7 +35,7 @@ public final class NumberExpressionFunctionsTest implements PublicStaticHelperTe
     @Test
     public void testVisit() {
         final Set<FunctionExpressionName> names = Sets.sorted();
-        NumberExpressionFunctions.visit((e) -> names.add(e.name()));
+        NumberExpressionFunctions.visit((e) -> names.add(e.name().get()));
 
         this.checkEquals(Arrays.stream(NumberExpressionFunctions.class.getDeclaredMethods())
                         .filter(m -> m.getReturnType() == ExpressionFunction.class)
@@ -43,7 +43,12 @@ public final class NumberExpressionFunctionsTest implements PublicStaticHelperTe
                         .collect(Collectors.toCollection(Sets::sorted))
                         .size(),
                 names.size());
-        this.checkEquals(true, names.contains(NumberExpressionFunctions.ceil().name()));
+
+        this.checkEquals(
+                true,
+                names.contains(NumberExpressionFunctions.ceil().name().get()
+                )
+        );
     }
 
     @Test
