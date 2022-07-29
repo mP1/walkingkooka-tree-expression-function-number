@@ -25,6 +25,8 @@ import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 
+import java.util.Optional;
+
 /**
  * Base class for many {@link ExpressionFunction} within this package.
  */
@@ -38,15 +40,17 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
      */
     StringExpressionFunction(final String name) {
         super();
-        this.name = FunctionExpressionName.with(name);
+        this.name = Optional.of(
+                FunctionExpressionName.with(name)
+        );
     }
 
     @Override
-    public FunctionExpressionName name() {
+    public final Optional<FunctionExpressionName> name() {
         return this.name;
     }
 
-    private final FunctionExpressionName name;
+    private final Optional<FunctionExpressionName> name;
 
     /**
      * All string functions are pure. Does not assume anything about any parameters.
@@ -63,6 +67,8 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
 
     @Override
     public final String toString() {
-        return this.name().toString();
+        return this.name()
+                .get()
+                .toString();
     }
 }
