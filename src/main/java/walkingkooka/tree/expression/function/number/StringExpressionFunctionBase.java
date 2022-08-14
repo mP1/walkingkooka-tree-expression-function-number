@@ -79,13 +79,17 @@ final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> 
 
         final ExpressionNumber base = BASE.getOrFail(parameters, 1);
 
-        final Optional<ExpressionNumber> minLength = MIN_LENGTH.get(parameters, 2);
+        final Optional<Optional<ExpressionNumber>> minLength = MIN_LENGTH.get(parameters, 2);
 
         final String string = number.toStringWithBase(base)
                 .toUpperCase(context.locale());
 
         return minLength.isPresent() ?
-                padLeftZeroIfNecessary(string, minLength.get().intValueExact()) :
+                padLeftZeroIfNecessary(
+                        string,
+                        minLength.get()
+                                .orElse(null).intValueExact()
+                ) :
                 string;
     }
 

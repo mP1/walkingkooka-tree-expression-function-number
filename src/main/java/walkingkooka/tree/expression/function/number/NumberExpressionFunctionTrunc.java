@@ -27,6 +27,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Optional;
 
 // https://exceljet.net/excel-functions/excel-trunc-function
 final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext> extends NumberExpressionFunction<C> {
@@ -71,7 +72,12 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         final int digits = DIGITS.get(parameters, 1)
-                .orElseGet(() -> context.expressionNumberKind().zero())
+                .orElseGet(() -> Optional.of(
+                                context.expressionNumberKind()
+                                        .zero()
+                        )
+                )
+                .get()
                 .intValue();
 
         if (digits > 4) {

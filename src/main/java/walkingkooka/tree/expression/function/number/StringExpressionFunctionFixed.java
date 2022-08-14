@@ -28,6 +28,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Optional;
 
 // https://exceljet.net/excel-functions/excel-fixed-function
 final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext> extends StringExpressionFunction<C> {
@@ -79,9 +80,12 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         final int decimals = DECIMALS.get(parameters, 1)
-                .orElseGet(() -> context.expressionNumberKind().create(2))
+                .orElseGet(() -> Optional.of(context.expressionNumberKind().create(2)))
+                .get()
                 .intValueExact();
-        final Boolean commas = NO_COMMAS.get(parameters, 2).orElse(false);
+        final Boolean commas = NO_COMMAS.get(parameters, 2)
+                .orElse(Optional.of(false))
+                .get();
 
         final DecimalFormatSymbols symbols = new DecimalFormatSymbols();
 
