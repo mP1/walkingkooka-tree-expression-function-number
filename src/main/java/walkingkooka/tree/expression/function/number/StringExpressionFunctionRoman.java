@@ -27,6 +27,7 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
+import java.util.Optional;
 
 // https://exceljet.net/excel-functions/excel-roman-function
 // https://support.google.com/docs/answer/3094153?hl=en
@@ -78,7 +79,8 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
         }
 
         final ExpressionNumber form = FORM.get(parameters, 1)
-                .orElse(context.expressionNumberKind().zero());
+                .orElseGet(() -> Optional.of(context.expressionNumberKind().zero()))
+                .get();
         final int formInteger = form.intValueExact();
         switch (formInteger) {
             case 0:
