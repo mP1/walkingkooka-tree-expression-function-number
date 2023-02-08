@@ -5,12 +5,14 @@ import com.google.gwt.junit.client.GWTTestCase;
 import walkingkooka.Cast;
 import walkingkooka.Either;
 import walkingkooka.collect.list.Lists;
+import walkingkooka.j2cl.locale.LocaleAware;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberContexts;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.expression.FakeExpressionEvaluationContext;
 import walkingkooka.tree.expression.function.number.NumberExpressionFunctions;
 
+@LocaleAware
 public class TestGwtTest extends GWTTestCase {
 
     @Override
