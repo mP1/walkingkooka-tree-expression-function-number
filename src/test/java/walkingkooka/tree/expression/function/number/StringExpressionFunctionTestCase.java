@@ -51,7 +51,7 @@ public abstract class StringExpressionFunctionTestCase<F extends ExpressionFunct
             }
 
             @Override
-            public char groupingSeparator() {
+            public char groupSeparator() {
                 return 'g';
             }
 

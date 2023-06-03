@@ -92,7 +92,7 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
         symbols.setMinusSign(context.negativeSign());
 
         symbols.setDecimalSeparator(context.decimalSeparator());
-        symbols.setGroupingSeparator(context.groupingSeparator());
+        symbols.setGroupingSeparator(context.groupSeparator());
 
 
         final DecimalFormat format = new DecimalFormat("", symbols);
