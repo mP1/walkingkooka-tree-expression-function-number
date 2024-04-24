@@ -17,13 +17,14 @@
 
 package walkingkooka.tree.expression.function.number;
 
-import walkingkooka.collect.list.Lists;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.net.Url;
 import walkingkooka.reflect.PublicStaticHelper;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.function.ExpressionFunction;
-
-import java.util.function.Consumer;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProvider;
+import walkingkooka.tree.expression.function.provider.ExpressionFunctionProviders;
 
 /**
  * Collection of static factory methods for numerous {@link ExpressionFunction}.
@@ -31,43 +32,47 @@ import java.util.function.Consumer;
 public final class NumberExpressionFunctions implements PublicStaticHelper {
 
     /**
-     * Visit all {@link ExpressionFunction functions}.
+     * An {@link ExpressionFunctionProvider} with all the functions in this project.
      */
-    public static void visit(final Consumer<ExpressionFunction<?, ?>> consumer) {
-        Lists.of(abs(),
-                base(),
-                ceil(),
-                decimal(),
-                delta(),
-                e(),
-                even(),
-                exp(),
-                fixed(),
-                floor(),
-                intFunction(),
-                isEven(),
-                isNumber(),
-                isOdd(),
-                ln(),
-                log(),
-                log10(),
-                mod(),
-                number(),
-                odd(),
-                pi(),
-                product(),
-                quotient(),
-                random(),
-                randomBetween(),
-                roman(),
-                round(),
-                roundDown(),
-                roundHalf(),
-                roundUp(),
-                sign(),
-                sqrt(),
-                trunc()
-        ).forEach(consumer);
+    public static ExpressionFunctionProvider expressionFunctionProvider() {
+        return ExpressionFunctionProviders.basic(
+                Url.parseAbsolute("https://github.com/mP1/walkingkooka-tree-expression-function-number/"),
+                Sets.of(
+                        abs(),
+                        base(),
+                        ceil(),
+                        decimal(),
+                        delta(),
+                        e(),
+                        even(),
+                        exp(),
+                        fixed(),
+                        floor(),
+                        intFunction(),
+                        isEven(),
+                        isNumber(),
+                        isOdd(),
+                        ln(),
+                        log(),
+                        log10(),
+                        mod(),
+                        number(),
+                        odd(),
+                        pi(),
+                        product(),
+                        quotient(),
+                        random(),
+                        randomBetween(),
+                        roman(),
+                        round(),
+                        roundDown(),
+                        roundHalf(),
+                        roundUp(),
+                        sign(),
+                        sqrt(),
+                        trunc()
+                )
+        );
     }
 
     /**
