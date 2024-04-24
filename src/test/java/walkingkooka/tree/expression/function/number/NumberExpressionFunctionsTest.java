@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.text.CaseSensitivity;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 
 import java.lang.reflect.Method;
@@ -46,7 +47,7 @@ public final class NumberExpressionFunctionsTest implements PublicStaticHelperTe
                                     }
                                 }
                         ).collect(Collectors.toCollection(Sets::sorted)),
-                NumberExpressionFunctions.expressionFunctionProvider()
+                NumberExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
                         .expressionFunctionInfos()
                         .stream()
                         .map(i -> i.name().value())
