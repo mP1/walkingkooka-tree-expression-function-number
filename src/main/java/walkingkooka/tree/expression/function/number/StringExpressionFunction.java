@@ -18,9 +18,9 @@
 package walkingkooka.tree.expression.function.number;
 
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
+import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionPurityContext;
-import walkingkooka.tree.expression.FunctionExpressionName;
 import walkingkooka.tree.expression.function.ExpressionFunction;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameter;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
@@ -41,16 +41,16 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     StringExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                FunctionExpressionName.with(name)
+                ExpressionFunctionName.with(name)
         );
     }
 
     @Override
-    public final Optional<FunctionExpressionName> name() {
+    public final Optional<ExpressionFunctionName> name() {
         return this.name;
     }
 
-    private final Optional<FunctionExpressionName> name;
+    private final Optional<ExpressionFunctionName> name;
 
     /**
      * All string functions are pure. Does not assume anything about any parameters.
