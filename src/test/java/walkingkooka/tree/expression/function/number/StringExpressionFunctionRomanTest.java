@@ -27,109 +27,109 @@ public final class StringExpressionFunctionRomanTest extends StringExpressionFun
     @Test
     public void test4() {
         this.romanAndCheck(
-                4,
-                "IV"
+            4,
+            "IV"
         );
     }
 
     @Test
     public void test99() {
         this.romanAndCheck(
-                99,
-                "XCIX"
+            99,
+            "XCIX"
         );
     }
 
     @Test
     public void test99DecimalIgnored() {
         this.romanAndCheck(
-                99.5,
-                "XCIX"
+            99.5,
+            "XCIX"
         );
     }
 
     @Test
     public void test1999() {
         this.romanAndCheck(
-                1999,
-                "MCMXCIX");
+            1999,
+            "MCMXCIX");
     }
 
     @Test
     public void test2022() {
         this.romanAndCheck(
-                2022,
-                "MMXXII");
+            2022,
+            "MMXXII");
     }
 
 
     private void romanAndCheck(final Number value,
                                final String roman) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value)
-                ),
-                roman
+            Lists.of(
+                KIND.create(value)
+            ),
+            roman
         );
     }
 
     @Test
     public void test1999Type0() {
         this.romanAndCheck(
-                1999,
-                0,
-                "MCMXCIX");
+            1999,
+            0,
+            "MCMXCIX");
     }
 
     @Test
     public void test1999Type1() {
         this.romanAndCheck(
-                1999,
-                1,
-                "MLMVLIV");
+            1999,
+            1,
+            "MLMVLIV");
     }
 
     @Test
     public void test1999Type2() {
         this.romanAndCheck(
-                1999,
-                2,
-                "MXMIX");
+            1999,
+            2,
+            "MXMIX");
     }
 
     @Test
     public void test1999Type3() {
         this.romanAndCheck(
-                1999,
-                3,
-                "MVMIV");
+            1999,
+            3,
+            "MVMIV");
     }
 
     @Test
     public void test1999Type4() {
         this.romanAndCheck(
-                1999,
-                4,
-                "MIM");
+            1999,
+            4,
+            "MIM");
     }
 
     private void romanAndCheck(final int value,
                                final int type,
                                final String roman) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value),
-                        KIND.create(type)
-                ),
-                roman
+            Lists.of(
+                KIND.create(value),
+                KIND.create(type)
+            ),
+            roman
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "roman"
+            this.createBiFunction(),
+            "roman"
         );
     }
 

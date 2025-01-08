@@ -26,19 +26,19 @@ public final class NumberExpressionFunctionRandomTest extends NumberExpressionFu
     @Test
     public void testZeroParameters() {
         this.checkNotEquals(
-                null,
-                this.createBiFunction().apply(
-                        ExpressionEvaluationContext.NO_PARAMETERS,
-                        this.createContext()
-                )
+            null,
+            this.createBiFunction().apply(
+                ExpressionEvaluationContext.NO_PARAMETERS,
+                this.createContext()
+            )
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "random"
+            this.createBiFunction(),
+            "random"
         );
     }
 

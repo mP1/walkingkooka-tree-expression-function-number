@@ -57,12 +57,12 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
     }
 
     private final ExpressionFunctionParameter<ExpressionNumber> DIGITS = ExpressionFunctionParameterName.with("digits")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            DIGITS
+        NUMBER,
+        DIGITS
     );
 
     @Override
@@ -72,13 +72,13 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         final int digits = DIGITS.get(parameters, 1)
-                .orElseGet(() -> Optional.of(
-                                context.expressionNumberKind()
-                                        .zero()
-                        )
+            .orElseGet(() -> Optional.of(
+                    context.expressionNumberKind()
+                        .zero()
                 )
-                .get()
-                .intValue();
+            )
+            .get()
+            .intValue();
 
         if (digits > 4) {
             throw new IllegalArgumentException("Invalid " + DIGITS.name() + " " + digits + " > 4");
@@ -88,9 +88,9 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
         // roundXXX
 
         return context.expressionNumberKind()
-                .create(
-                        number.bigDecimal()
-                                .setScale(digits, RoundingMode.DOWN)
-                );
+            .create(
+                number.bigDecimal()
+                    .setScale(digits, RoundingMode.DOWN)
+            );
     }
 }

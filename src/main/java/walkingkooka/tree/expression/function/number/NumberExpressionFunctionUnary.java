@@ -44,8 +44,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * Singleton
      */
     private static final NumberExpressionFunctionUnary<?> ABSOLUTE = new NumberExpressionFunctionUnary<>(
-            "abs",
-            (n, c) -> n.abs(c)
+        "abs",
+        (n, c) -> n.abs(c)
     );
 
     /**
@@ -59,8 +59,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * CEIL Singleton
      */
     private static final NumberExpressionFunctionUnary<?> CEIL = new NumberExpressionFunctionUnary<>(
-            "ceil",
-            (n, c) -> n.ceil(c)
+        "ceil",
+        (n, c) -> n.ceil(c)
     );
 
     /**
@@ -77,34 +77,34 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * EVEN Singleton
      */
     private static final NumberExpressionFunctionUnary<?> EVEN = new NumberExpressionFunctionUnary<>(
-            "even",
-            (n, c) -> {
-                final ExpressionNumberSign sign = n.sign();
-                final ExpressionNumberKind kind = c.expressionNumberKind();
+        "even",
+        (n, c) -> {
+            final ExpressionNumberSign sign = n.sign();
+            final ExpressionNumberKind kind = c.expressionNumberKind();
 
-                final ExpressionNumber number;
+            final ExpressionNumber number;
 
-                switch (sign) {
-                    case NEGATIVE:
-                        number = calculateEven(
-                                n.negate(c),
-                                c
-                        ).negate(c);
-                        break;
-                    case ZERO:
-                        number = kind.zero();
-                        break;
-                    case POSITIVE:
-                        number = calculateEven(n, c);
-                        break;
-                    default:
-                        NeverError.unhandledCase(sign, ExpressionNumberSign.values());
-                        number = null;
-                        break;
-                }
-
-                return number;
+            switch (sign) {
+                case NEGATIVE:
+                    number = calculateEven(
+                        n.negate(c),
+                        c
+                    ).negate(c);
+                    break;
+                case ZERO:
+                    number = kind.zero();
+                    break;
+                case POSITIVE:
+                    number = calculateEven(n, c);
+                    break;
+                default:
+                    NeverError.unhandledCase(sign, ExpressionNumberSign.values());
+                    number = null;
+                    break;
             }
+
+            return number;
+        }
     );
 
     private static ExpressionNumber calculateEven(final ExpressionNumber number,
@@ -112,11 +112,11 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         final ExpressionNumberKind kind = context.expressionNumberKind();
 
         final ExpressionNumber clearBit0 = number.setKind(kind)
-                .andNot(kind.one());
+            .andNot(kind.one());
 
         return clearBit0.equals(number) ?
-                clearBit0 :
-                clearBit0.add(TWO, context);
+            clearBit0 :
+            clearBit0.add(TWO, context);
     }
 
     /**
@@ -130,8 +130,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * EXP Singleton
      */
     private static final NumberExpressionFunctionUnary<?> EXP = new NumberExpressionFunctionUnary<>(
-            "exp",
-            (n, c) -> n.exp(c)
+        "exp",
+        (n, c) -> n.exp(c)
     );
 
     /**
@@ -145,8 +145,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * FLOOR Singleton
      */
     private static final NumberExpressionFunctionUnary<?> FLOOR = new NumberExpressionFunctionUnary<>(
-            "floor",
-            (n, c) -> n.floor(c)
+        "floor",
+        (n, c) -> n.floor(c)
     );
 
     /**
@@ -160,8 +160,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * INT Singleton
      */
     private static final NumberExpressionFunctionUnary<?> INT = new NumberExpressionFunctionUnary<>(
-            "int",
-            (n, c) -> round(n, c, RoundingMode.DOWN)
+        "int",
+        (n, c) -> round(n, c, RoundingMode.DOWN)
     );
 
     /**
@@ -175,8 +175,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * LN Singleton
      */
     private static final NumberExpressionFunctionUnary<?> LN = new NumberExpressionFunctionUnary<>(
-            "ln",
-            (n, c) -> n.ln(c)
+        "ln",
+        (n, c) -> n.ln(c)
     );
 
     /**
@@ -190,8 +190,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * LOG10 Singleton
      */
     private static final NumberExpressionFunctionUnary<?> LOG10 = new NumberExpressionFunctionUnary<>(
-            "log10",
-            (n, c) -> n.log10(c)
+        "log10",
+        (n, c) -> n.log10(c)
     );
 
     /**
@@ -207,34 +207,34 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * https://github.com/cuba-platform/apache-poi/blob/master/poi/src/java/org/apache/poi/ss/formula/functions/Odd.java
      */
     private static final NumberExpressionFunctionUnary<?> ODD = new NumberExpressionFunctionUnary<>(
-            "odd",
-            (n, c) -> {
-                final ExpressionNumberSign sign = n.sign();
-                final ExpressionNumberKind kind = c.expressionNumberKind();
+        "odd",
+        (n, c) -> {
+            final ExpressionNumberSign sign = n.sign();
+            final ExpressionNumberKind kind = c.expressionNumberKind();
 
-                final ExpressionNumber number;
+            final ExpressionNumber number;
 
-                switch (sign) {
-                    case NEGATIVE:
-                        number = calculateOdd(
-                                n.negate(c),
-                                c
-                        ).negate(c);
-                        break;
-                    case ZERO:
-                        number = kind.create(1);
-                        break;
-                    case POSITIVE:
-                        number = calculateOdd(n, c);
-                        break;
-                    default:
-                        NeverError.unhandledCase(sign, ExpressionNumberSign.values());
-                        number = null;
-                        break;
-                }
-
-                return number;
+            switch (sign) {
+                case NEGATIVE:
+                    number = calculateOdd(
+                        n.negate(c),
+                        c
+                    ).negate(c);
+                    break;
+                case ZERO:
+                    number = kind.create(1);
+                    break;
+                case POSITIVE:
+                    number = calculateOdd(n, c);
+                    break;
+                default:
+                    NeverError.unhandledCase(sign, ExpressionNumberSign.values());
+                    number = null;
+                    break;
             }
+
+            return number;
+        }
     );
 
     private static ExpressionNumber calculateOdd(final ExpressionNumber number,
@@ -244,13 +244,13 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         final ExpressionNumber one = kind.one();
 
         final ExpressionNumber plus1 = number.setKind(kind)
-                .add(one, context);
+            .add(one, context);
 
         final ExpressionNumber clearBit0 = plus1.andNot(one);
 
         return plus1.equals(clearBit0) ?
-                clearBit0.subtract(one, context) :
-                clearBit0.add(one, context);
+            clearBit0.subtract(one, context) :
+            clearBit0.add(one, context);
     }
 
     /**
@@ -264,21 +264,21 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * ROUND Singleton
      */
     private static final NumberExpressionFunctionUnary<?> ROUND = new NumberExpressionFunctionUnary<>(
-            "round",
-            (n, c) -> round(n, c, RoundingMode.HALF_UP)
+        "round",
+        (n, c) -> round(n, c, RoundingMode.HALF_UP)
     );
 
     private static ExpressionNumber round(final ExpressionNumber number,
                                           final ExpressionNumberContext context,
                                           final RoundingMode roundingMode) {
         return number.round(
-                NumberExpressionFunctionUnaryExpressionNumberContext.with(
-                        new MathContext(
-                                context.mathContext()
-                                        .getPrecision(),
-                                roundingMode
-                        )
+            NumberExpressionFunctionUnaryExpressionNumberContext.with(
+                new MathContext(
+                    context.mathContext()
+                        .getPrecision(),
+                    roundingMode
                 )
+            )
         );
     }
 
@@ -295,11 +295,11 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * SIGN Singleton
      */
     private static final NumberExpressionFunctionUnary<?> SIGN = new NumberExpressionFunctionUnary<>(
-            "sign",
-            (n, c) -> c.expressionNumberKind()
-                    .setSign(
-                            n.sign()
-                    )
+        "sign",
+        (n, c) -> c.expressionNumberKind()
+            .setSign(
+                n.sign()
+            )
     );
 
     /**
@@ -315,8 +315,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
      * SQRT Singleton
      */
     private static final NumberExpressionFunctionUnary<?> SQRT = new NumberExpressionFunctionUnary<>(
-            "sqrt",
-            (n, c) -> n.sqrt(c)
+        "sqrt",
+        (n, c) -> n.sqrt(c)
     );
 
     /**
@@ -339,8 +339,8 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         this.checkParameterCount(parameters);
 
         return this.function.apply(
-                NUMBER.getOrFail(parameters, 0),
-                context
+            NUMBER.getOrFail(parameters, 0),
+            context
         );
     }
 

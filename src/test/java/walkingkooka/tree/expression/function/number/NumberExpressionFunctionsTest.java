@@ -34,24 +34,24 @@ public final class NumberExpressionFunctionsTest implements PublicStaticHelperTe
     @Test
     public void testExpressionFunctionProvider() {
         this.checkEquals(
-                Arrays.stream(NumberExpressionFunctions.class.getDeclaredMethods())
-                        .filter(m -> m.getReturnType() == ExpressionFunction.class)
-                        .map(Method::getName)
-                        .map(n -> {
-                                    // JDK BUG cant have a lambda with switch as the body ???
-                                    switch (n) {
-                                        case "intFunction":
-                                            return "int";
-                                        default:
-                                            return n;
-                                    }
-                                }
-                        ).collect(Collectors.toCollection(SortedSets::tree)),
-                NumberExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
-                        .expressionFunctionInfos()
-                        .stream()
-                        .map(i -> i.name().value())
-                        .collect(Collectors.toCollection(SortedSets::tree))
+            Arrays.stream(NumberExpressionFunctions.class.getDeclaredMethods())
+                .filter(m -> m.getReturnType() == ExpressionFunction.class)
+                .map(Method::getName)
+                .map(n -> {
+                        // JDK BUG cant have a lambda with switch as the body ???
+                        switch (n) {
+                            case "intFunction":
+                                return "int";
+                            default:
+                                return n;
+                        }
+                    }
+                ).collect(Collectors.toCollection(SortedSets::tree)),
+            NumberExpressionFunctions.expressionFunctionProvider(CaseSensitivity.SENSITIVE)
+                .expressionFunctionInfos()
+                .stream()
+                .map(i -> i.name().value())
+                .collect(Collectors.toCollection(SortedSets::tree))
         );
     }
 

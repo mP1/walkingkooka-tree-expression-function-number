@@ -56,13 +56,13 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionEvaluationCont
         this.checkParameterCount(parameters);
 
         return context.convert(
-                VALUE.getOrFail(parameters, 0),
-                ExpressionNumber.class
+            VALUE.getOrFail(parameters, 0),
+            ExpressionNumber.class
         ).isLeft();
     }
 
     private final static ExpressionFunctionParameter<Object> VALUE = ExpressionFunctionParameter.VALUE
-            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     @Override
     public List<ExpressionFunctionParameter<?>> parameters(final int count) {

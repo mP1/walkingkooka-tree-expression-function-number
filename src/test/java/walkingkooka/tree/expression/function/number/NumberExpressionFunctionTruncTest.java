@@ -27,71 +27,71 @@ public final class NumberExpressionFunctionTruncTest extends NumberExpressionFun
     @Test
     public void testZeroDigits() {
         this.truncAndCheck(
-                1.2,
-                1
+            1.2,
+            1
         );
     }
 
     @Test
     public void testZeroDigits2() {
         this.truncAndCheck(
-                -1.2,
-                -1
+            -1.2,
+            -1
         );
     }
 
     private void truncAndCheck(final Number value,
                                final Number expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(value)
+            ),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testOneDigit() {
         this.truncAndCheck(
-                1.65,
-                1,
-                1.6
+            1.65,
+            1,
+            1.6
         );
     }
 
     @Test
     public void testTwoDigit() {
         this.truncAndCheck(
-                1.234,
-                2,
-                1.23
+            1.234,
+            2,
+            1.23
         );
     }
 
     @Test
     public void testMinus0Digits() {
         this.truncAndCheck(
-                999.99,
-                0,
-                999
+            999.99,
+            0,
+            999
         );
     }
 
     @Test
     public void testMinusOneDigit() {
         this.truncAndCheck(
-                999.99,
-                -1,
-                990
+            999.99,
+            -1,
+            990
         );
     }
 
     @Test
     public void testMinusTwoDigits() {
         this.truncAndCheck(
-                999.99,
-                -2,
-                900
+            999.99,
+            -2,
+            900
         );
     }
 
@@ -99,19 +99,19 @@ public final class NumberExpressionFunctionTruncTest extends NumberExpressionFun
                                final Number digits,
                                final Number expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value),
-                        KIND.create(digits)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(value),
+                KIND.create(digits)
+            ),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "trunc"
+            this.createBiFunction(),
+            "trunc"
         );
     }
 

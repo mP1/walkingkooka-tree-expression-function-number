@@ -29,19 +29,19 @@ public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFun
     @Test
     public void testNonNumberFails() {
         assertThrows(
-                ClassCastException.class,
-                () -> this.apply2("Not-a-number")
+            ClassCastException.class,
+            () -> this.apply2("Not-a-number")
         );
     }
 
     @Test
     public void testNonNumberParameter2Fails() {
         assertThrows(
-                ClassCastException.class,
-                () -> this.apply2(
-                        KIND.create(123),
-                        "Not-a-number"
-                )
+            ClassCastException.class,
+            () -> this.apply2(
+                KIND.create(123),
+                "Not-a-number"
+            )
         );
     }
 
@@ -58,8 +58,8 @@ public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFun
     private void deltaAndCheck(final Number number1,
                                final Number expected) {
         this.applyAndCheck2(
-                Lists.of(KIND.create(number1)),
-                KIND.create(expected)
+            Lists.of(KIND.create(number1)),
+            KIND.create(expected)
         );
     }
 
@@ -87,19 +87,19 @@ public final class NumberExpressionFunctionDeltaTest extends NumberExpressionFun
                                final Number number2,
                                final Number expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(number1),
-                        KIND.create(number2)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(number1),
+                KIND.create(number2)
+            ),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "delta"
+            this.createBiFunction(),
+            "delta"
         );
     }
 

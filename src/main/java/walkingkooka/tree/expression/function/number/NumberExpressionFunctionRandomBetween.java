@@ -55,16 +55,16 @@ final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluation
     }
 
     private final ExpressionFunctionParameter<ExpressionNumber> LOWER = ExpressionFunctionParameterName.with("lower")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<ExpressionNumber> UPPER = ExpressionFunctionParameterName.with("upper")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            LOWER,
-            UPPER
+        LOWER,
+        UPPER
     );
 
     @Override
@@ -73,10 +73,10 @@ final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluation
         this.checkParameterCount(parameters);
 
         return context.expressionNumberKind()
-                .randomBetween(
-                        LOWER.getOrFail(parameters, 0),
-                        UPPER.getOrFail(parameters, 1),
-                        context
-                );
+            .randomBetween(
+                LOWER.getOrFail(parameters, 0),
+                UPPER.getOrFail(parameters, 1),
+                context
+            );
     }
 }

@@ -58,12 +58,12 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> FORM = ExpressionFunctionParameterName.with("form")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            FORM
+        NUMBER,
+        FORM
     );
 
     // https://github.com/apache/poi/blob/7eaca60a1a364ce6e232363d27823e971a992705/poi/src/main/java/org/apache/poi/ss/formula/functions/Roman.java
@@ -79,8 +79,8 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
         }
 
         final ExpressionNumber form = FORM.get(parameters, 1)
-                .orElseGet(() -> Optional.of(context.expressionNumberKind().zero()))
-                .get();
+            .orElseGet(() -> Optional.of(context.expressionNumberKind().zero()))
+            .get();
         final int formInteger = form.intValueExact();
         switch (formInteger) {
             case 0:
@@ -94,8 +94,8 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
         }
 
         return format(
-                number.intValue(),
-                formInteger
+            number.intValue(),
+            formInteger
         );
     }
 
@@ -153,35 +153,35 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
     private static final String[] ROMAN = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     private static final String[][] REPLACEMENTS = {
-            { // form > 0
-                    "XLV", "VL",   //  45
-                    "XCV", "VC",   //  95
-                    "CDL", "LD",   // 450
-                    "CML", "LM",   // 950
-                    "CMVC", "LMVL"  // 995
-            }, { // Form == 1 only
-            "CDXC", "LDXL", // 490
-            "CDVC", "LDVL", // 495
-            "CMXC", "LMXL", // 990
-            "XCIX", "VCIV", //  99
-            "XLIX", "VLIV"  //  49
+        { // form > 0
+            "XLV", "VL",   //  45
+            "XCV", "VC",   //  95
+            "CDL", "LD",   // 450
+            "CML", "LM",   // 950
+            "CMVC", "LMVL"  // 995
+        }, { // Form == 1 only
+        "CDXC", "LDXL", // 490
+        "CDVC", "LDVL", // 495
+        "CMXC", "LMXL", // 990
+        "XCIX", "VCIV", //  99
+        "XLIX", "VLIV"  //  49
     }, { // form > 1
-            "XLIX", "IL",   //  49
-            "XCIX", "IC",   //  99
-            "CDXC", "XD",   // 490
-            "CDVC", "XDV",  // 495
-            "CDIC", "XDIX", // 499
-            "LMVL", "XMV",  // 995
-            "CMIC", "XMIX", // 999
-            "CMXC", "XM"    // 990
+        "XLIX", "IL",   //  49
+        "XCIX", "IC",   //  99
+        "CDXC", "XD",   // 490
+        "CDVC", "XDV",  // 495
+        "CDIC", "XDIX", // 499
+        "LMVL", "XMV",  // 995
+        "CMIC", "XMIX", // 999
+        "CMXC", "XM"    // 990
     }, { // form > 2
-            "XDV", "VD",   // 495
-            "XDIX", "VDIV", // 499
-            "XMV", "VM",   // 995
-            "XMIX", "VMIV"  // 999
+        "XDV", "VD",   // 495
+        "XDIX", "VDIV", // 499
+        "XMV", "VM",   // 995
+        "XMIX", "VMIV"  // 999
     }, { // form == 4
-            "VDIV", "ID",   // 499
-            "VMIV", "IM"    // 999
+        "VDIV", "ID",   // 499
+        "VMIV", "IM"    // 999
     }
     };
 }

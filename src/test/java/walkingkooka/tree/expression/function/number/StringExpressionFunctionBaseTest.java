@@ -27,27 +27,27 @@ public final class StringExpressionFunctionBaseTest extends StringExpressionFunc
     @Test
     public void testBase2() {
         this.baseAndCheck(
-                15,
-                2,
-                "1111"
+            15,
+            2,
+            "1111"
         );
     }
 
     @Test
     public void testBase3() {
         this.baseAndCheck(
-                15,
-                3,
-                "120"
+            15,
+            3,
+            "120"
         );
     }
 
     @Test
     public void testBase16() {
         this.baseAndCheck(
-                255,
-                16,
-                "FF"
+            255,
+            16,
+            "FF"
         );
     }
 
@@ -55,51 +55,51 @@ public final class StringExpressionFunctionBaseTest extends StringExpressionFunc
                               final Number base,
                               final String text) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(number),
-                        KIND.create(base)
-                ),
-                text
+            Lists.of(
+                KIND.create(number),
+                KIND.create(base)
+            ),
+            text
         );
     }
 
     @Test
     public void testBase2MinLength6() {
         this.baseAndCheck(
-                15,
-                2,
-                6,
-                "001111"
+            15,
+            2,
+            6,
+            "001111"
         );
     }
 
     @Test
     public void testBase3MinLength6() {
         this.baseAndCheck(
-                15,
-                3,
-                6,
-                "000120"
+            15,
+            3,
+            6,
+            "000120"
         );
     }
 
     @Test
     public void testBase16MinLengthLess() {
         this.baseAndCheck(
-                255,
-                16,
-                1,
-                "FF"
+            255,
+            16,
+            1,
+            "FF"
         );
     }
 
     @Test
     public void testBase16MinLength6() {
         this.baseAndCheck(
-                255,
-                16,
-                6,
-                "0000FF"
+            255,
+            16,
+            6,
+            "0000FF"
         );
     }
 
@@ -108,12 +108,12 @@ public final class StringExpressionFunctionBaseTest extends StringExpressionFunc
                               final Number minLength,
                               final String text) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(number),
-                        KIND.create(base),
-                        KIND.create(minLength)
-                ),
-                text
+            Lists.of(
+                KIND.create(number),
+                KIND.create(base),
+                KIND.create(minLength)
+            ),
+            text
         );
     }
 
@@ -122,8 +122,8 @@ public final class StringExpressionFunctionBaseTest extends StringExpressionFunc
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "base"
+            this.createBiFunction(),
+            "base"
         );
     }
 

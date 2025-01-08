@@ -27,87 +27,87 @@ public final class StringExpressionFunctionFixedTest extends StringExpressionFun
     @Test
     public void testOnlyNumber() {
         this.fixedAndCheck(
-                4,
-                "4d00"
+            4,
+            "4d00"
         );
     }
 
     @Test
     public void testNegativeOnlyNumber() {
         this.fixedAndCheck(
-                -4,
-                "n4d00"
+            -4,
+            "n4d00"
         );
     }
 
     @Test
     public void testOnlyNumberDecimal() {
         this.fixedAndCheck(
-                4.5,
-                "4d50"
+            4.5,
+            "4d50"
         );
     }
 
     @Test
     public void testOnlyNumberDecimal3() {
         this.fixedAndCheck(
-                4.123,
-                "4d12"
+            4.123,
+            "4d12"
         );
     }
 
     private void fixedAndCheck(final Number value,
                                final String fixed) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value)
-                ),
-                fixed
+            Lists.of(
+                KIND.create(value)
+            ),
+            fixed
         );
     }
 
     @Test
     public void test1_3() {
         this.fixedAndCheck(
-                1,
-                3,
-                "1d000"
+            1,
+            3,
+            "1d000"
         );
     }
 
     @Test
     public void test1000_2() {
         this.fixedAndCheck(
-                1000,
-                2,
-                "1g000d00"
+            1000,
+            2,
+            "1g000d00"
         );
     }
 
     @Test
     public void test1000_3() {
         this.fixedAndCheck(
-                1000,
-                3,
-                "1g000d000"
+            1000,
+            3,
+            "1g000d000"
         );
     }
 
     @Test
     public void test1000_1() {
         this.fixedAndCheck(
-                1000,
-                1,
-                "1g000d0"
+            1000,
+            1,
+            "1g000d0"
         );
     }
 
     @Test
     public void test1000_1Rounded() {
         this.fixedAndCheck(
-                1000.45,
-                1,
-                "1g000d5"
+            1000.45,
+            1,
+            "1g000d5"
         );
     }
 
@@ -115,31 +115,31 @@ public final class StringExpressionFunctionFixedTest extends StringExpressionFun
                                final Number decimals,
                                final String fixed) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value),
-                        KIND.create(decimals)
-                ),
-                fixed
+            Lists.of(
+                KIND.create(value),
+                KIND.create(decimals)
+            ),
+            fixed
         );
     }
 
     @Test
     public void test1000_1_False() {
         this.fixedAndCheck(
-                1000.45,
-                1,
-                false,
-                "1g000d5"
+            1000.45,
+            1,
+            false,
+            "1g000d5"
         );
     }
 
     @Test
     public void test1000_1_True() {
         this.fixedAndCheck(
-                1000.45,
-                1,
-                true,
-                "1000d5"
+            1000.45,
+            1,
+            true,
+            "1000d5"
         );
     }
 
@@ -148,20 +148,20 @@ public final class StringExpressionFunctionFixedTest extends StringExpressionFun
                                final boolean suppressSeparators,
                                final String fixed) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(value),
-                        KIND.create(decimals),
-                        suppressSeparators
-                ),
-                fixed
+            Lists.of(
+                KIND.create(value),
+                KIND.create(decimals),
+                suppressSeparators
+            ),
+            fixed
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "fixed"
+            this.createBiFunction(),
+            "fixed"
         );
     }
 

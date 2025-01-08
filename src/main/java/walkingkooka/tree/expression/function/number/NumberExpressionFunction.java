@@ -40,7 +40,7 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
     NumberExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 
@@ -52,11 +52,11 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
     private final Optional<ExpressionFunctionName> name;
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     final static ExpressionFunctionParameter<List> NUMBERS = ExpressionFunctionParameterName.with("numbers")
-            .required(List.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
+        .required(List.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_FLATTEN_RESOLVE_REFERENCES);
 
     final static List<ExpressionFunctionParameter<?>> PARAMETERS_VALUE = ExpressionFunctionParameter.list(NUMBER);
 
@@ -71,15 +71,15 @@ abstract class NumberExpressionFunction<C extends ExpressionEvaluationContext> i
     @Override
     public final boolean isPure(final ExpressionPurityContext context) {
         return !(
-                this instanceof NumberExpressionFunctionRandom ||
-                        this instanceof NumberExpressionFunctionRandomBetween
+            this instanceof NumberExpressionFunctionRandom ||
+                this instanceof NumberExpressionFunctionRandomBetween
         );
     }
 
     @Override
     public final String toString() {
         return this.name()
-                .get()
-                .toString();
+            .get()
+            .toString();
     }
 }

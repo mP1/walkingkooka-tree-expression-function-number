@@ -55,15 +55,15 @@ final class NumberExpressionFunctionDecimal<C extends ExpressionEvaluationContex
     }
 
     private final ExpressionFunctionParameter<String> TEXT = ExpressionFunctionParameter.TEXT
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<ExpressionNumber> BASE = ExpressionFunctionParameterName.with("base")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            TEXT,
-            BASE
+        TEXT,
+        BASE
     );
 
     @Override
@@ -72,10 +72,10 @@ final class NumberExpressionFunctionDecimal<C extends ExpressionEvaluationContex
         this.checkParameterCount(parameters);
 
         return context.expressionNumberKind()
-                .parseWithBase(
-                        TEXT.getOrFail(parameters, 0),
-                        BASE.getOrFail(parameters, 1).intValueExact(),
-                        context
-                );
+            .parseWithBase(
+                TEXT.getOrFail(parameters, 0),
+                BASE.getOrFail(parameters, 1).intValueExact(),
+                context
+            );
     }
 }

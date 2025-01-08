@@ -27,27 +27,27 @@ public final class NumberExpressionFunctionProductTest extends NumberExpressionF
     @Test
     public void test3And5() {
         this.productAndCheck(
-                3,
-                5,
-                3 * 5
+            3,
+            5,
+            3 * 5
         );
     }
 
     @Test
     public void test25And5() {
         this.productAndCheck(
-                25,
-                5,
-                25 * 5
+            25,
+            5,
+            25 * 5
         );
     }
 
     @Test
     public void test10And3() {
         this.productAndCheck(
-                10,
-                3,
-                10 * 3
+            10,
+            3,
+            10 * 3
         );
     }
 
@@ -55,19 +55,19 @@ public final class NumberExpressionFunctionProductTest extends NumberExpressionF
                                  final double denom,
                                  final double expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(num),
-                        KIND.create(denom)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(num),
+                KIND.create(denom)
+            ),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "product"
+            this.createBiFunction(),
+            "product"
         );
     }
 

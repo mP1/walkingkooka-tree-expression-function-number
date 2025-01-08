@@ -39,8 +39,8 @@ final class NumberExpressionFunctionConstants<C extends ExpressionEvaluationCont
     }
 
     private static final NumberExpressionFunctionConstants<?> E = new NumberExpressionFunctionConstants<>(
-            "e",
-            (c) -> c.expressionNumberKind().e(c)
+        "e",
+        (c) -> c.expressionNumberKind().e(c)
     );
 
     /**
@@ -51,8 +51,8 @@ final class NumberExpressionFunctionConstants<C extends ExpressionEvaluationCont
     }
 
     private static final NumberExpressionFunctionConstants<?> PI = new NumberExpressionFunctionConstants<>(
-            "pi",
-            (c) -> c.expressionNumberKind().pi(c)
+        "pi",
+        (c) -> c.expressionNumberKind().pi(c)
     );
 
     private NumberExpressionFunctionConstants(final String name,

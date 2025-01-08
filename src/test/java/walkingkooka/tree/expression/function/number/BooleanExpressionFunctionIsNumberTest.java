@@ -35,41 +35,41 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
     @Test
     public void testStringParameterFalse() {
         this.isNumberAndCheck(
-                "String123",
-                false
+            "String123",
+            false
         );
     }
 
     @Test
     public void testStringWithNumberParameterTrue() {
         this.isNumberAndCheck(
-                "123",
-                true
+            "123",
+            true
         );
     }
 
     @Test
     public void testNumberParameterTrue() {
         this.isNumberAndCheck(
-                123,
-                true
+            123,
+            true
         );
     }
 
     @Test
     public void testExpressionNumberParameterTrue() {
         this.isNumberAndCheck(
-                ExpressionNumberKind.BIG_DECIMAL.one(),
-                true
+            ExpressionNumberKind.BIG_DECIMAL.one(),
+            true
         );
     }
 
     private void isNumberAndCheck(final Object parameter,
                                   final boolean expected) {
         this.applyAndCheck(
-                Lists.of(parameter),
-                this.createContext(),
-                expected
+            Lists.of(parameter),
+            this.createContext(),
+            expected
         );
     }
 
@@ -96,21 +96,21 @@ public final class BooleanExpressionFunctionIsNumberTest extends BooleanExpressi
                                                  final Class<T> target) {
                 if (value instanceof Number) {
                     return this.successfulConversion(
-                            ExpressionNumberKind.DEFAULT.create((Number) value),
-                            target
+                        ExpressionNumberKind.DEFAULT.create((Number) value),
+                        target
                     );
                 }
                 try {
                     return this.successfulConversion(
-                            ExpressionNumberKind.DEFAULT.create(
-                                    Integer.parseInt((String) value)
-                            ),
-                            target
+                        ExpressionNumberKind.DEFAULT.create(
+                            Integer.parseInt((String) value)
+                        ),
+                        target
                     );
                 } catch (final Exception fail) {
                     return this.failConversion(
-                            value,
-                            target
+                        value,
+                        target
                     );
                 }
             }
