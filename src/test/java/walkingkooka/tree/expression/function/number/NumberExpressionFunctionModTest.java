@@ -30,36 +30,36 @@ public final class NumberExpressionFunctionModTest extends NumberExpressionFunct
     @Test
     public void test3And5() {
         this.modAndCheck(
-                3,
-                5,
-                3
+            3,
+            5,
+            3
         );
     }
 
     @Test
     public void test25And5() {
         this.modAndCheck(
-                25,
-                5,
-                0
+            25,
+            5,
+            0
         );
     }
 
     @Test
     public void test10And3() {
         this.modAndCheck(
-                10,
-                3,
-                1
+            10,
+            3,
+            1
         );
     }
 
     @Test
     public void test61And10() {
         this.modAndCheck(
-                61,
-                10,
-                1
+            61,
+            10,
+            1
         );
     }
 
@@ -72,36 +72,36 @@ public final class NumberExpressionFunctionModTest extends NumberExpressionFunct
     @Test
     public void test3Point4And2() {
         this.modAndCheck(
-                3.4,
-                2,
-                1.4
+            3.4,
+            2,
+            1.4
         );
     }
 
     @Test
     public void testMinus3Point4And2() {
         this.modAndCheck(
-                -3.4,
-                2,
-                0.6
+            -3.4,
+            2,
+            0.6
         );
     }
 
     @Test
     public void testMinus3Point4AndMinus2() {
         this.modAndCheck(
-                -3.4,
-                -2,
-                -1.4
+            -3.4,
+            -2,
+            -1.4
         );
     }
 
     @Test
     public void test3Point4AndMinus2() {
         this.modAndCheck(
-                3.4,
-                -2,
-                -0.6
+            3.4,
+            -2,
+            -0.6
         );
     }
 
@@ -109,20 +109,20 @@ public final class NumberExpressionFunctionModTest extends NumberExpressionFunct
                              final double denom,
                              final double expected) {
         this.applyAndCheck(
-                Lists.of(
-                        KIND.create(num),
-                        KIND.create(denom)
-                ),
-                this.createContext(KIND),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(num),
+                KIND.create(denom)
+            ),
+            this.createContext(KIND),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "mod"
+            this.createBiFunction(),
+            "mod"
         );
     }
 

@@ -33,28 +33,28 @@ public final class NumberExpressionFunctionToTest extends NumberExpressionFuncti
     @Test
     public void testZeroParametersFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> {
-                    NumberExpressionFunctionTo.instance()
-                            .apply(
-                                    Lists.empty(),
-                                    this.createContext()
-                            );
-                }
+            IllegalArgumentException.class,
+            () -> {
+                NumberExpressionFunctionTo.instance()
+                    .apply(
+                        Lists.empty(),
+                        this.createContext()
+                    );
+            }
         );
     }
 
     @Test
     public void testTwoParametersFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> {
-                    NumberExpressionFunctionTo.instance()
-                            .apply(
-                                    Lists.of(KIND.create(1), KIND.create(2)),
-                                    this.createContext()
-                            );
-                }
+            IllegalArgumentException.class,
+            () -> {
+                NumberExpressionFunctionTo.instance()
+                    .apply(
+                        Lists.of(KIND.create(1), KIND.create(2)),
+                        this.createContext()
+                    );
+            }
         );
     }
 
@@ -63,11 +63,11 @@ public final class NumberExpressionFunctionToTest extends NumberExpressionFuncti
         final ExpressionNumber value = KIND.create(10);
 
         this.applyAndCheck(
-                Lists.of(
-                        value
-                ),
-                this.createContext(),
+            Lists.of(
                 value
+            ),
+            this.createContext(),
+            value
         );
     }
 

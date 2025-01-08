@@ -31,19 +31,19 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
     @Test
     public void testIsEvenNullParameterFalse() {
         assertThrows(
-                NullPointerException.class,
-                () -> {
-                    BooleanExpressionFunctionIsEvenIsOdd.isEven().apply(Lists.of(null), this.createContext());
-                });
+            NullPointerException.class,
+            () -> {
+                BooleanExpressionFunctionIsEvenIsOdd.isEven().apply(Lists.of(null), this.createContext());
+            });
     }
 
     @Test
     public void testIsOddNullParameterFalse() {
         assertThrows(
-                NullPointerException.class,
-                () -> {
-                    BooleanExpressionFunctionIsEvenIsOdd.isOdd().apply(Lists.of(null), this.createContext());
-                });
+            NullPointerException.class,
+            () -> {
+                BooleanExpressionFunctionIsEvenIsOdd.isOdd().apply(Lists.of(null), this.createContext());
+            });
     }
 
 
@@ -75,9 +75,9 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
     private void isEvenAndCheck(final Number parameter,
                                 final boolean expected) {
         this.isAndCheck(
-                BooleanExpressionFunctionIsEvenIsOdd.isEven(),
-                parameter,
-                expected
+            BooleanExpressionFunctionIsEvenIsOdd.isEven(),
+            parameter,
+            expected
         );
     }
 
@@ -109,9 +109,9 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
     private void isOddAndCheck(final Number parameter,
                                final boolean expected) {
         this.isAndCheck(
-                BooleanExpressionFunctionIsEvenIsOdd.isOdd(),
-                parameter,
-                expected
+            BooleanExpressionFunctionIsEvenIsOdd.isOdd(),
+            parameter,
+            expected
         );
     }
 
@@ -119,26 +119,26 @@ public final class BooleanExpressionFunctionIsEvenIsOddTest extends BooleanExpre
                             final Number parameter,
                             final boolean expected) {
         this.applyAndCheck(
-                function,
-                Lists.of(ExpressionNumberKind.DOUBLE.create(parameter)),
-                this.createContext(),
-                expected
+            function,
+            Lists.of(ExpressionNumberKind.DOUBLE.create(parameter)),
+            this.createContext(),
+            expected
         );
     }
 
     @Test
     public void testIsEvenToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionIsEvenIsOdd.isEven(),
-                "isEven"
+            BooleanExpressionFunctionIsEvenIsOdd.isEven(),
+            "isEven"
         );
     }
 
     @Test
     public void testIsOddToString() {
         this.toStringAndCheck(
-                BooleanExpressionFunctionIsEvenIsOdd.isOdd(),
-                "isOdd"
+            BooleanExpressionFunctionIsEvenIsOdd.isOdd(),
+            "isOdd"
         );
     }
 

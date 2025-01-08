@@ -33,7 +33,7 @@ abstract class BooleanExpressionFunction<C extends ExpressionEvaluationContext> 
     BooleanExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 
@@ -57,7 +57,7 @@ abstract class BooleanExpressionFunction<C extends ExpressionEvaluationContext> 
     @Override
     public final String toString() {
         return this.name()
-                .get()
-                .toString();
+            .get()
+            .toString();
     }
 }

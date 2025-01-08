@@ -58,17 +58,17 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> DECIMALS = ExpressionFunctionParameterName.with("decimals")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<Boolean> NO_COMMAS = ExpressionFunctionParameterName.with("no-commas")
-            .optional(Boolean.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(Boolean.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            DECIMALS,
-            NO_COMMAS
+        NUMBER,
+        DECIMALS,
+        NO_COMMAS
     );
 
     // https://github.com/apache/poi/blob/7eaca60a1a364ce6e232363d27823e971a992705/poi/src/main/java/org/apache/poi/ss/formula/functions/Roman.java
@@ -80,12 +80,12 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         final int decimals = DECIMALS.get(parameters, 1)
-                .orElseGet(() -> Optional.of(context.expressionNumberKind().create(2)))
-                .get()
-                .intValueExact();
+            .orElseGet(() -> Optional.of(context.expressionNumberKind().create(2)))
+            .get()
+            .intValueExact();
         final Boolean commas = NO_COMMAS.get(parameters, 2)
-                .orElse(Optional.of(false))
-                .get();
+            .orElse(Optional.of(false))
+            .get();
 
         final DecimalFormatSymbols symbols = new DecimalFormatSymbols();
 

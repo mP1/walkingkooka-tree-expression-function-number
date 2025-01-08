@@ -27,36 +27,36 @@ public final class NumberExpressionFunctionQuotientTest extends NumberExpression
     @Test
     public void test3And5() {
         this.quotientAndCheck(
-                3,
-                5,
-                0
+            3,
+            5,
+            0
         );
     }
 
     @Test
     public void test25And5() {
         this.quotientAndCheck(
-                25,
-                5,
-                5
+            25,
+            5,
+            5
         );
     }
 
     @Test
     public void test10And3() {
         this.quotientAndCheck(
-                10,
-                3,
-                3
+            10,
+            3,
+            3
         );
     }
 
     @Test
     public void test61And10() {
         this.quotientAndCheck(
-                61,
-                10,
-                6
+            61,
+            10,
+            6
         );
     }
 
@@ -64,19 +64,19 @@ public final class NumberExpressionFunctionQuotientTest extends NumberExpression
                                   final double denom,
                                   final double expected) {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(num),
-                        KIND.create(denom)
-                ),
-                KIND.create(expected)
+            Lists.of(
+                KIND.create(num),
+                KIND.create(denom)
+            ),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "quotient"
+            this.createBiFunction(),
+            "quotient"
         );
     }
 

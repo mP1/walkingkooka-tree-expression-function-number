@@ -42,8 +42,8 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
     }
 
     private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_DOWN = new NumberExpressionFunctionRoundDownHalfUp<>(
-            "roundDown",
-            RoundingMode.DOWN
+        "roundDown",
+        RoundingMode.DOWN
     );
 
     /**
@@ -56,8 +56,8 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
     }
 
     private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_HALF = new NumberExpressionFunctionRoundDownHalfUp<>(
-            "roundHalf",
-            RoundingMode.HALF_UP
+        "roundHalf",
+        RoundingMode.HALF_UP
     );
 
     /**
@@ -70,8 +70,8 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
     }
 
     private static final NumberExpressionFunctionRoundDownHalfUp<?> ROUND_UP = new NumberExpressionFunctionRoundDownHalfUp<>(
-            "roundUp",
-            RoundingMode.UP
+        "roundUp",
+        RoundingMode.UP
     );
 
 
@@ -90,12 +90,12 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
     }
 
     private final ExpressionFunctionParameter<ExpressionNumber> DIGITS = ExpressionFunctionParameterName.with("digits")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            DIGITS
+        NUMBER,
+        DIGITS
     );
 
     @Override
@@ -105,7 +105,7 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
 
         final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         final int digits = DIGITS.getOrFail(parameters, 1)
-                .intValueExact();
+            .intValueExact();
 
         if (digits > 4) {
             throw new IllegalArgumentException("Invalid " + DIGITS.name() + " " + digits + " > 4");
@@ -115,11 +115,11 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
         // roundXXX
 
         return context.expressionNumberKind()
-                .create(
-                        number.bigDecimal()
-                                .setScale(digits, this.roundingMode)
-                                .stripTrailingZeros()
-                );
+            .create(
+                number.bigDecimal()
+                    .setScale(digits, this.roundingMode)
+                    .stripTrailingZeros()
+            );
     }
 
     private final RoundingMode roundingMode;

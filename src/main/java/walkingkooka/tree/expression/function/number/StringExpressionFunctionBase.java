@@ -57,17 +57,17 @@ final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> 
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> BASE = ExpressionFunctionParameterName.with("base")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> MIN_LENGTH = ExpressionFunctionParameterName.with("min-length")
-            .optional(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .optional(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            BASE,
-            MIN_LENGTH
+        NUMBER,
+        BASE,
+        MIN_LENGTH
     );
 
     @Override
@@ -82,21 +82,21 @@ final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> 
         final Optional<Optional<ExpressionNumber>> minLength = MIN_LENGTH.get(parameters, 2);
 
         final String string = number.toStringWithBase(base)
-                .toUpperCase(context.locale());
+            .toUpperCase(context.locale());
 
         return minLength.isPresent() ?
-                padLeftZeroIfNecessary(
-                        string,
-                        minLength.get()
-                                .orElse(null).intValueExact()
-                ) :
-                string;
+            padLeftZeroIfNecessary(
+                string,
+                minLength.get()
+                    .orElse(null).intValueExact()
+            ) :
+            string;
     }
 
     private static String padLeftZeroIfNecessary(final String string,
                                                  final int minLength) {
         return string.length() > minLength ?
-                string :
-                CharSequences.padLeft(string, minLength, '0').toString();
+            string :
+            CharSequences.padLeft(string, minLength, '0').toString();
     }
 }

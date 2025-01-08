@@ -26,34 +26,34 @@ public final class NumberExpressionFunctionConstantsTest extends NumberExpressio
     @Test
     public void testE() {
         this.applyAndCheck2(
-                NumberExpressionFunctionConstants.e(),
-                ExpressionEvaluationContext.NO_PARAMETERS,
-                KIND.create(Math.E)
+            NumberExpressionFunctionConstants.e(),
+            ExpressionEvaluationContext.NO_PARAMETERS,
+            KIND.create(Math.E)
         );
     }
 
     @Test
     public void testPI() {
         this.applyAndCheck2(
-                NumberExpressionFunctionConstants.pi(),
-                ExpressionEvaluationContext.NO_PARAMETERS,
-                KIND.create(Math.PI)
+            NumberExpressionFunctionConstants.pi(),
+            ExpressionEvaluationContext.NO_PARAMETERS,
+            KIND.create(Math.PI)
         );
     }
 
     @Test
     public void testToStringE() {
         this.toStringAndCheck(
-                NumberExpressionFunctionConstants.e(),
-                "e"
+            NumberExpressionFunctionConstants.e(),
+            "e"
         );
     }
 
     @Test
     public void testToStringPi() {
         this.toStringAndCheck(
-                NumberExpressionFunctionConstants.pi(),
-                "pi"
+            NumberExpressionFunctionConstants.pi(),
+            "pi"
         );
     }
 

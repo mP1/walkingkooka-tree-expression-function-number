@@ -55,16 +55,16 @@ final class NumberExpressionFunctionMod<C extends ExpressionEvaluationContext> e
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> NUMERATOR = ExpressionFunctionParameterName.with("numerator")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> DENOMINATOR = ExpressionFunctionParameterName.with("denominator")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMERATOR,
-            DENOMINATOR
+        NUMERATOR,
+        DENOMINATOR
     );
 
     // https://github.com/apache/poi/blob/bb5d321b79193b98051f435621f5044842716c4e/poi/src/main/java/org/apache/poi/ss/formula/functions/MathX.java
@@ -81,7 +81,7 @@ final class NumberExpressionFunctionMod<C extends ExpressionEvaluationContext> e
         if (num.sign() != denom.sign()) {
             // return ((n % d) + d) % d;
             mod = mod.add(denom, context)
-                    .modulo(denom, context);
+                .modulo(denom, context);
         }
 
         return mod;

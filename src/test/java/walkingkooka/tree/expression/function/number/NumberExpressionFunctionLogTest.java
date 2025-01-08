@@ -27,19 +27,19 @@ public final class NumberExpressionFunctionLogTest extends NumberExpressionFunct
     @Test
     public void testLog16Base2() {
         this.applyAndCheck2(
-                Lists.of(
-                        KIND.create(16),
-                        KIND.create(2)
-                ),
-                KIND.create(4)
+            Lists.of(
+                KIND.create(16),
+                KIND.create(2)
+            ),
+            KIND.create(4)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "log"
+            this.createBiFunction(),
+            "log"
         );
     }
 

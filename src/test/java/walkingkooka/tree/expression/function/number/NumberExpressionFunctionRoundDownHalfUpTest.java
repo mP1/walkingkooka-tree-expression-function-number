@@ -30,81 +30,81 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     @Test
     public void testRoundDownDigits0() {
         this.roundDownAndCheck(
-                5.7899,
-                0,
-                5
+            5.7899,
+            0,
+            5
         );
     }
 
     @Test
     public void testRoundDownDigits1() {
         this.roundDownAndCheck(
-                5.7899,
-                1,
-                5.7
+            5.7899,
+            1,
+            5.7
         );
     }
 
     @Test
     public void testRoundDownDigits2() {
         this.roundDownAndCheck(
-                5.7899,
-                2,
-                5.78
+            5.7899,
+            2,
+            5.78
         );
     }
 
     @Test
     public void testRoundDownDigits3() {
         this.roundDownAndCheck(
-                5.7899,
-                3,
-                5.789
+            5.7899,
+            3,
+            5.789
         );
     }
 
     @Test
     public void testRoundDownDigits4() {
         this.roundDownAndCheck(
-                5.7899,
-                4,
-                5.7899
+            5.7899,
+            4,
+            5.7899
         );
     }
 
     @Test
     public void testRoundDownDigitsMinus1() {
         this.roundDownAndCheck(
-                27842.5,
-                -1,
-                27840
+            27842.5,
+            -1,
+            27840
         );
     }
 
     @Test
     public void testRoundDownDigitsMinus2() {
         this.roundDownAndCheck(
-                27842.5,
-                -2,
-                27800
+            27842.5,
+            -2,
+            27800
         );
     }
 
     @Test
     public void testRoundDownDigitsMinus3() {
         this.roundDownAndCheck(
-                27842.5,
-                -3,
-                27000
+            27842.5,
+            -3,
+            27000
         );
     }
 
     @Test
     public void testRoundDownDigitsMinus4() {
         this.roundDownAndCheck(
-                27842.5,
-                -4,
-                20000
+            27842.5,
+            -4,
+            20000
         );
     }
 
@@ -112,10 +112,10 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
                                    final Number digits,
                                    final Number expected) {
         this.roundAndCheck(
-                NumberExpressionFunctionRoundDownHalfUp.roundDown(),
-                number,
-                digits,
-                expected
+            NumberExpressionFunctionRoundDownHalfUp.roundDown(),
+            number,
+            digits,
+            expected
         );
     }
 
@@ -124,81 +124,81 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     @Test
     public void testRoundHalfDigitsMinus4() {
         this.roundHalfAndCheck(
-                23542.5,
-                -4,
-                20000
+            23542.5,
+            -4,
+            20000
         );
     }
 
     @Test
     public void testRoundHalfDigitsMinus3() {
         this.roundHalfAndCheck(
-                23542.5,
-                -3,
-                24000
+            23542.5,
+            -3,
+            24000
         );
     }
 
     @Test
     public void testRoundHalfDigitsMinus2() {
         this.roundHalfAndCheck(
-                23542.5,
-                -2,
-                23500
+            23542.5,
+            -2,
+            23500
         );
     }
 
     @Test
     public void testRoundHalfDigitsMinus1() {
         this.roundHalfAndCheck(
-                23542.5,
-                -1,
-                23540
+            23542.5,
+            -1,
+            23540
         );
     }
 
     @Test
     public void testRoundHalfDigits0() {
         this.roundHalfAndCheck(
-                23542.5,
-                0,
-                23543
+            23542.5,
+            0,
+            23543
         );
     }
 
     @Test
     public void testRoundHalfDigitsPlus1() {
         this.roundHalfAndCheck(
-                5.7845,
-                1,
-                5.8
+            5.7845,
+            1,
+            5.8
         );
     }
 
     @Test
     public void testRoundHalfDigitsPlus2() {
         this.roundHalfAndCheck(
-                5.7845,
-                2,
-                5.78
+            5.7845,
+            2,
+            5.78
         );
     }
 
     @Test
     public void testRoundHalfDigitsPlus3() {
         this.roundHalfAndCheck(
-                5.7845,
-                3,
-                5.785
+            5.7845,
+            3,
+            5.785
         );
     }
 
     @Test
     public void testRoundHalfDigitsPlus4() {
         this.roundHalfAndCheck(
-                5.7845,
-                4,
-                5.7845
+            5.7845,
+            4,
+            5.7845
         );
     }
 
@@ -206,10 +206,10 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
                                    final Number digits,
                                    final Number expected) {
         this.roundAndCheck(
-                NumberExpressionFunctionRoundDownHalfUp.roundHalf(),
-                number,
-                digits,
-                expected
+            NumberExpressionFunctionRoundDownHalfUp.roundHalf(),
+            number,
+            digits,
+            expected
         );
     }
 
@@ -219,81 +219,81 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     @Test
     public void testRoundUpDigits0() {
         this.roundUpAndCheck(
-                5.1242,
-                0,
-                6
+            5.1242,
+            0,
+            6
         );
     }
 
     @Test
     public void testRoundUpDigits1() {
         this.roundUpAndCheck(
-                5.1242,
-                1,
-                5.2
+            5.1242,
+            1,
+            5.2
         );
     }
 
     @Test
     public void testRoundUpDigits2() {
         this.roundUpAndCheck(
-                5.1242,
-                2,
-                5.13
+            5.1242,
+            2,
+            5.13
         );
     }
 
     @Test
     public void testRoundUpDigits3() {
         this.roundUpAndCheck(
-                5.1242,
-                3,
-                5.125
+            5.1242,
+            3,
+            5.125
         );
     }
 
     @Test
     public void testRoundUpDigits4() {
         this.roundUpAndCheck(
-                5.1242,
-                4,
-                5.1242
+            5.1242,
+            4,
+            5.1242
         );
     }
 
     @Test
     public void testRoundUpDigitsMinus1() {
         this.roundUpAndCheck(
-                23242.3,
-                -1,
-                23250
+            23242.3,
+            -1,
+            23250
         );
     }
 
     @Test
     public void testRoundUpDigitsMinus2() {
         this.roundUpAndCheck(
-                23242.3,
-                -2,
-                23300
+            23242.3,
+            -2,
+            23300
         );
     }
 
     @Test
     public void testRoundUpDigitsMinus3() {
         this.roundUpAndCheck(
-                23242.3,
-                -3,
-                24000
+            23242.3,
+            -3,
+            24000
         );
     }
 
     @Test
     public void testRoundUpDigitsMinus4() {
         this.roundUpAndCheck(
-                23242.3,
-                -4,
-                30000
+            23242.3,
+            -4,
+            30000
         );
     }
 
@@ -301,10 +301,10 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
                                  final Number digits,
                                  final Number expected) {
         this.roundAndCheck(
-                NumberExpressionFunctionRoundDownHalfUp.roundUp(),
-                number,
-                digits,
-                expected
+            NumberExpressionFunctionRoundDownHalfUp.roundUp(),
+            number,
+            digits,
+            expected
         );
     }
 
@@ -313,13 +313,13 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
                                final Number digits,
                                final Number expected) {
         this.applyAndCheck(
-                function,
-                Lists.of(
-                        KIND.create(number),
-                        KIND.create(digits)
-                ),
-                this.createContext(),
-                KIND.create(expected)
+            function,
+            Lists.of(
+                KIND.create(number),
+                KIND.create(digits)
+            ),
+            this.createContext(),
+            KIND.create(expected)
         );
     }
 
@@ -328,16 +328,16 @@ public final class NumberExpressionFunctionRoundDownHalfUpTest extends NumberExp
     @Test
     public void testToStringRoundDown() {
         this.toStringAndCheck(
-                NumberExpressionFunctionRoundDownHalfUp.roundDown(),
-                "roundDown"
+            NumberExpressionFunctionRoundDownHalfUp.roundDown(),
+            "roundDown"
         );
     }
 
     @Test
     public void testToStringRoundUp() {
         this.toStringAndCheck(
-                NumberExpressionFunctionRoundDownHalfUp.roundUp(),
-                "roundUp"
+            NumberExpressionFunctionRoundDownHalfUp.roundUp(),
+            "roundUp"
         );
     }
 

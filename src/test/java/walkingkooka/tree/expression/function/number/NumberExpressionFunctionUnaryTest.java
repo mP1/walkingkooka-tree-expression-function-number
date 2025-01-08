@@ -55,9 +55,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void absoluteAndCheck(final double value,
                                   final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.absolute(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.absolute(),
+            value,
+            expected
         );
     }
 
@@ -85,9 +85,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void ceilAndCheck(final double value,
                               final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.ceil(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.ceil(),
+            value,
+            expected
         );
     }
 
@@ -125,9 +125,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void evenAndCheck(final double value,
                               final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.even(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.even(),
+            value,
+            expected
         );
     }
 
@@ -146,9 +146,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void expAndCheck(final double value,
                              final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.exp(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.exp(),
+            value,
+            expected
         );
     }
 
@@ -176,9 +176,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void floorAndCheck(final double value,
                                final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.floor(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.floor(),
+            value,
+            expected
         );
     }
 
@@ -211,17 +211,17 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void intBigDecimalAndCheck(final Number value,
                                        final Number expected) {
         this.applyAndCheck(
-                NumberExpressionFunctionUnary.intFunction(),
-                Lists.of(
-                        ExpressionNumberKind.BIG_DECIMAL.create(value)
-                ),
-                new FakeExpressionEvaluationContext() {
-                    @Override
-                    public MathContext mathContext() {
-                        return new MathContext(0, RoundingMode.DOWN);
-                    }
-                },
-                ExpressionNumberKind.BIG_DECIMAL.create(expected)
+            NumberExpressionFunctionUnary.intFunction(),
+            Lists.of(
+                ExpressionNumberKind.BIG_DECIMAL.create(value)
+            ),
+            new FakeExpressionEvaluationContext() {
+                @Override
+                public MathContext mathContext() {
+                    return new MathContext(0, RoundingMode.DOWN);
+                }
+            },
+            ExpressionNumberKind.BIG_DECIMAL.create(expected)
         );
     }
 
@@ -252,9 +252,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void intDoubleAndCheck(final Number value,
                                    final Number expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.intFunction(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.intFunction(),
+            value,
+            expected
         );
     }
 
@@ -263,9 +263,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     @Test
     public void testLnNegativeFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> KIND.create(-1)
-                        .ln(this.createContext())
+            IllegalArgumentException.class,
+            () -> KIND.create(-1)
+                .ln(this.createContext())
         );
     }
 
@@ -287,9 +287,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void lnAndCheck(final double value,
                             final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.ln(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.ln(),
+            value,
+            expected
         );
     }
 
@@ -298,9 +298,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     @Test
     public void testLog10NegativeFails() {
         assertThrows(
-                IllegalArgumentException.class,
-                () -> KIND.create(-1)
-                        .log10(this.createContext())
+            IllegalArgumentException.class,
+            () -> KIND.create(-1)
+                .log10(this.createContext())
         );
     }
 
@@ -322,9 +322,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void log10AndCheck(final double value,
                                final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.log10(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.log10(),
+            value,
+            expected
         );
     }
 
@@ -367,9 +367,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void oddAndCheck(final double value,
                              final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.odd(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.odd(),
+            value,
+            expected
         );
     }
 
@@ -402,17 +402,17 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void roundBigDecimalAndCheck(final Number value,
                                          final Number expected) {
         this.applyAndCheck(
-                NumberExpressionFunctionUnary.round(),
-                Lists.of(
-                        ExpressionNumberKind.BIG_DECIMAL.create(value)
-                ),
-                new FakeExpressionEvaluationContext() {
-                    @Override
-                    public MathContext mathContext() {
-                        return new MathContext(0, RoundingMode.HALF_UP);
-                    }
-                },
-                ExpressionNumberKind.BIG_DECIMAL.create(expected)
+            NumberExpressionFunctionUnary.round(),
+            Lists.of(
+                ExpressionNumberKind.BIG_DECIMAL.create(value)
+            ),
+            new FakeExpressionEvaluationContext() {
+                @Override
+                public MathContext mathContext() {
+                    return new MathContext(0, RoundingMode.HALF_UP);
+                }
+            },
+            ExpressionNumberKind.BIG_DECIMAL.create(expected)
         );
     }
 
@@ -443,9 +443,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void roundDoubleAndCheck(final Number value,
                                      final Number expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.round(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.round(),
+            value,
+            expected
         );
     }
 
@@ -469,9 +469,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void signAndCheck(final double value,
                               final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.sign(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.sign(),
+            value,
+            expected
         );
     }
 
@@ -495,9 +495,9 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     private void sqrtAndCheck(final double value,
                               final double expected) {
         this.applyAndCheck3(
-                NumberExpressionFunctionUnary.sqrt(),
-                value,
-                expected
+            NumberExpressionFunctionUnary.sqrt(),
+            value,
+            expected
         );
     }
 
@@ -507,12 +507,12 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
                                 final Number value,
                                 final Number expected) {
         this.applyAndCheck(
-                function,
-                Lists.of(
-                        KIND.create(value)
-                ),
-                this.createContext(),
-                KIND.create(expected)
+            function,
+            Lists.of(
+                KIND.create(value)
+            ),
+            this.createContext(),
+            KIND.create(expected)
         );
     }
 
@@ -521,32 +521,32 @@ public final class NumberExpressionFunctionUnaryTest extends NumberExpressionFun
     @Test
     public void testToStringAbs() {
         this.toStringAndCheck(
-                NumberExpressionFunctionUnary.absolute(),
-                "abs"
+            NumberExpressionFunctionUnary.absolute(),
+            "abs"
         );
     }
 
     @Test
     public void testToStringCeil() {
         this.toStringAndCheck(
-                NumberExpressionFunctionUnary.ceil(),
-                "ceil"
+            NumberExpressionFunctionUnary.ceil(),
+            "ceil"
         );
     }
 
     @Test
     public void testToStringFloor() {
         this.toStringAndCheck(
-                NumberExpressionFunctionUnary.floor(),
-                "floor"
+            NumberExpressionFunctionUnary.floor(),
+            "floor"
         );
     }
 
     @Test
     public void testToStringRound() {
         this.toStringAndCheck(
-                NumberExpressionFunctionUnary.round(),
-                "round"
+            NumberExpressionFunctionUnary.round(),
+            "round"
         );
     }
 

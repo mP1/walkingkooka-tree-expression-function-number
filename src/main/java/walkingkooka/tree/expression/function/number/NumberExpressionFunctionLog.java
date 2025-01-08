@@ -55,12 +55,12 @@ final class NumberExpressionFunctionLog<C extends ExpressionEvaluationContext> e
     }
 
     private final ExpressionFunctionParameter<ExpressionNumber> BASE = ExpressionFunctionParameterName.with("base")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER,
-            BASE
+        NUMBER,
+        BASE
     );
 
     @Override
@@ -69,9 +69,9 @@ final class NumberExpressionFunctionLog<C extends ExpressionEvaluationContext> e
         this.checkParameterCount(parameters);
 
         return NUMBER.getOrFail(parameters, 0)
-                .log(
-                        BASE.getOrFail(parameters, 1),
-                        context
-                );
+            .log(
+                BASE.getOrFail(parameters, 1),
+                context
+            );
     }
 }

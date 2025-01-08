@@ -35,35 +35,35 @@ public final class NumberExpressionFunctionRandomBetweenTest extends NumberExpre
         final ExpressionNumber upper = kind.create(20);
 
         final ExpressionNumber random = this.createBiFunction()
-                .apply(
-                        Lists.of(lower, upper),
-                        context
-                );
+            .apply(
+                Lists.of(lower, upper),
+                context
+            );
 
         this.checkEquals(
-                random,
-                random.round(context),
-                () -> "random should not have decimals"
+            random,
+            random.round(context),
+            () -> "random should not have decimals"
         );
 
         this.checkEquals(
-                true,
-                random.greaterThanEquals(lower),
-                () -> "random (" + random + ") >= lower(" + lower + ")"
+            true,
+            random.greaterThanEquals(lower),
+            () -> "random (" + random + ") >= lower(" + lower + ")"
         );
 
         this.checkEquals(
-                true,
-                random.lessThan(upper),
-                () -> "random (" + random + ") >= upper(" + upper + ")"
+            true,
+            random.lessThan(upper),
+            () -> "random (" + random + ") >= upper(" + upper + ")"
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "randomBetween"
+            this.createBiFunction(),
+            "randomBetween"
         );
     }
 

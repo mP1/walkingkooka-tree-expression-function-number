@@ -27,18 +27,18 @@ public final class NumberExpressionFunctionDecimalTest extends NumberExpressionF
     @Test
     public void testBase2() {
         this.decimalAndCheck(
-                "1010",
-                2,
-                10
+            "1010",
+            2,
+            10
         );
     }
 
     @Test
     public void testBase36() {
         this.decimalAndCheck(
-                "123Z",
-                36,
-                49391
+            "123Z",
+            36,
+            49391
         );
     }
 
@@ -46,20 +46,20 @@ public final class NumberExpressionFunctionDecimalTest extends NumberExpressionF
                                  final Number base,
                                  final Number expected) {
         this.applyAndCheck(
-                Lists.of(
-                        text,
-                        KIND.create(base)
-                ),
-                this.createContext(),
-                KIND.create(expected)
+            Lists.of(
+                text,
+                KIND.create(base)
+            ),
+            this.createContext(),
+            KIND.create(expected)
         );
     }
 
     @Test
     public void testToString() {
         this.toStringAndCheck(
-                this.createBiFunction(),
-                "decimal"
+            this.createBiFunction(),
+            "decimal"
         );
     }
 

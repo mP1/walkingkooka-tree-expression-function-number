@@ -55,16 +55,16 @@ final class NumberExpressionFunctionQuotient<C extends ExpressionEvaluationConte
     }
 
     private final static ExpressionFunctionParameter<ExpressionNumber> NUMERATOR = ExpressionFunctionParameterName.with("numerator")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static ExpressionFunctionParameter<ExpressionNumber> DENOMINATOR = ExpressionFunctionParameterName.with("denominator")
-            .required(ExpressionNumber.class)
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .required(ExpressionNumber.class)
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private final static List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMERATOR,
-            DENOMINATOR
+        NUMERATOR,
+        DENOMINATOR
     );
 
     @Override
@@ -76,6 +76,6 @@ final class NumberExpressionFunctionQuotient<C extends ExpressionEvaluationConte
         final ExpressionNumber denom = DENOMINATOR.getOrFail(parameters, 1);
 
         return num.divide(denom, context)
-                .floor(context);
+            .floor(context);
     }
 }

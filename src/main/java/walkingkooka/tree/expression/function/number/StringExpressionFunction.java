@@ -33,7 +33,7 @@ import java.util.Optional;
 abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> implements ExpressionFunction<String, C> {
 
     final static ExpressionFunctionParameter<ExpressionNumber> NUMBER = ExpressionFunctionParameter.NUMBER
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     /**
      * Package private to limit sub classing.
@@ -41,7 +41,7 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     StringExpressionFunction(final String name) {
         super();
         this.name = Optional.of(
-                ExpressionFunctionName.with(name)
+            ExpressionFunctionName.with(name)
         );
     }
 
@@ -68,7 +68,7 @@ abstract class StringExpressionFunction<C extends ExpressionEvaluationContext> i
     @Override
     public final String toString() {
         return this.name()
-                .get()
-                .toString();
+            .get()
+            .toString();
     }
 }

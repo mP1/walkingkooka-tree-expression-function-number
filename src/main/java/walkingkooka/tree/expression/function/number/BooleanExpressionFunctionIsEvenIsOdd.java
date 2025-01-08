@@ -68,8 +68,8 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationC
             throw new NullPointerException("Parameter " + PARAMETER + " must not be null");
         }
         return this.bit0 == number.floor(context)
-                .bigInteger()
-                .testBit(0);
+            .bigInteger()
+            .testBit(0);
     }
 
     private final boolean bit0;
@@ -80,7 +80,7 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationC
     }
 
     private static final ExpressionFunctionParameter<ExpressionNumber> PARAMETER = ExpressionFunctionParameter.NUMBER
-            .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
+        .setKinds(ExpressionFunctionParameterKind.CONVERT_EVALUATE_RESOLVE_REFERENCES);
 
     private static final List<ExpressionFunctionParameter<?>> PARAMETERS = ExpressionFunctionParameter.list(PARAMETER);
 }

@@ -61,16 +61,16 @@ final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext>
     }
 
     private final ExpressionFunctionParameter<Object> NUMBER1 = ExpressionFunctionParameterName.with("number1")
-            .required(Object.class)
-            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
+        .required(Object.class)
+        .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     private final ExpressionFunctionParameter<Object> NUMBER2 = ExpressionFunctionParameterName.with("number2")
-            .optional(Object.class)
-            .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
+        .optional(Object.class)
+        .setKinds(ExpressionFunctionParameterKind.EVALUATE_RESOLVE_REFERENCES);
 
     private final List<ExpressionFunctionParameter<?>> PARAMETERS = Lists.of(
-            NUMBER1,
-            NUMBER2
+        NUMBER1,
+        NUMBER2
     );
 
     @Override
@@ -83,11 +83,11 @@ final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number1 = (ExpressionNumber) NUMBER1.getOrFail(parameters, 0);
         final ExpressionNumber number2 = (ExpressionNumber) NUMBER2.get(parameters, 1)
-                .orElseGet(() -> Optional.of(zero))
-                .get();
+            .orElseGet(() -> Optional.of(zero))
+            .get();
 
         return number1.equals(number2) ?
-                context.expressionNumberKind().one() :
-                zero;
+            context.expressionNumberKind().one() :
+            zero;
     }
 }

@@ -44,21 +44,21 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
     @Test
     public final void testDoesntConvert() {
         if (!(this instanceof NumberExpressionFunctionConstantsTest ||
-                this instanceof NumberExpressionFunctionDecimalTest ||
-                this instanceof NumberExpressionFunctionLogTest ||
-                this instanceof NumberExpressionFunctionModTest ||
-                this instanceof NumberExpressionFunctionProductTest ||
-                this instanceof NumberExpressionFunctionQuotientTest ||
-                this instanceof NumberExpressionFunctionRandomTest ||
-                this instanceof NumberExpressionFunctionRandomBetweenTest ||
-                this instanceof NumberExpressionFunctionRoundDownHalfUpTest ||
-                this instanceof NumberExpressionFunctionToTest)) {
+            this instanceof NumberExpressionFunctionDecimalTest ||
+            this instanceof NumberExpressionFunctionLogTest ||
+            this instanceof NumberExpressionFunctionModTest ||
+            this instanceof NumberExpressionFunctionProductTest ||
+            this instanceof NumberExpressionFunctionQuotientTest ||
+            this instanceof NumberExpressionFunctionRandomTest ||
+            this instanceof NumberExpressionFunctionRandomBetweenTest ||
+            this instanceof NumberExpressionFunctionRoundDownHalfUpTest ||
+            this instanceof NumberExpressionFunctionToTest)) {
             assertThrows(
-                    ClassCastException.class,
-                    () -> {
-                        this.createBiFunction()
-                                .apply(Lists.of(1), this.createContext());
-                    }
+                ClassCastException.class,
+                () -> {
+                    this.createBiFunction()
+                        .apply(Lists.of(1), this.createContext());
+                }
             );
         }
     }
@@ -68,12 +68,12 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
                                      final List<Object> parameters,
                                      final ExpressionNumber result) {
         this.applyAndCheck2(
-                function,
-                parameters.stream()
-                        .map(i -> KIND.create((Number) i))
-                        .collect(Collectors.toList()),
-                this.createContext(),
-                result
+            function,
+            parameters.stream()
+                .map(i -> KIND.create((Number) i))
+                .collect(Collectors.toList()),
+            this.createContext(),
+            result
         );
     }
 
@@ -120,11 +120,11 @@ public abstract class NumberExpressionFunctionTestCase<F extends ExpressionFunct
 
                 try {
                     final Number number = value instanceof String ?
-                            new BigDecimal((String) value) :
-                            (Number) value;
+                        new BigDecimal((String) value) :
+                        (Number) value;
                     return this.successfulConversion(
-                            kind.create(number),
-                            target
+                        kind.create(number),
+                        target
                     );
                 } catch (final Exception fail) {
                     return this.failConversion(value, target);

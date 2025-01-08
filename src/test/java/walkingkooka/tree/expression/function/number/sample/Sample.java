@@ -31,19 +31,19 @@ public final class Sample {
     public static void main(final String[] args) {
         final ExpressionNumber value = ExpressionNumberKind.DEFAULT.create(-1.5);
         final Object result = NumberExpressionFunctions.abs()
-                .apply(Lists.of(value),
-                        new FakeExpressionEvaluationContext() {
+            .apply(Lists.of(value),
+                new FakeExpressionEvaluationContext() {
 
-                            public <T> Either<T, String> convert(final Object v,
-                                                                 final Class<T> target) {
-                                assertEquals(value, v);
-                                assertEquals(ExpressionNumber.class, target);
-                                return this.successfulConversion(
-                                        value,
-                                        target
-                                );
-                            }
-                        });
+                    public <T> Either<T, String> convert(final Object v,
+                                                         final Class<T> target) {
+                        assertEquals(value, v);
+                        assertEquals(ExpressionNumber.class, target);
+                        return this.successfulConversion(
+                            value,
+                            target
+                        );
+                    }
+                });
         assertEquals(value.abs(ExpressionNumberContexts.fake()), result);
     }
 }
