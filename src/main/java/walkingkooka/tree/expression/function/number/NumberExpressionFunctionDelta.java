@@ -27,7 +27,6 @@ import walkingkooka.tree.expression.function.ExpressionFunctionParameterKind;
 import walkingkooka.tree.expression.function.ExpressionFunctionParameterName;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Compares two numbers for equality returning 1 for equals and 0 for not equals.
@@ -83,8 +82,7 @@ final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext>
 
         final ExpressionNumber number1 = (ExpressionNumber) NUMBER1.getOrFail(parameters, 0);
         final ExpressionNumber number2 = (ExpressionNumber) NUMBER2.get(parameters, 1)
-            .orElseGet(() -> Optional.of(zero))
-            .get();
+            .orElse(zero);
 
         return number1.equals(number2) ?
             context.expressionNumberKind().one() :
