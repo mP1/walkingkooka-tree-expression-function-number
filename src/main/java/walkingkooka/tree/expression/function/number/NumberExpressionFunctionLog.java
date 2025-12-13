@@ -68,9 +68,9 @@ final class NumberExpressionFunctionLog<C extends ExpressionEvaluationContext> e
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        return NUMBER.getOrFail(parameters, 0)
+        return NUMBER.getOrFail(parameters, 0, context)
             .log(
-                BASE.getOrFail(parameters, 1),
+                BASE.getOrFail(parameters, 1, context),
                 context
             );
     }

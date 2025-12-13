@@ -75,11 +75,11 @@ final class StringExpressionFunctionBase<C extends ExpressionEvaluationContext> 
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
+        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0, context);
 
-        final ExpressionNumber base = BASE.getOrFail(parameters, 1);
+        final ExpressionNumber base = BASE.getOrFail(parameters, 1, context);
 
-        final Optional<ExpressionNumber> minLength = MIN_LENGTH.get(parameters, 2);
+        final Optional<ExpressionNumber> minLength = MIN_LENGTH.get(parameters, 2, context);
 
         final String string = number.toStringWithBase(base)
             .toUpperCase(context.locale());

@@ -72,8 +72,8 @@ final class NumberExpressionFunctionQuotient<C extends ExpressionEvaluationConte
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber num = NUMERATOR.getOrFail(parameters, 0);
-        final ExpressionNumber denom = DENOMINATOR.getOrFail(parameters, 1);
+        final ExpressionNumber num = NUMERATOR.getOrFail(parameters, 0, context);
+        final ExpressionNumber denom = DENOMINATOR.getOrFail(parameters, 1, context);
 
         return num.divide(denom, context)
             .floor(context);

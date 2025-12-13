@@ -72,8 +72,8 @@ final class NumberExpressionFunctionProduct<C extends ExpressionEvaluationContex
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number1 = NUMBER1.getOrFail(parameters, 0);
-        final ExpressionNumber number2 = NUMBER2.getOrFail(parameters, 1);
+        final ExpressionNumber number1 = NUMBER1.getOrFail(parameters, 0, context);
+        final ExpressionNumber number2 = NUMBER2.getOrFail(parameters, 1, context);
 
         return number1.multiply(number2, context);
     }

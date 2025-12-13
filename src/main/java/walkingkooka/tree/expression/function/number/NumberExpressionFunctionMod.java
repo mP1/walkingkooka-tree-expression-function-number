@@ -74,8 +74,8 @@ final class NumberExpressionFunctionMod<C extends ExpressionEvaluationContext> e
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber num = NUMERATOR.getOrFail(parameters, 0);
-        final ExpressionNumber denom = DENOMINATOR.getOrFail(parameters, 1);
+        final ExpressionNumber num = NUMERATOR.getOrFail(parameters, 0, context);
+        final ExpressionNumber denom = DENOMINATOR.getOrFail(parameters, 1, context);
 
         ExpressionNumber mod = num.modulo(denom, context);
         if (num.sign() != denom.sign()) {
