@@ -103,8 +103,8 @@ final class NumberExpressionFunctionRoundDownHalfUp<C extends ExpressionEvaluati
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
-        final int digits = DIGITS.getOrFail(parameters, 1)
+        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0, context);
+        final int digits = DIGITS.getOrFail(parameters, 1, context)
             .intValueExact();
 
         if (digits > 4) {

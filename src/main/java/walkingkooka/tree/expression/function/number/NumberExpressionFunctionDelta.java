@@ -80,8 +80,8 @@ final class NumberExpressionFunctionDelta<C extends ExpressionEvaluationContext>
         final ExpressionNumberKind kind = context.expressionNumberKind();
         final ExpressionNumber zero = kind.zero();
 
-        final ExpressionNumber number1 = (ExpressionNumber) NUMBER1.getOrFail(parameters, 0);
-        final ExpressionNumber number2 = (ExpressionNumber) NUMBER2.get(parameters, 1)
+        final ExpressionNumber number1 = (ExpressionNumber) NUMBER1.getOrFail(parameters, 0, context);
+        final ExpressionNumber number2 = (ExpressionNumber) NUMBER2.get(parameters, 1, context)
             .orElse(zero);
 
         return number1.equals(number2) ?

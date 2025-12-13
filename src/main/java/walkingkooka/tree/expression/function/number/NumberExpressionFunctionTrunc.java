@@ -69,8 +69,8 @@ final class NumberExpressionFunctionTrunc<C extends ExpressionEvaluationContext>
                                   final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
-        final int digits = DIGITS.get(parameters, 1)
+        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0, context);
+        final int digits = DIGITS.get(parameters, 1, context)
             .orElseGet(
                 () -> context.expressionNumberKind()
                     .zero()

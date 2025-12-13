@@ -73,8 +73,8 @@ final class NumberExpressionFunctionDecimal<C extends ExpressionEvaluationContex
 
         return context.expressionNumberKind()
             .parseWithBase(
-                TEXT.getOrFail(parameters, 0),
-                BASE.getOrFail(parameters, 1).intValueExact(),
+                TEXT.getOrFail(parameters, 0, context),
+                BASE.getOrFail(parameters, 1, context).intValueExact(),
                 context
             );
     }

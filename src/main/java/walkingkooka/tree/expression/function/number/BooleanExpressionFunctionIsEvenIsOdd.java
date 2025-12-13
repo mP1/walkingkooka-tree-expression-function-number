@@ -63,7 +63,7 @@ final class BooleanExpressionFunctionIsEvenIsOdd<C extends ExpressionEvaluationC
                          final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = PARAMETER.getOrFail(parameters, 0);
+        final ExpressionNumber number = PARAMETER.getOrFail(parameters, 0, context);
         if (null == number) {
             throw new NullPointerException("Parameter " + PARAMETER + " must not be null");
         }
