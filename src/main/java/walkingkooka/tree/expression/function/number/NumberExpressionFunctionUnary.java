@@ -339,7 +339,7 @@ final class NumberExpressionFunctionUnary<C extends ExpressionEvaluationContext>
         this.checkParameterCount(parameters);
 
         return this.function.apply(
-            NUMBER.getOrFail(parameters, 0, context),
+            NUMBER.getOrFail(parameters, 0),
             context
         );
     }

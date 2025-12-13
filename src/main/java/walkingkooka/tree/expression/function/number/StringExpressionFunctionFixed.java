@@ -77,12 +77,12 @@ final class StringExpressionFunctionFixed<C extends ExpressionEvaluationContext>
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0, context);
-        final int decimals = DECIMALS.get(parameters, 1, context)
+        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
+        final int decimals = DECIMALS.get(parameters, 1)
             .orElseGet(
                 () -> context.expressionNumberKind().create(2)
             ).intValueExact();
-        final Boolean commas = NO_COMMAS.get(parameters, 2, context)
+        final Boolean commas = NO_COMMAS.get(parameters, 2)
             .orElse(false);
 
         final DecimalFormatSymbols symbols = new DecimalFormatSymbols();

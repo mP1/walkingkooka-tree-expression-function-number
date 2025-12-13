@@ -72,12 +72,12 @@ final class StringExpressionFunctionRoman<C extends ExpressionEvaluationContext>
                         final C context) {
         this.checkParameterCount(parameters);
 
-        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0, context);
+        final ExpressionNumber number = NUMBER.getOrFail(parameters, 0);
         if (number.sign() == ExpressionNumberSign.NEGATIVE) {
             throw new IllegalArgumentException("Invalid number " + number + " < 0");
         }
 
-        final ExpressionNumber form = FORM.get(parameters, 1, context)
+        final ExpressionNumber form = FORM.get(parameters, 1)
             .orElseGet(() -> context.expressionNumberKind().zero());
         final int formInteger = form.intValueExact();
         switch (formInteger) {

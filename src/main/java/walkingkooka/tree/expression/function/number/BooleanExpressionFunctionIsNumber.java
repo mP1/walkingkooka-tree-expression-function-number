@@ -56,7 +56,7 @@ final class BooleanExpressionFunctionIsNumber<C extends ExpressionEvaluationCont
         this.checkParameterCount(parameters);
 
         return context.convert(
-            VALUE.getOrFail(parameters, 0, context),
+            VALUE.getOrFail(parameters, 0),
             ExpressionNumber.class
         ).isLeft();
     }
