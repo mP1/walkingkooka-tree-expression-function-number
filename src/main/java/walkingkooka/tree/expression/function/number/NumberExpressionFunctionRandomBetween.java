@@ -74,8 +74,8 @@ final class NumberExpressionFunctionRandomBetween<C extends ExpressionEvaluation
 
         return context.expressionNumberKind()
             .randomBetween(
-                LOWER.getOrFail(parameters, 0, context),
-                UPPER.getOrFail(parameters, 1, context),
+                LOWER.getOrFail(parameters, 0),
+                UPPER.getOrFail(parameters, 1),
                 context
             );
     }
