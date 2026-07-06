@@ -10,8 +10,7 @@
 # walkingkooka-tree-expression-function-number
 A collection of ExpressionFunction(s) that operate and return number results.
 
-
-## Available functions
+## [Functions](https://github.com/mP1/walkingkooka-tree/blob/master/src/main/java/walkingkooka/tree/expression/function/ExpressionFunction.java)
 
 - [abs](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/NumberExpressionFunctionUnary.java)
 - [base](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/StringExpressionFunctionBase.java)
