@@ -25,7 +25,7 @@ A collection of ExpressionFunction(s) that operate and return number results.
 - [int](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/NumberExpressionFunctionUnary.java)
 - [isEven](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/BooleanExpressionFunctionIsEvenIsOdd.java)
 - [isNumber](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/BooleanExpressionFunctionIsNumber.java)
-- [isOdd](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/BooleanExpressionFunctionIsEvenIsOdd.java
+- [isOdd](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/BooleanExpressionFunctionIsEvenIsOdd.java)
 - [ln](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/NumberExpressionFunctionUnary.java)
 - [log](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/NumberExpressionFunctionLog.java)
 - [log10](https://github.com/mP1/walkingkooka-tree-expression-function-number/blob/master/src/main/java/walkingkooka/tree/expression/function/number/NumberExpressionFunctionUnary.java)
