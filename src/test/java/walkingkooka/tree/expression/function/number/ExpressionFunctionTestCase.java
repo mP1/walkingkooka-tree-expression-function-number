@@ -19,7 +19,6 @@ package walkingkooka.tree.expression.function.number;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.TypeNameTesting;
 import walkingkooka.tree.expression.ExpressionEvaluationContext;
 import walkingkooka.tree.expression.ExpressionFunctionName;
@@ -55,11 +54,6 @@ public abstract class ExpressionFunctionTestCase<F extends ExpressionFunction<T,
                 .toLowerCase()
                 .startsWith("rand")
         );
-    }
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 
     @Override
